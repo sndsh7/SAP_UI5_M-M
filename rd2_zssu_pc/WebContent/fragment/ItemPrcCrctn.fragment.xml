@@ -1,0 +1,134 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+  <Dialog afterClose="onAfterCloseFragment" contentWidth="60%">
+    <customHeader>
+      <Bar class="custClassHeader">
+        <contentMiddle>
+          <Title class="custClsHeaderTitle" text="Part Price Details"/>
+        </contentMiddle>
+      </Bar>
+    </customHeader>
+    <f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+      labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+      <f:content>
+        <core:Title text=""/>
+        <Label text="Plant" design="Bold" required="true"/>
+        <ComboBox required="true" selectedKey="{Plant}" items="{ModelSSUDigitization>/F4Plant}" selectionChange="onPlantCode"
+          editable="{=${ModelSSUDigitization>/EditableFlag} &amp;&amp; !${DBExist}}" valueState="{path:'uiFields/MassValidation/PlantFlag',formatter:'.formattValidationError'}"
+          valueStateText="{uiFields/MassValidation/PlantFlag}">
+          <core:Item text="{ModelSSUDigitization>PlantCode}-{ModelSSUDigitization>PlantDesc}" key="{ModelSSUDigitization>PlantCode}"/>
+        </ComboBox>
+        <Label text="Part Number" design="Bold" required="true"/>
+        <Input required="true" value="{PartNo}" showValueHelp="true" valueHelpRequest="onPartValueHelp"
+          editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'Plant'},{path:'DBExist'}],formatter:'.formatterPartEdit'}" submit="onSubmitPartNum"
+          valueState="{path:'uiFields/MassValidation/PartNoFlag',formatter:'.formattValidationError'}" valueStateText="{uiFields/MassValidation/PartNoFlag}"></Input>
+        <Label text="Part Description" design="Bold"/>
+        <Text text="{PartDesc}" class="clsText"/>
+        <Label required="true" text="Vendor Code" design="Bold"/>
+        <Input required="true" value="{Vendor}" valueHelpRequest="onVendorValHelp" maxLength="14" submit="onSubmitVendorCode"
+         editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'PartNo'},{path:'DBExist'}],formatter:'.formatterPartEdit'}" showValueHelp="true"
+          valueState="{path:'uiFields/MassValidation/VendorFlag',formatter:'.formattValidationError'}" valueStateText="{uiFields/MassValidation/VendorFlag}"></Input>
+        <Label text="Vendor Name" design="Bold"/>
+        <Text text="{VName}" class="clsText"/>
+        <Label text="Vendor Location" design="Bold"/>
+        <Text text="{VLocation}" class="clsText"/>
+        <Label text="P-Info Record" design="Bold"/>
+        <Text text="{PirNo}" class="clsText"/>
+
+        <Label text="Taxonomy" design="Bold"/>
+        <Text text="{Taxonomy}" class="clsText"/>
+        <Label text="Currency" design="Bold"/>
+        <Text text="{Currency}" class="clsText"/>
+        <Label text="Existing Valid From Date" design="Bold" wrapping="true"/>
+        <!-- <Input value="{ValidFrom}" editable="{ModelSSUDigitization>/EditableFlag}"/> -->
+        <DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="false"
+          value="{path:'ExtValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+
+
+        <Label required="true" text="New Valid From Date" design="Bold"/>
+        <DatePicker  maxDate="{uiFields/maxDate}" minDate="{uiFields/minDate}" required="true" placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+          value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}" change="onChangeValidFrom"
+          valueState="{path:'uiFields/MassValidation/ValidFromFlag',formatter:'.formattValidationError'}" valueStateText="{uiFields/MassValidation/ValidFromFlag}"/>
+        <Label text="Quantity" design="Bold" required="false" wrapping="true"/>
+        <Text text="{Quantity}" class="clsText"/>
+
+        <!-- <Label text="Sanctioned Budget" design="Bold" required="true" wrapping="true"/>
+        <Input required="true" value="0" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"/> -->
+
+        <!-- <Label text="Quoted Price" design="Bold" required="true" wrapping="true"/>
+        <Input required="true" value="0" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"/> -->
+        <Label required="true" text="Purchase Organisation" design="Bold" wrapping="true"/>
+        <Text required="true" text="{Purorg}" class="clsText"/>
+        <core:Title text=""/>
+
+        <Label required="true" text="P-Info category" design="Bold"/>
+        <ComboBox required="true" selectedKey="{Pinforcat}" items="{ModelSSUDigitization>/F4PinfoCategory}"
+                    editable="{=${ModelSSUDigitization>/EditableFlag} &amp;&amp; !${DBExist}}" showSecondaryValues="false" selectionChange="onPinfoCat">
+                    <core:ListItem text="{ModelSSUDigitization>PinfoCatText}" key="{ModelSSUDigitization>Pinforcat}" additionalText="{ModelSSUDigitization>ExtPrice}-{ModelSSUDigitization>ExtValidFrom}-{ModelSSUDigitization>OgAmndcode}-{ModelSSUDigitization>OgAmndcodeDesc}-{ModelSSUDigitization>LastAmmndDate}"/>
+                </ComboBox>
+        <Label text="Existing Price" design="Bold"/>
+        <Text text="{ExtPrice}" class="clsText"/>
+        <Label text="Settled Price" design="Bold" required="true" wrapping="true"/>
+        <Input id="id_settledPrice" required="true" value="{SettledPrice}" type="Number" liveChange="onSettledSub" valueState="{path:'uiFields/MassValidation/SettledPriceFlag',formatter:'.formattValidationError'}" 
+        editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'ValidFrom'}],formatter:'.formatterSettlePriceEdit'}"/>
+        <Label text="Delta Price" design="Bold"/>
+        <Text text="{DeltaPrice}" class="clsText"/>
+        <Label text="Change in percentage" design="Bold"/>
+        <Text text="{path:'Sign',formatter:'formatterSetSign'}" class="clsText"/>
+        <Text text="{ChgPrctng}" class="clsText"/>
+        <Label text="Aprx. Cash Flow in Rs." design="Bold" required="false" wrapping="true"/>
+        <Text text="{AprxCashFlow}" class="clsText"/>
+        <!-- <Label text="Amendment Code" design="Bold" required="true"/>
+        <ComboBox required="true" selectedKey="{Amndcode}" items="{ModelSSUDigitization>/F4Amentment}" selectionChange="onAmentmendCode"
+          editable="{ModelSSUDigitization>/EditableFlag}" valueState="{path:'uiFields/MassValidation/AmndcodeFlag',formatter:'.formattValidationError'}"
+          valueStateText="{uiFields/MassValidation/AmndcodeFlag}" showSecondaryValues="true">
+          <core:ListItem text="{ModelSSUDigitization>Zpricecd}" key="{ModelSSUDigitization>Zpricecd}" additionalText="{ModelSSUDigitization>Zreason}"/>
+        </ComboBox> -->
+        <Label required="true" text="Amendment Code" design="Bold" wrapping="true"/>
+        <!-- <Text required="true" text="{Amndcode}" class="clsText"/> -->
+        <ComboBox required="true" id="id_AmendCode" selectedKey="{Amndcode}" items="{ModelSSUDigitization>/F4Amentment}" selectionChange="onAmentmendCode"
+          editable="{ModelSSUDigitization>/EditableFlag}"  valueState="{path:'uiFields/MassValidation/OgAmndcodeFlag',formatter:'.formattValidationError'}"
+          valueStateText="{uiFields/MassValidation/OgAmndcodeFlag}" showSecondaryValues="true">
+          <core:ListItem text="{ModelSSUDigitization>Zpricecd}" key="{ModelSSUDigitization>Zpricecd}" additionalText="{ModelSSUDigitization>Zreason}"/>
+    </ComboBox>
+        <Label text="Amendment Descrption" design="Bold" wrapping="true"/>
+        <Text text="{AmndcodeDesc}" class="clsText"/>
+       <Label text="Original Code" design="Bold" wrapping="true"/>
+        <!-- <Text text="{Amndcode}" class="clsText"/> -->
+        <ComboBox visible="{path:'ModelSSUDigitization>/dateForOrigCode',formatter:'.formattVisible'}" id="ogAmndCode" selectedKey="{OgAmndcode}" items="{ModelSSUDigitization>/F4OgAmentment}" selectionChange="onOgAmentmendCode"
+          editable="{ModelSSUDigitization>/EditableFlag}"  valueState="{path:'uiFields/MassValidation/OgAmndcodeFlag',formatter:'.formattValidationError'}"
+          valueStateText="{uiFields/MassValidation/OgAmndcodeFlag}" showSecondaryValues="true">
+          <core:ListItem text="{ModelSSUDigitization>Zpricecd}" key="{ModelSSUDigitization>Zpricecd}" additionalText="{ModelSSUDigitization>Zreason}"/>
+        </ComboBox>
+        <Label text="Original Code Descrption" design="Bold" wrapping="true"/>
+        <Text text="{OgAmndcodeDesc}" visible="{path:'ModelSSUDigitization>/dateForOrigCode',formatter:'.formattVisible'}" class="clsText"/>
+        <Label text="Correction valid from date" design="Bold"/>
+         <DatePicker placeholder="dd mm yyyy" visible="{path:'ModelSSUDigitization>/dateForOrigCode',formatter:'.formattVisible'}" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+          value="{path:'LastAmmndDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"
+          valueState="{path:'uiFields/MassValidation/LastAmmndDateFlag',formatter:'.formattValidationError'}" valueStateText="{uiFields/MassValidation/LastAmmndDateFlag}" />
+        <!-- 
+         <Label text="Original Code" design="Bold" wrapping="true"/>
+        <Text text="{Amndcode}" class="clsText"/>
+        <ComboBox visible="{path:'OgAmndcode',formatter:'.formattVisible'}" id="ogAmndCode" selectedKey="{OgAmndcode}" items="{ModelSSUDigitization>/F4OgAmentment}" selectionChange="onOgAmentmendCode"
+          editable="{ModelSSUDigitization>/EditableFlag}"  valueState="{path:'uiFields/MassValidation/OgAmndcodeFlag',formatter:'.formattValidationError'}"
+          valueStateText="{uiFields/MassValidation/OgAmndcodeFlag}" showSecondaryValues="true">
+          <core:ListItem text="{ModelSSUDigitization>Zpricecd}" key="{ModelSSUDigitization>Zpricecd}" additionalText="{ModelSSUDigitization>Zreason}"/>
+        </ComboBox>
+        <Label text="Original Code Descrption" design="Bold" wrapping="true"/>
+        <Text text="{OgAmndcodeDesc}" visible="{path:'OgAmndcodeDesc',formatter:'.formattVisible'}" class="clsText"/>
+        <Label text="Correction valid from date" design="Bold"/>
+        <DatePicker placeholder="dd mm yyyy" visible="{path:'LastAmmndDate',formatter:'.formattVisible'}" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+          value="{path:'LastAmmndDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"
+          valueState="{path:'uiFields/MassValidation/LastAmmndDateFlag',formatter:'.formattValidationError'}" valueStateText="{uiFields/MassValidation/LastAmmndDateFlag}" /> -->
+        
+        <Label text="Remarks" design="Bold"></Label>
+        <TextArea value="{Remarks}" editable="{ModelSSUDigitization>/EditableFlag}" growing="true" growingMaxLines="4"/>
+      </f:content>
+    </f:SimpleForm>
+    <buttons>
+      <Button class="clsErrBtnPopover" press="onErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"/>
+      <Button text="OK" press="onOkItemDetail" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+        visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+      <Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>

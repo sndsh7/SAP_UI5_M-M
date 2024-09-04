@@ -1,0 +1,4 @@
+<mvc:View controllerName="ZSSU_TL.controller.app" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+		<SplitApp id="app" class="sapUiSizeCompact">
+		</SplitApp>
+</mvc:View>

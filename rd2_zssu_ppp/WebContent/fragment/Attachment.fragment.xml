@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Attachments"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--items="{ path:'ModelSSUDigitization>/PaperDataSet/Nav_DMS', filters: [{path:'TabId',operator:'EQ',value1:'VP'},{path:'PartNo',operator:'EQ',value1:'000001037MP-13'}]}"-->
+		<UploadCollection items="{ModelSSUDigitization>/PaperDataSet/Nav_DMS}" multiple="true" fileType="{ModelDefaultDataSet>/uploadFormat}"
+			uploadEnabled="{ModelSSUDigitization>/EditableFlag}" noDataText="No file attached" maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}"
+			maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}" fileSizeExceed="onFileSizeExceed"
+			filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch" selectionChange="onSelectionChange"
+			uploadComplete="onUploadFragComplete" fileDeleted="onAttachDeleted">
+			<toolbar>
+				<OverflowToolbar design="Solid">
+					<Label text="Part Specific Documents" design="Bold"></Label>
+					<ToolbarSpacer/>
+					<UploadCollectionToolbarPlaceholder/>
+				</OverflowToolbar>
+			</toolbar>
+			<items>
+				<UploadCollectionItem
+					documentId="{ModelSSUDigitization>Posnr}"
+					url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}"
+					fileName="{ModelSSUDigitization>Filename}" visibleEdit="false" visibleDelete="{ModelSSUDigitization>/EditableFlag}">
+					<!--<attributes>-->
+					<!--	<ObjectAttribute title="Uploaded By" text="{ModelSSUDigitization>CreatedBy}"/>-->
+					<!--</attributes>-->
+				</UploadCollectionItem>
+			</items>
+		</UploadCollection>
+		<!--</content>-->
+		<buttons>
+			<Button text="OK" press="onCancelDialog" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"></Button>
+			<!--<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>-->
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

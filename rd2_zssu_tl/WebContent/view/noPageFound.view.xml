@@ -1,0 +1,8 @@
+<mvc:View  controllerName="ZSSU_TL.controller.noPageFound"
+	height="100%" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	
+	<MessagePage id="nopage" showHeader="true" showNavButton="true" navButtonPress="onNavPress" icon="sap-icon://filter"/>
+	
+</mvc:View>

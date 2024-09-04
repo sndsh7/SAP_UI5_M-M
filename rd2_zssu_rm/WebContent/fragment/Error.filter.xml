@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="20%">
+	</Dialog>
+	</core:FragmentDefinition>

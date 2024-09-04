@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog class="clsTaxSett" noDataText="No parts found" title="Select Parts" search="handleSearch" confirm="onTaxonomySettingOK" cancel="handleClose"
+		items="{ path: '/ProductCollection' }">
+		<StandardListItem title="{Name}" description="{ProductId}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

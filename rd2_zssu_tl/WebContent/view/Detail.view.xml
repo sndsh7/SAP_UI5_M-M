@@ -1,0 +1,184 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+  xmlns:semantic="sap.m.semantic" xmlns:m="sap.m"   xmlns:u="sap.ui.unified"
+  controllerName="ZSSU_TL.controller.Detail"
+  xmlns:smartField="sap.ui.comp.smartfield" xmlns:f="sap.ui.layout.form"
+  class="sapUiSizeCompact" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+  <Page title="Paper Details" visible="false" id="detail" showNavButton="true"
+    navButtonPress="onNavPress" class="sapUiSizeCompact">
+      <customHeader>
+      <Bar class="header">
+        <contentLeft>
+          <Button icon="sap-icon://nav-back" id="id_navback" visible="false"
+            press="onPressMasterBack" />
+        </contentLeft>
+        <contentMiddle>
+          <Label class="title" text="Paper Details" id="detailHd" />
+        </contentMiddle>
+        <contentRight>
+          <Title id="id_detailUser" class="title sapUiSmallMarginEnd" />
+        </contentRight>
+      </Bar>
+    </customHeader>
+    <content>
+      <m:ObjectHeader titleActive="true" titlePress="onTitlePress" title="{MasterData>/NpiNo}" number="{path : 'MasterData>/Status', formatter:'.formatter.get_Status'}" numberState="{path : 'MasterData>/Status', formatter:'.formatter.get_State'}"
+ backgroundDesign="Solid">
+        <m:attributes>
+          <!-- <m:ObjectAttribute text="Papaer  No : {MasterData>/NpiNo}" /> -->
+          <m:ObjectAttribute text="Sector :  {MasterData>/Sector}" />
+          <m:ObjectAttribute text="Model : {MasterData>/Model}" />
+        </m:attributes>
+        <m:statuses>
+          <!-- <m:ObjectStatus  inverted="true" text="{path : 'MasterData>/Status', formatter:'.formatter.get_Status'}" 
+          state="{path : 'MasterData>/Status', formatter:'.formatter.get_State'}"/>              -->
+          <!-- <m:ObjectStatus text="G/L Account" /> -->
+          <!-- <m:ObjectStatus text="Current Holder : {MasterData>/CurrentHolderName}" /> -->
+          <!-- <m:ObjectStatus text=""/> -->
+        </m:statuses>
+    </m:ObjectHeader>
+
+    <m:IconTabBar id="iconTabBar" class="sapUiSmallMarginBottom sapUiSizeCompact" select="handleIcontabBar">
+        <m:items>
+          <m:IconTabFilter text="Assign" icon="sap-icon://menu" key="GRN">
+            <f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+                columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false" class="clsHeaderForm">
+                <f:content>
+                  <core:Title text=""/>
+                  <Label required="true" text="Select Associate" />
+                  <Input id="id_InputAssociate" value="{PaperDataSet>/AssociateName}" visible="true" valueHelpRequest="onAssociateF4"
+                   editable="true" showValueHelp="true" valueHelpOnly="true"/>
+                </f:content>
+              </f:SimpleForm>
+          </m:IconTabFilter>
+          <IconTabFilter text="Attachment" icon="sap-icon://attachment" key="AT">
+                  <UploadCollection class="clsAllAttachment"
+                    items="{PaperDataSet>/Nav_DMS/results}" multiple="true"
+                    uploadEnabled="false" noDataText="No file attached"
+                    fileSizeExceed="onFileSizeExceed" filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch"
+                    selectionChange="onSelectionChange" uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted">
+                    <toolbar>
+                      <OverflowToolbar design="Solid" visible="false"></OverflowToolbar>
+                    </toolbar>
+                    <items>
+                      <UploadCollectionItem fileName="{PaperDataSet>Filename}" visibleEdit="false" visibleDelete="false"
+                        url="{parts:[{path:'PaperDataSet>Filekey'},{path:'PaperDataSet>Posnr'},{path:'PaperDataSet>TabId'}],formatter:'.formatterGetDmsURL'}">
+                        <attributes>
+                          <ObjectAttribute text="{PaperDataSet>TabText}"/>
+                          <ObjectAttribute title="Created On" text="{path: 'PaperDataSet>CreatedOn', formatter:'.dateObjToLocal'}"/>
+                        </attributes>
+                      </UploadCollectionItem>
+                    </items>
+                  </UploadCollection>
+              </IconTabFilter>
+          <m:IconTabFilter text="Workflow" icon="sap-icon://workflow-tasks" key="WF">
+            <HBox class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" justifyContent="Center">
+              <VBox width="7%">
+                        <Label text="Flow"></Label>
+                        <Input editable="false" value="{PaperDataSet>/Cycle}"/>
+                      </VBox>
+                      <VBox>
+                        <Label required="true" text="Initiator" class="sapUiLargeMarginBeginEnd"></Label>
+                        <Input editable="false" value="{PaperDataSet>/InitiName}"/>
+                      </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${PaperDataSet>/Approver1}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 1" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver1}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr1Name}"
+                        visible="{=${PaperDataSet>/Approver1}?true:false}"/>
+                    </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${PaperDataSet>/Approver2}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 2" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver2}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr2Name}"
+                        visible="{=${PaperDataSet>/Approver2}?true:false}"/>
+                    </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${PaperDataSet>/Approver3}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 3" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver3}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr3Name}"
+                        visible="{=${PaperDataSet>/Approver3}?true:false}"/>
+                    </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${ModelSSUDigitization>PaperDataSet/Approver4}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 4" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver4}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr4Name}"
+                        visible="{=${PaperDataSet>/Approver4}?true:false}"/>
+                    </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${PaperDataSet>/Approver5}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 5" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver5}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr5Name}"
+                        visible="{=${PaperDataSet>/Approver5}?true:false}"/>
+                    </VBox>
+                    <core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE" visible="{=${PaperDataSet>/Approver6}?true:false}"/>
+                    <VBox>
+                      <Label text="Approval Level 6" class="sapUiLargeMarginBeginEnd" visible="{=${PaperDataSet>/Approver6}?true:false}"></Label>
+                      <Input editable="false" value="{PaperDataSet>/Appr6Name}"
+                        visible="{=${PaperDataSet>/Approver6}?true:false}"/>
+                    </VBox>
+            </HBox>
+            <Table width="90%" noDataText="no data" visible="{path:'PaperDataSet>/Nav_Wf',formatter:'.formattWFvisible'}"
+                    items="{PaperDataSet>/Nav_Wf}" class="clsWFTable">
+                    <headerToolbar>
+                      <Toolbar class="custClassTblTool">
+                        <content>
+                          <Label text="Workflow History" design="Bold"/>
+                          <ToolbarSpacer/>
+                        </content>
+                      </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                      <Column hAlign="Center" width="15%">
+                        <Label text="Name" design="Bold"/>
+                      </Column>
+                      <Column hAlign="Center" width="15%">
+                        <Label text="Level" design="Bold"/>
+                      </Column>
+                      <Column hAlign="Center" width="15%">
+                        <Label text="Date" design="Bold"/>
+                      </Column>
+                      <Column hAlign="Center" width="10%">
+                        <Label text="Time" design="Bold"/>
+                      </Column>
+                      <Column hAlign="Center" width="12%">
+                        <Label text="Action" design="Bold"/>
+                      </Column>
+                      <Column hAlign="Center" width="10%">
+                        <Label text="Ageing (Days)" design="Bold" wrapping="true"/>
+                      </Column>
+                      <Column hAlign="Left">
+                        <Label text="Comments" design="Bold"/>
+                      </Column>
+                    </columns>
+                    <items>
+                      <ColumnListItem>
+                        <cells>
+                          <Text text="{PaperDataSet>ActuserName}"/>
+                          <Text text="{path:'PaperDataSet>UsrLevel',formatter:'.setUserLevel'}"/>
+                          <Text text="{path:'PaperDataSet>Createdon', formatter:'.setDateformatter'}"/>
+                          <Text text="{path:'PaperDataSet>Createdtm', type: 'sap.ui.model.odata.type.Time', formatOptions: {pattern : 'HH:mm:ss'}}"/>
+                          <Text text="{path:'PaperDataSet>Action',formatter:'.setAction'}"/>
+                          <Text text="{PaperDataSet>Ageing}"/>
+                          <Text text="{PaperDataSet>UsrComment}"/>
+                        </cells>
+                      </ColumnListItem>
+                    </items>
+                  </Table>
+          </m:IconTabFilter>
+        </m:items>
+    </m:IconTabBar>
+
+
+    </content>
+    <footer>
+      <OverflowToolbar>
+        <ToolbarSpacer />
+        <Button type="Reject" text="Reject" icon="sap-icon://save" press="onClktoBackInitiator" id="reject" align="center" />
+        <Button type="Emphasized" text="DELEGATE" press="onPressDelegate" id="SUBMIT" align="center" />
+        <layoutData>
+          <FlexItemData growFactor="1" />
+        </layoutData>
+      </OverflowToolbar>
+    </footer>
+  </Page>
+
+</mvc:View>

@@ -1,0 +1,48 @@
+{
+	"Icon": {
+		"projectDetail": "sap-icon://create",
+		"partDetail": "sap-icon://activity-items",
+		"workFlow":"sap-icon://workflow-tasks",
+		"workFlowDetail":"sap-icon://work-history",
+		"editIcon": "sap-icon://edit",
+		"deleteIcon": "sap-icon://delete",
+		"saveIcon": "sap-icon://save",
+		"acceptIcon": "sap-icon://accept",
+		"addIcon": "sap-icon://add",
+		"createIcon": "sap-icon://create",
+		"cancelIcon": "sap-icon://decline",
+		"processIcon": "sap-icon://process",
+		"displayIcon": "sap-icon://display",
+		"printIcon": "sap-icon://print",
+		"attachmentIcon": "sap-icon://attachment",
+		"downloadIcon": "sap-icon://download",
+		"calendarIcon": "sap-icon://calendar",
+		"filterIcon": "sap-icon://add-filter",
+		"homeIcon": "sap-icon://home",
+		"menuIcon": "sap-icon://menu2",
+		"settingsIcon": "sap-icon://action-settings",
+		"clearIcon":"sap-icon://sys-cancel",
+		"messagePopupIcon": "sap-icon://message-popup"
+	},
+	"uploadFormat": ["jpg", "txt", "ppt", "pptx", "doc", "docx", "xls", "XLSX", "pdf", "png", "msg", "gif", "tif"],
+	"maxUploadSize":4,
+	"filenameLength":200,
+	"ActionList": [],
+	"StatusFilter": [{
+		"Text": "Draft",
+		"Count": 0,
+		"Visible": true
+	}, {
+		"Text": "Pending",
+		"Count": 0,
+		"Visible": true
+	}, {
+		"Text": "Completed",
+		"Count": 0,
+		"Visible": true
+	}, {
+		"Text": "Rejected",
+		"Count": 0,
+		"Visible": true
+	}]
+}

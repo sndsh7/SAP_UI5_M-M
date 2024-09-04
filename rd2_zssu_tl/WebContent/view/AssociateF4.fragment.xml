@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<SelectDialog
+		noDataText="No data Found"
+		title="SSU Associate"
+		search="onSearchAssociate"
+		multiSelect="false"
+		confirm="onOKAssociate"
+		items="{
+			path: 'associate>/results', templateShareable: true
+		}">
+		<StandardListItem
+			title="{associate>Associate}" description="{associate>AssociateName}"
+			type="Active"
+			info="{associate>PaperCount}" />
+	</SelectDialog>
+</core:FragmentDefinition>

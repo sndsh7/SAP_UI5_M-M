@@ -1,0 +1,181 @@
+/* Enter your custom styles here */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h5#__title0 {
+    margin-left: 6rem;
+}
+h5#__title1 {
+    margin-left: 6rem;
+}
+h5#__title2 {
+    margin-left: 6rem;
+}
+
+.sapMDialog.sapMMessageDialog.sapMMessageBoxError .sapMDialogTitle > .sapMBar {
+    box-shadow: inset 0 -0.125rem #bb0000;
+    background-color: #e61b1b;
+}
+.sapMDialog > header.sapMDialogTitle .sapMTitle {
+ /*    color: white; */
+    margin: 0;
+    vertical-align: middle;
+}
+.sapMDialog.sapMMessageDialog.sapMMessageBoxQuestion .sapMDialogTitle > .sapMBar {
+    box-shadow: inset 0 -0.125rem #5e696e;
+    background-color: #e61b1b;
+}
+ .blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+  @keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.sapUiSizeCompact .sapMSwt {
+    height: 1.5rem;
+    width: 4.5rem;
+}
+.sapMSwtLabelOff {
+    float: right;
+    width: 3rem;
+}
+.panelcss {
+    padding: 0rem 0.2rem 0.2rem !important;
+    font-weight: bold;
+}
+
+table#__xmlview1--processflow1-table {
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important;
+}
+ .size {
+	font-size : 2rem;
+}
+.preference_radius {
+    border: #ff8888  !important;
+    border-radius: 80%  !important;&nbsp;
+}
+
+.header {
+    background-color: #e31837 !important;
+    height: 2.5rem !important;
+}
+.title {
+    font-size: 1rem !important;
+    color: white !important;
+}
+/*Panel Title CSS  */
+.pTitle{
+font-weight: bolder!important;
+}
+/* .ipTitle{
+	 color: #e31837!important;
+} */
+.sapSuiteUiCommonsPF {
+	padding: 3rem 0rem 0rem 3rem!important;
+	
+}
+.diaolgSize{
+	 width : "500px" !important ;
+	 height : "300px" !important
+}
+.objectheadertitle{
+    padding-right: 0.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+.masterDestination{
+       font-size: 1.2rem;
+}
+.radiobtnmargin{
+	    margin-left: 39px !important;
+}
+
+.hClassBorder {
+    background-color: #FFFFFF!important;
+    /* background-image: url(dullimage.png) !important; */
+    border: 1px solid #666666!important;
+    box-shadow: 0px 0px 3px #808888!important;
+    margin: 0.2rem!important;;
+}
+&nbsp;
+.sapMITH {
+    background-color: #ffffff!important;
+    border-bottom:  #ffffff!important;
+}
+.sapMITBText {
+    width: 8rem!important;
+}
+.sapMITBTab {
+    width: 8rem!important;
+}
+.sapMITBScrollContainer, html:not(.sapUiMedia-Std-Phone) .sapMSplitContainer:not(.sapMSplitContainerHideMode) .sapMITB .sapMITBScrollContainer {
+    margin: 0 10rem!important;
+}
+
+
+.rtpDialog{
+    width: 100%!important;
+}
+ .rtoDialog{
+  width: 100%!important;
+ }
+/* Disable input */
+ .disablekb input{
+ pointer-events: none;
+ color: transparent;
+ text-shadow: 0 0 0 black;
+}&nbsp;
+.yellowColor {
+	/* color: rgb(240, 171, 0) !important */
+	font-weight: bold;
+}
+.boldcls .sapMILILabel {
+    flex: auto;
+    font-size:  0.90rem;
+    max-width: 10%;
+    color: black;
+    font-weight: BOLD;
+}
+
+
+
+.maroonColor {
+    color: #bb0000 !important;
+}
+
+.headerBgColor {
+	background-color: #e61b1b !important;	
+}
+.sapUiSizeCompact .sapUiFormContainerTitle > .sapUiFormTitle {
+    font-weight: bold!important;
+: ;
+}
+.sapMMsgStripInformation {
+    background-color: #f4f5f6;
+    border-color: #5e696e;
+    border: antiquewhite;
+    font-style: normal;
+&nbsp;&nbsp;&nbsp;&nbsp;
+}
+.changeflight span.sapMBtnInner.sapMBtnAccept {
+    background-image: none;
+    background-color: #f7f7f7;
+    border-color: #2b7c2b;
+    color: maroon;
+    border: 0px;
+}
+.sapUiLocalBusyIndicatorAnimation {
+    position: relative;
+    width: 3em;
+    top: 50%;
+    left: 50%;
+}

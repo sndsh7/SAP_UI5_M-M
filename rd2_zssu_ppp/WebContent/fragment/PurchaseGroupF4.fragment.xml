@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<SelectDialog liveChange="handleliveSearch" search="handleSearch" confirm="handleConfirm" cancel="handleClose"></SelectDialog>
+	<!-- <Dialog  title="" search="handlePurGrpSearch" confirm="handleConfirm" cancel="handleClose">
+		<subHeader>
+			<OverflowToolbar>
+				<SearchField liveChange="handlePurGrpSearch" width="95%" />
+			</OverflowToolbar>
+		</subHeader>
+			<List 
+					items="{ModelSSUDigitization>/F4PurGrp}">
+				<items>
+					<StandardListItem title="{ModelSSUDigitization>PucGrp}"  description="{ModelSSUDigitization>PucGrpName}"/>
+				</items>
+			</List>
+	</Dialog> -->
+</core:FragmentDefinition>

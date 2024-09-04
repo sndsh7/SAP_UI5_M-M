@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" showHeader="true">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Model List"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<SearchField width="90%" class="sapUiSmallMargin" placeholder="Search" liveChange="onSearchModel" />
+		<List mode="MultiSelect"
+			items="{
+				path: 'ModelSSUDigitization>/F4Model'
+			}">
+			<items>
+				<StandardListItem
+			title="{ModelSSUDigitization>ModelCode}"
+			type="Active" selected="{path: 'ModelSSUDigitization>ModelCode', formatter: 'formattSetModel'}"/>
+			</items>
+		</List>
+		<buttons>
+			<Button text="OK" press="onModelOK" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"></Button>
+			<Button text="Cancel" press="onModelCancel" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

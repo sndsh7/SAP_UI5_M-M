@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="hello" confirm="handleFilterDialogConfirm">
+		<filterItems>
+			<ViewSettingsFilterItem text="Company Code" 
+				items="{filter>/results}" key="Rbukrs" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="{filter>Rbukrs}" key="Rbukrs" />
+				</items>
+			</ViewSettingsFilterItem>
+			
+			<ViewSettingsFilterItem text="Fiscal Year" id="id2"
+				 key="Gjahr" multiSelect="false">
+				<items>					
+					<ViewSettingsItem text="2016" key="Gjahr___EQ___2016___X" />
+					<ViewSettingsItem text="2017" key="Gjahr___EQ___2017___X" />
+					<ViewSettingsItem text="2018" key="Gjahr___EQ___2018___X" />
+					<ViewSettingsItem text="2019" key="Gjahr___EQ___2019___X" />
+					<ViewSettingsItem text="2020" key="Gjahr___EQ___2020___X" />
+					<ViewSettingsItem text="2021" key="Gjahr___EQ___2021___X" />
+					<ViewSettingsItem text="2022" key="Gjahr___EQ___2022___X" />
+					<ViewSettingsItem text="2023" key="Gjahr___EQ___2023___X" />
+					<ViewSettingsItem text="2024" key="Gjahr___EQ___2024___X" />
+					<ViewSettingsItem text="2025" key="Gjahr___EQ___2025___X" />
+					
+					
+				</items>
+			</ViewSettingsFilterItem>
+	
+			<!-- <ViewSettingsFilterItem text="Document No"
+				items="{compCode>/results}" key="Belnr" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{compCode>Belnr}"
+						key="Belnr" />
+					<ViewSettingsItem text="{compCode>Belnr}"
+						key="{compCode>Belnr}" />
+				</items>
+			</ViewSettingsFilterItem>
+			 -->
+			<!-- <ViewSettingsFilterItem text="Vendor"
+				items="{supply>/results}" key="Mcod1" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{supply>Mcod1} - {supply>Lifnr}"
+						key="Mcod1" />
+					
+				</items>
+			</ViewSettingsFilterItem> -->		
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

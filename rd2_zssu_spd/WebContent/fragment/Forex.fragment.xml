@@ -1,0 +1,85 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" binding="{/}" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Forex Content Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+				<!--<contentMiddle>
+					<Label text="Vendor:" design="Bold"/>
+					<Text text="{Vendor}" class="txtColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Label text="Part Number:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentRight>-->
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="simpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Currency &amp; Content" design="Bold" />
+				<!--<HBox>-->
+				<ComboBox  tooltip="Currency" selectedKey="{ForexCur}" items="{oDataNewPinfoModel>/ES_Currency}"
+					selectionChange="onForExContent" editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop"
+					valueState="{path:'Validation/ForexCurFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/ForexCurFlag}">
+					<core:Item text="{oDataNewPinfoModel>CurrencyCode}" key="{oDataNewPinfoModel>CurrencyCode}"></core:Item>
+				</ComboBox>
+				<Input  tooltip="Content" value="{ForexContent}" liveChange="onCheckDecimal" maxLength="14"
+					editable="{ModelSSUDigitization>/EditableFlag}" type="Number"></Input>
+				<!--</HBox>-->
+				<Label text="Index Cycle" design="Bold" />
+				<!--<HBox>-->
+				<!--selectedKey="{path:'ForexIndex', formatter: '.formattIndexValFRX'}"-->
+				<ComboBox  selectedKey="{ForexIndex}" items="{oDataNewPinfoModel>/ES_ForexInd}" selectionChange="onIndexValFRXChange"
+					editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop"
+					valueState="{path:'Validation/ForexIndexFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/ForexIndexFlag}">
+					<core:Item text="{oDataNewPinfoModel>IndexCode}" key="{oDataNewPinfoModel>IndexCode}"></core:Item>
+				</ComboBox>
+				<ComboBox  selectedKey="{ForexIndexVal}" items="{ModelSSUDigitization>/F4ForexIndVal}"
+					editable="{ModelSSUDigitization>/EditableFlag}">
+					<core:Item text="{ModelSSUDigitization>IndexVal}" key="{ModelSSUDigitization>IndexVal}"></core:Item>
+				</ComboBox>
+				<!--</HBox>-->
+				<Label text="Landing Factor" design="Bold" />
+				<!--<HBox>-->
+				<ComboBox  selectedKey="{ForexLandFact}" items="{oDataNewPinfoModel>/ES_FXLandFac}" selectionChange="onForExLF"
+					editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop"
+					valueState="{path:'Validation/ForexLandFactFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/ForexLandFactFlag}">
+					<core:Item text="{oDataNewPinfoModel>LandFac}" key="{oDataNewPinfoModel>LandFac}"></core:Item>
+				</ComboBox>
+				<Input  value="{ForexLandFactVal}" liveChange="onCheckDecimal" maxLength="14" editable="{ModelSSUDigitization>/EditableFlag}"
+					type="Number"></Input>
+				<!--</HBox>-->
+				<core:Title text=""/>
+				<Label text="Base Period" design="Bold"/>
+				<ComboBox  selectedKey="{ForexBaseperiod}" tooltip="month" items="{oDataNewPinfoModel>/ES_IndexBasePeriod}"
+					editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop">
+					<core:Item text="{oDataNewPinfoModel>Period}" key="{oDataNewPinfoModel>Period}"></core:Item>
+				</ComboBox>
+				<Input  tooltip="year" value="{FxBasePeriodYr}" liveChange="onCheckNumberLeng4" type="Number"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="Base exchange rate" design="Bold" />
+				<Input  value="{FxBaseExchRate}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Remarks" design="Bold"/>
+				<Input value="{ForexRemarks}" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="" class="clsErrBtnPopover" press="onRMErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"></Button>
+			<!--<Button text="Add" press="onAddFRXContent" type="Accept" icon="{ModelDefaultDataSet>/Icon/addIcon}" visible="false"></Button>-->
+			<Button text="OK" press="onForexOK" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

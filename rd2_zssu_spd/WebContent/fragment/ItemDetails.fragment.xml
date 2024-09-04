@@ -1,0 +1,174 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="55%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--<VBox>-->
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Plant" design="Bold" required="true"/>
+				<ComboBox required="true" selectedKey="{Plant}" items="{ModelSSUDigitization>/F4Plant}" selectionChange="onPlantCode"
+					editable="{=${ModelSSUDigitization>/EditableFlag} &amp;&amp; ${ModelSSUDigitization>/InitiatedBySSU} &amp;&amp; !${DBExist}}" valueState="{path:'Validation/PlantFlag',formatter:'.formattValidationError'}"
+					valueStateText="{Validation/PlantFlag}">
+					<core:Item text="{ModelSSUDigitization>PlantCode}-{ModelSSUDigitization>PlantDesc}" key="{ModelSSUDigitization>PlantCode}"/>
+				</ComboBox>
+				<Label text="Child Part Number" design="Bold" required="true"/>
+				<Input required="true" value="{PartNo}" showValueHelp="true" valueHelpRequest="onPartValueHelp"
+					editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'Plant'}, {path:'ModelSSUDigitization>/InitiatedBySSU'},{path:'DBExist'}],formatter:'.formatterPartEdit'}" submit="onSubmitPartNum"
+					valueState="{path:'Validation/PartNoFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/PartNoFlag}"></Input>
+				<Label text="Child Part Description" design="Bold"/>
+				<Text text="{PartDesc}"/>
+				
+				
+				<Label text="Parent Part Number" design="Bold" />
+				<Input  value="{PRPartNo}" showValueHelp="true" valueHelpRequest="onParentPartValueHelp"
+					editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'Plant'}, {path:'ModelSSUDigitization>/InitiatedBySSU'},{path:'DBExist'}],formatter:'.formatterPartEdit'}" submit="onSubmitParentPartNum"
+					valueState="{path:'Validation/PartNoFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/PartNoFlag}"></Input>
+				<Label text=" Parent Part Description" design="Bold"/>
+				<Text text="{PRPartDesc}"/>
+				
+				<Label required="true" text="Vendor Code" design="Bold"/>
+				<Input required="true" value="{Vendor}" showValueHelp="true" valueHelpRequest="onVendorValHelp" maxLength="14" submit="onSubmitVendorCode"
+					editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'PartNo'}, {path:'ModelSSUDigitization>/InitiatedBySSU'},{path:'DBExist'}],formatter:'.formatterPartEdit'}"
+					valueState="{path:'Validation/VendorFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/VendorFlag}"></Input>
+				<Label text="Vendor Name" design="Bold"/>
+				<Text text="{VName}"/>
+				<Label text="Vendor Location" design="Bold"/>
+				<Text text="{VLocation}"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}"/>
+				<Label text="Quote Price" design="Bold" required="true"/>
+				<Input id="QuotedPrice" value="{QuotePrice}" required="true" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+				<!-- <Label required="true" text="SBC/Existing Price" design="Bold"/>
+				<Input required="true" value="{Sbcprice}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input> -->
+				<Label text="Settled Price" design="Bold"  required="true" wrapping="true"/>
+				<VBox required="true">
+					<Input id="SettledPrice"  required="true" value="{SettledPrice}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+					<ObjectStatus class="sapUiSmallMarginEnd boldcls" text="#Inclusive of Packaging &amp; Transport" state="Warning"/>
+				</VBox>
+				<Label text="Packaging Cost" design="Bold" required="true"/>
+				<Input required="true" value="{PkgCost}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Transport Cost" design="Bold" required="true"/>
+				<Input required="true" value="{TranspCost}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<!--<Label text="Total Price" design="Bold"/>
+					<Input enabled="false" value="{TotalPrice}" visible="false"></Input>-->
+				
+				
+				<Label text="BAS Cond. Type" visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondType}" visible="{=${CondType}===''?false:true}"/>
+				<Label text="Cond. Type Desc." visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondTypText}" visible="{=${CondType}===''?false:true}"/>
+				<Label text="Cond. Percentage" design="Bold" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondPrcnt}" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondUnit}" visible="{=${CondType}===''?false:true}"/>
+				
+				
+				<core:Title text=""/>
+				
+				
+				<Label required="true" text="Valid From Date" design="Bold"/>
+				<DatePicker required="true" placeholder="MMM dd yyyy" displayFormat="MMM dd yyyy" editable="false"
+					value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+				<Label text="Purchase Group" design="Bold" required="true"/>
+				<Text text="{Purgrp}"/>
+				<!-- <Input value="{Purgrp}" maxLength="3" editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'Purgrp'}],formatter:'.formatterPurgrpEdit'}" valueHelpRequest="onPurcValueHelp"
+					showValueHelp="true" liveChange="onPurChange" required="true" valueHelpOnly="true"/> -->
+				<Label text="Delivery Time" design="Bold" required="true"/>
+				<Input required="true" value="{Pdeltime}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onChangeDelevertTime"></Input>
+				<!--<Label text="Sourcing Strategy" design="Bold" required="true"/>
+					<ComboBox selectedKey="{VendorSour}" items="{alSoStart>/results}" placeholder="No Selection" editable="{ModelSSUDigitization>/EditableFlag}"
+						selectionChange="onSourceChange">
+						<core:Item text="{alSoStart>VendorSourDesc}" key="{alSoStart>SourceStrat}"/>
+					</ComboBox>-->
+				<!--<Label text="Strategy Indicator" design="Bold"/>
+				<ComboBox required="true" selectedKey="{StrategyInd}" editable="{ModelSSUDigitization>/EditableFlag}" placeholder="No Selection">
+					<core:Item text="YES" key="Y"/>
+					<core:Item text="NO" key="N"/>
+				</ComboBox>-->
+				<!-- <RadioButtonGroup columns="2" select="onSelectSI"> <buttons> <RadioButton 
+						text="Yes" /> <RadioButton text="No" /> <RadioButton text="No Entry" /> </buttons> 
+						</RadioButtonGroup> -->
+				<!-- <Input value="{StatIndicator}"></Input> -->
+				<Label text="Delivery terms" design="Bold"/>
+				<Text text="{DelTerms}"></Text>
+				<!-- <Input value="{DeliveryTerms}"></Input> -->
+				<Label text="Payment Term" design="Bold"/>
+				<Text text="{PaymntTerms}"></Text>
+				<!-- <Input value="{PaymentTerms}"></Input> -->
+				<Label text="P-Info category" required="true" design="Bold"/>
+				<!--<ComboBox required="true" selectedKey="{Pinforcat}" editable="{ModelSSUDigitization>/EditableFlag}">
+					<core:Item text="Standard" key="Standard"/>
+					<core:Item text="Subcontracting" key="Subcontracting"/>
+				</ComboBox>-->
+				<ComboBox required="true" selectedKey="{Pinforcat}" items="{oDataNewPinfoModel>/ES_Category}"
+                    editable="{ModelSSUDigitization>/EditableFlag}" showSecondaryValues="true">
+                    <core:ListItem text="{oDataNewPinfoModel>CatCode}" key="{oDataNewPinfoModel>CatCode}" additionalText="{oDataNewPinfoModel>CatDesc}"/>
+                </ComboBox>
+				<Label text="Purchase Organisation" design="Bold" required="true"/>
+				<ComboBox selectedKey="{Purorg}" editable="{ModelSSUDigitization>/EditableFlag}" required="true">
+					<core:Item text="INPO" key="INPO"/>
+					<core:Item text="IUTN" key="IUTN"/>
+				</ComboBox>
+				<!-- <Input value="{PurchOrg}" editable="{ModelSSUDigitization>/EditableFlag}" maxLength="4"></Input> -->
+				<Label text="Tax Code" required="true" design="Bold"/>
+				<ComboBox required="true" selectedKey="{Taxcode}" items="{ModelSSUDigitization>/F4TaxCode}" change="OnTaxCodeChange"
+					editable="{ModelSSUDigitization>/EditableFlag}" valueState="{path:'Validation/TaxcodeFalg',formatter:'.formattValidationError'}"
+					valueStateText="{Validation/TaxcodeFalg}" class="clsTaxCode" showSecondaryValues="true">
+					<core:ListItem text="{ModelSSUDigitization>TaxCode}" key="{ModelSSUDigitization>TaxCode}" additionalText="{ModelSSUDigitization>TaxCodeDes}"/>
+				</ComboBox>
+				<!--<Input required="true" value="{Taxcode}" editable="{ModelSSUDigitization>/EditableFlag}" maxLength="2" liveChange="onTaxCode"-->
+				<!--	valueState="{path:'Validation/TaxcodeFalg',formatter:'.formattValidationError'}" valueStateText="{Validation/TaxcodeFalg}"></Input>-->
+				<Label text="Tax Code Description" design="Bold"/>
+			<!--	<ComboBox editable="false" selectedKey="{Taxcode}" items="{oDataNewPinfoModel>/ES_TaxCode}" >
+					<core:Item text="{oDataNewPinfoModel>TcDesc}" key="{oDataNewPinfoModel>TaxCode}"/>
+				</ComboBox>-->
+				<Text text="{TcDesc}" tooltip="{TcDesc}"/>
+				<!-- <Label required="true" text="Net Weight" design="Bold"/>
+				<Input required="true" value="{NetWeight}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label required="true" text="Net Weight Unit" design="Bold"/>
+				<ComboBox required="true" selectedKey="{NetWtUnit}" items="{oDataNewPinfoModel>/ES_NetWeightUnit}"
+                    editable="{=${ModelSSUDigitization>/EditableFlag} &amp;&amp; ${NetWtUnit} === '' }" showSecondaryValues="true">
+                    <core:ListItem text="{oDataNewPinfoModel>NetWeightUnit}" key="{oDataNewPinfoModel>NetWeightUnit}" additionalText="{oDataNewPinfoModel>NetWeightUnitText}"/>
+                </ComboBox> -->
+				<!-- <Input required="true" value="{NetWtUnit}" editable="{ModelSSUDigitization>/EditableFlag}"></Input> -->
+				<!--<Label text="Valid From Date" design="Bold"/>
+					<DatePicker placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyyMMdd" value="{ValidFrom}" editable="{ModelSSUDigitization>/EditableFlag}"/>
+					<core:Title text="" class="sapUiFormNoTitle sapUiFormNoTitleH5"/>
+					<Label text="Amortisation Optional" design="Bold"/>
+					<Input value="{Amortisation}" editable="{ModelSSUDigitization>/EditableFlag}" liveChange="onCheckDecimal" maxLength="14" visible="false"></Input>
+					<Label text="Drg. rev No" design="Bold"/>
+					<Input value="{DrgRevNo}" editable="{ModelSSUDigitization>/EditableFlag}" maxLength="2" visible="false"></Input>
+					<Label text="Amendment Code" design="Bold"/>
+					<Input value="{AmendCode}" editable="{ModelSSUDigitization>/EditableFlag}" maxLength="40"></Input>-->
+				<Label text="Taxonomy" design="Bold" required="true"/>
+				<Input required="true" value="{Taxonomy}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onTaxonamyValHelp"
+					editable="{ModelSSUDigitization>/EditableFlag}" valueState="{path:'Validation/TaxonomyFlag',formatter:'.formattValidationError'}"
+					valueStateText="{Validation/TaxonomyFlag}"></Input>
+				<Label text="Annual Capacity" design="Bold"/>
+				<Input value="{AnnualCap}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+				<Label text="Model Variant" design="Bold"></Label>
+				<Input value="{ModelVar}" maxLength="15" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<!-- <HBox>
+					<ComboBox selectedKey="{NetWt}" items="{alNtwt>/results}" editable="{ModelSSUDigitization>/EditableFlag}" selectionChange="onChngeNetwt">
+					<core:Item text="{alNtwt>Desc}" key="{alNtwt>NetWt}" />
+					</ComboBox>
+					<Input value="{NetWtVal}" liveChange="onCheckDecimal" maxLength="14" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+					</HBox> -->
+			</f:content>
+		</f:SimpleForm>
+		<!--</VBox>-->
+		<buttons>
+			<Button text="" class="clsErrBtnPopover" press="onErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"></Button>
+			<!--<Button text="Add" press="onAddNwItemRow" type="Accept" icon="{ModelDefaultDataSet>/Icon/addIcon}" visible="false"></Button>-->
+			<Button text="OK" press="onOkItemDetail" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="ZSSU_TL.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<Page title="Paper(S)">
+		<customHeader>		
+			<Bar class="header">
+			 <contentLeft>
+		  </contentLeft>
+				<contentMiddle>
+					<Label class="title" text="Papers : ({ModelMasterData>/count})" id="masterTitle" />
+				</contentMiddle>
+				<contentRight>
+			<Button tooltip="Dashboard"  type="Emphasized" icon="sap-icon://overview-chart"  press="fnNavToDashboard" class="cl_BtnNav" />
+		  </contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField id="searchField" placeholder=""
+						search="onRefresh" liveChange="onSearchMaster" showRefreshButton="true"
+						refreshButtonTooltip="Refresh" tooltip="{i18n>masterSearchTooltip}"
+						width="100%"></SearchField>
+				</contentMiddle>
+			</Bar>
+			<List id="masterReqPending" updateFinished="onUpdateFinished" selectionChange="onSelectionChange"
+			  mode="SingleSelectMaster" itemPress="onSelectItemFirst" items="{ModelMasterData>/results}">
+				<items>
+					<ObjectListItem id="masterListTempId" title="Paper No : {ModelMasterData>NpiNo}" type="Navigation">
+<!-- 					<ObjectListItem id="masterListIV"  visible="false" title="IV Req. No : {reqPend>ZIV_REQ_NO}" type="Navigation">
+ -->						<!-- <attributes> -->
+							<ObjectAttribute text="Initiator Name : {ModelMasterData>InitiatorName}" visible="{= ${InitiatorName} !== ''? true : false}"/>
+							<ObjectAttribute text="Ageing : {ModelMasterData>Ageing}"/>
+							<ObjectAttribute text="Current Holder : {ModelMasterData>CurrentHolderName}"/>
+						<!-- </attributes> -->
+						<secondStatus>
+								<ObjectStatus inverted="true" tooltip="{path : 'ModelMasterData>Status', formatter:'.formatter.get_Status'}"  text="{path : 'ModelMasterData>Status', formatter:'.formatter.get_Status'}" 
+							state="{path : 'ModelMasterData>Status', formatter:'.formatter.get_State'}" />
+						</secondStatus>						
+					</ObjectListItem>
+				</items>
+			</List>
+			</content>
+		<footer>
+			<Toolbar id="SplitMasterFooterid">
+			
+			<SegmentedButton id="id_segmentbtn" selectedKey="request" selectionChange="onSegbtnChange" >
+					<items>
+						<SegmentedButtonItem width="72%" tooltip="Request" text="Request" key="request" />
+						<SegmentedButtonItem width="73%" tooltip="Submitted" text="Submitted" key="submit"/>		
+					</items>
+			</SegmentedButton>
+			<!-- <Button id="grn" text="GRN Block" tooltip="GRN Block" type="Emphasized" press="onClkofGRN"/> -->
+			
+			</Toolbar>
+			<!--//<OverflowToolbar id="footerbar"></OverflowToolbar>-->
+		</footer>
+	</Page>
+
+</mvc:View>

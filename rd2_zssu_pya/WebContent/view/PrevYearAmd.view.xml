@@ -1,0 +1,524 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+		controllerName="com.mahindra.ZSSU_PrvYrAmndt.controller.PrevYearAmd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="app">
+		<Page binding="{ModelSSUDigitization>/}">
+			<customHeader>
+				<Toolbar class="custClassHeader">
+					<Button type="Back" press="navParentBack"/>
+					<ToolbarSpacer/>
+					<Title class="custClsHeaderTitle" text="Previous Year Amendment" level="H2"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</customHeader>
+			<content>
+				<ObjectHeader id="id_status" title="{ModelSSUDigitization>PaperDataSet/PaperNo}"
+					number="{ path:'ModelSSUDigitization>PaperDataSet/Status',formatter:'setStatus'}" visible="{ModelSSUDigitization>NotCreateNew}"
+					condensed="true" numberState="{ path:'ModelSSUDigitization>PaperDataSet/Status',formatter:'setStatusColor'}"/>
+				<IconTabBar expandable="false" expanded="true" select="onChangeTab" selectedKey="{ModelSSUDigitization>SelectedTab}">
+					<items>
+						<IconTabFilter iconColor="{ModelSSUDigitization>TabIconColor/VendorPartDetails}" text="Vendor Part"
+							icon="{ModelDefaultDataSet>/Icon/vendorPartIcon}" key="VP" design="Horizontal">
+							<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false" class="clsHeaderForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Sector"/>
+									<MultiComboBox id="id_sector" required="true" selectionFinish="onSectorFinish" selectionChange="onSecChange" items="{oDataAmendmentModel>/ES_Sector}"
+										editable="{ModelSSUDigitization>EditableFlag}" valueState="{ModelSSUDigitization>Validation/sectorFlag}"
+										selectedKeys="{path: 'ModelSSUDigitization>PaperDataSet/Sector', formatter: '.formattGetModelPlant'}">
+										<core:Item text="{oDataAmendmentModel>SectorCode}" key="{oDataAmendmentModel>SectorCode}"/>
+									</MultiComboBox>
+									<!-- Add start by AGAWSA-CONT SF1K92101 -->
+									<Label visible="{path:'ModelSSUDigitization>PaperDataSet/AssociateFlag', formatter:'.formatterAssoVisible'}" required="true" text="Select Associate" />
+									<Input id="id_InputAssociate" visible="{path:'ModelSSUDigitization>PaperDataSet/AssociateFlag', formatter:'.formatterAssoVisible'}" required="true" value="{ModelSSUDigitization>PaperDataSet/AssociateName}" showValueHelp="true" valueHelpOnly="true"
+								 			valueHelpRequest="onAssociateValHelp"/>
+								 	<!-- Add end by AGAWSA-CONT SF1K92101 -->
+									<!-- <core:Title text=""/> -->
+									<!-- <Label text="Price Paper Description"/>
+									<TextArea value="" editable="{ModelSSUDigitization>/EditableFlag}" growing="true" growingMaxLines="4"/> -->
+<!-- 									<Label text="Existing From"/>
+									<DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}" maxDate="{ModelSSUDigitization>PaperDataSet/Nav_Currency/0/ExToDt}"
+										value="{path:'ModelSSUDigitization>PaperDataSet/Nav_Currency/0/ExFrmDt', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+									<Label text="Revised From"/>
+									<DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}" maxDate="{ModelSSUDigitization>PaperDataSet/Nav_Currency/0/RvToDt}"
+										value="{path:'ModelSSUDigitization>PaperDataSet/Nav_Currency/0/RvFrmDt', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/> -->
+									
+									<core:Title text=""/>
+									<Label text="Model"/>
+									<MultiInput id="id_model" required="true" editable="{ModelSSUDigitization>EditableFlag}" valueHelpOnly="true" valueHelpRequest="oModelSelection" value="{ModelSSUDigitization>PaperDataSet/Model}"/>
+									<!-- Add start by AGAWSA-CONT SF1K92101 -->
+									<Label text=""/>
+								 	<!-- <core:Title text=""/> -->
+									<Label text="Self Routing" visible="{ModelSSUDigitization>SR_flag}"/>
+									<RadioButtonGroup columns="2" id="id_sr" editable="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'},{path:'ModelSSUDigitization>NotCreateNew'},{path:'ModelSSUDigitization>EditableAsso'}],formatter:'.editablePaperPur'}" selectedIndex="{path:'ModelSSUDigitization>PaperDataSet/SelfRoutingFlag', formatter:'.formatterSR'}" select="onSelectSR" visible="{ModelSSUDigitization>SR_flag}">
+										<RadioButton text="Yes"/>
+										<RadioButton text="No"/>
+									</RadioButtonGroup>
+									
+									
+								<!-- added by beena-50002903 on 17-06-2023 -->
+								<core:Title text=""/>
+									<Label text="Previous Year Impact" wrapping="true"/>
+									<RadioButtonGroup editable="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'},{path:'ModelSSUDigitization>NotCreateNew'},{path:'ModelSSUDigitization>EditableAsso'}],formatter:'.editablePaperPur'}"
+										columns="2" id="id_PYI" selectedIndex="{path:'ModelSSUDigitization>PaperDataSet/PYIFlag', formatter:'.formatterSR'}" select="onSelectPYI">
+										<RadioButton text="Yes"/>
+										<RadioButton text="No"/>
+									</RadioButtonGroup>
+									
+									<Label required="true" text="Provision Note No." wrapping="true"/>
+									<Input required="true" editable="{ModelSSUDigitization>EditableFlag}"  value="{ModelSSUDigitization>PaperDataSet/ProvNoteNo}" visible="{path:'ModelSSUDigitization>PaperDataSet/PYIFlag', formatter:'.formatterAssoVisible'}" id="id_pnn"/>
+								<!-- added by beena-50002903 on 17-06-2023 -->		
+									
+									
+									
+									
+									<!-- Add end by AGAWSA-CONT SF1K92101 -->
+									<!-- <MultiComboBox required="true" editable="{ModelSSUDigitization>EditableFlag}" items="{ModelSSUDigitization>F4Model}"
+										selectedKeys="{ModelSSUDigitization>PaperDataSet/Model}" selectionFinish="oModelSelection">
+										<core:Item text="{ModelSSUDigitization>ModelCode}" key="{ModelSSUDigitization>ModelCode}"/>
+									</MultiComboBox> -->
+									<!-- <Label text="Justification"/>
+									<TextArea value="" editable="{ModelSSUDigitization>/EditableFlag}" growing="true" growingMaxLines="4"/> -->
+									<!-- <Label text="Existing To"/>	
+									<DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}" minDate="{ModelSSUDigitization>PaperDataSet/Nav_Currency/0/ExFrmDt}"
+										value="{path:'ModelSSUDigitization>PaperDataSet/Nav_Currency/0/ExToDt', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+									<Label text="Revised To"/>
+									<DatePicker placeholder="dd mm yyyy" displayFormat="MMM yyyy" editable="{ModelSSUDigitization>/EditableFlag}" minDate="{ModelSSUDigitization>PaperDataSet/Nav_Currency/0/RvFrmDt}"
+										value="{path:'ModelSSUDigitization>PaperDataSet/Nav_Currency/0/RvToDt', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/> -->
+									<!-- <core:Title text=""/> -->
+									<!-- <Label text="Paper Purpose"/> -->
+									<!-- <RadioButtonGroup selectedIndex="{path:'ModelSSUDigitization>PaperDataSet/PaperPur', formatter:'.formatterPaperPurRadio'}" select="onChangePaperPur" 
+									editable="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'}],formatter:'.editableRadioIncDec'}">
+										<RadioButton text="ECN" />
+										<RadioButton text="Non-ECN" />
+									</RadioButtonGroup>onChangePaperPur
+									<RadioButtonGroup selectedIndex="{path:'ModelSSUDigitization>PaperDataSet/Sign', formatter:'.formatterSignRadio'}" select="onChangeSign" 
+									editable="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'}],formatter:'.editableRadioIncDec'}">
+										<RadioButton text="Increase" />
+										<RadioButton text="Decrease" />
+									</RadioButtonGroup> -->
+								</f:content>
+							</f:SimpleForm>
+							<!-- <Table noDataText="no data" items="{ModelSSUDigitization>PaperDataSet/Nav_Currency}" mode="{=${ModelSSUDigitization>EditableFlag}?'Delete':'None'}" delete="onDeleteCurrItem">
+								<headerToolbar>
+									<Toolbar class="custClassTblTool">
+										<content>
+											<Label text="Existing period" design="Bold"/>
+											<ToolbarSpacer/>
+											<Button icon="{ModelDefaultDataSet>/Icon/addIcon}" press="onAddCurrItem" type="Ghost" tooltip="Add"
+												visible="{ModelSSUDigitization>EditableFlag}"></Button>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+							<columns>
+								<Column hAlign="Center">
+									<Label text="Currency" design="Bold"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Existing value" design="Bold"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Revised value" design="Bold"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Change" design="Bold"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ComboBox required="true" selectedKey="{ModelSSUDigitization>Currency}" items="{ModelSSUDigitization>/F4Curr}"
+											editable="{ModelSSUDigitization>/EditableFlag}">
+											<core:ListItem text="{ModelSSUDigitization>Key}" key="{ModelSSUDigitization>Key}"/>
+										</ComboBox>
+										
+										<Input value="{ModelSSUDigitization>ExVal}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"/>
+										
+										<Input value="{ModelSSUDigitization>RvVal}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"/>
+										<Text text="{parts:[{path:'ModelSSUDigitization>ExVal'},{path:'ModelSSUDigitization>RvVal'}],formatter:'.formattChange'}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table> -->
+							
+						<Table id="idPartPriceTbl" inset="false" noDataText="*Add new part price details" mode="{=${ModelSSUDigitization>PostToSAP} || ${ModelSSUDigitization>EditableFlag}?'MultiSelect':'None'}"
+							growing="true" growingTriggerText="More" growingScrollToLoad="false" growingDirection="Downwards" selectionChange="onTableSelectAll" growingThreshold="50">
+								<headerToolbar>
+									<Toolbar class="custClassTblTool">
+										<content>
+											<Label text="Part Price Details" design="Bold"/>
+											<ToolbarSpacer/>
+											<Button icon="{ModelDefaultDataSet>/Icon/export}" type="Ghost" tooltip="Export Data" press="onExport" 
+											visible="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'}],formatter:'.visibleExport'}"/>
+											<u:FileUploader name="myFileUpload" buttonText="Upload" uploadUrl="upload/" tooltip="Upload Template" change="onMassUpload"
+												visible="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Sector'},{path:'ModelSSUDigitization>PaperDataSet/Model'},{path:'ModelSSUDigitization>PaperDataSet/SelfRoutingFlag'}],formatter:'.visiblePartEdit'}"
+												style="Emphasized" placeholder="Import From Excel.."/>
+											<Button icon="{ModelDefaultDataSet>/Icon/downloadIcon}" type="Ghost" tooltip="Download Template" press="onDownldTempPartDet"
+												visible="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Sector'},{path:'ModelSSUDigitization>PaperDataSet/Model'},{path:'ModelSSUDigitization>PaperDataSet/SelfRoutingFlag'}],formatter:'.visiblePartEdit'}"></Button>
+											<Button icon="{ModelDefaultDataSet>/Icon/addIcon}" press="onAddForexItem" type="Ghost" tooltip="Add Item"
+												visible="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Sector'},{path:'ModelSSUDigitization>PaperDataSet/Model'},{path:'ModelSSUDigitization>PaperDataSet/SelfRoutingFlag'}],formatter:'.visiblePartEdit'}"></Button>
+											<Button icon="{ModelDefaultDataSet>/Icon/deleteIcon}" press="onMultDeltItem" type="Reject" tooltip="Multiple Delete"
+												visible="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>PaperDataSet/Sector'},{path:'ModelSSUDigitization>PaperDataSet/Model'},{path:'ModelSSUDigitization>PaperDataSet/SelfRoutingFlag'}],formatter:'.visiblePartEdit'}"/>
+											<Button icon="{ModelDefaultDataSet>/Icon/settingsIcon}" press="onSettingPartDetails" type="Ghost" visible="true"></Button>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+							</Table>
+							<UploadCollection items="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', filters: [{path:'TabId',operator:'EQ',value1:'PAC'}]}"
+								multiple="false" fileType="{ModelDefaultDataSet>/uploadFormat}" uploadEnabled="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>NotCreateNew'}],formatter:'.attachEditable'}"
+								noDataText="No file attached" maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}" instantUpload="true"
+								maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}" fileSizeExceed="onFileSizeExceed" class="clsMadiUplod"
+								filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch" change="onSelectionChange"
+								uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted" uploadUrl="/sap/opu/odata/sap/ZMM_SSU_AMEND_SRV/ES_DMS"
+								visible="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', formatter:'.formattAttachments'}" >
+								<toolbar>
+									<OverflowToolbar design="Solid">
+										<Label text="Provision Approval by SSU Head" design="Bold"></Label>
+										<ToolbarSpacer/>
+										<UploadCollectionToolbarPlaceholder/>
+									</OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem id="id_upc1" fileName="{ModelSSUDigitization>Filename}" documentId="{ModelSSUDigitization>Posnr}{ModelSSUDigitization>TabId}" visibleEdit="false" visibleDelete="{ModelSSUDigitization>/EditableFlag}"
+										url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}"></UploadCollectionItem>
+								</items>
+							</UploadCollection>
+							<UploadCollection items="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', filters: [{path:'TabId',operator:'EQ',value1:'PB'}]}"
+								multiple="false" fileType="{ModelDefaultDataSet>/uploadFormat}" uploadEnabled="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>NotCreateNew'}],formatter:'.attachEditable'}"
+								noDataText="No file attached" maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}" instantUpload="true"
+								maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}" fileSizeExceed="onFileSizeExceed" class="clsMadiUplod"
+								filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch" change="onSelectionChange"
+								uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted" uploadUrl="/sap/opu/odata/sap/ZMM_SSU_AMEND_SRV/ES_DMS"
+								visible="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', formatter:'.formattAttachments'}">
+								<toolbar>
+									<OverflowToolbar design="Solid">
+										<Label text="Price Breakups" design="Bold" required="true"></Label>
+										<ToolbarSpacer/>
+										<UploadCollectionToolbarPlaceholder/>
+									</OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem id="id_upc2" fileName="{ModelSSUDigitization>Filename}" documentId="{ModelSSUDigitization>Posnr}{ModelSSUDigitization>TabId}" visibleEdit="false" visibleDelete="{ModelSSUDigitization>/EditableFlag}"
+										url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}"></UploadCollectionItem>
+								</items>
+							</UploadCollection>
+							<UploadCollection items="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', filters: [{path:'TabId',operator:'EQ',value1:'AB'}]}"
+								multiple="false" fileType="{ModelDefaultDataSet>/uploadFormat}" uploadEnabled="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>NotCreateNew'}],formatter:'.attachEditable'}"
+								noDataText="No file attached" maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}" instantUpload="true"
+								maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}" fileSizeExceed="onFileSizeExceed" class="clsMadiUplod"
+								filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch" change="onSelectionChange"
+								uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted" uploadUrl="/sap/opu/odata/sap/ZMM_SSU_AMEND_SRV/ES_DMS"
+								visible="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', formatter:'.formattAttachments'}">
+								<toolbar>
+									<OverflowToolbar design="Solid">
+										<Label text="Approved Budget" design="Bold" required="true"></Label>
+										<ToolbarSpacer/>
+										<UploadCollectionToolbarPlaceholder/>
+									</OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem id="id_upc3" fileName="{ModelSSUDigitization>Filename}" documentId="{ModelSSUDigitization>Posnr}{ModelSSUDigitization>TabId}" visibleEdit="false" visibleDelete="{ModelSSUDigitization>/EditableFlag}"
+										url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}"></UploadCollectionItem>
+								</items>
+							</UploadCollection>
+							
+							
+							<UploadCollection items="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', filters: [{path:'TabId',operator:'EQ',value1:'VP'}]}"
+								multiple="false" fileType="{ModelDefaultDataSet>/uploadFormat}" uploadEnabled="{parts:[{path:'ModelSSUDigitization>EditableFlag'},{path:'ModelSSUDigitization>NotCreateNew'}],formatter:'.attachEditable'}"
+								noDataText="No file attached" maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}" instantUpload="true"
+								maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}" fileSizeExceed="onFileSizeExceed"
+								filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch" change="onSelectionChange"
+								uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted" 	visible="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', formatter:'.formattAttachments'}"							
+								uploadUrl="/sap/opu/odata/sap/ZMM_SSU_AMEND_SRV/ES_DMS" >
+								<toolbar>
+									<OverflowToolbar design="Solid">
+										<Label text="SSU Other Documents" design="Bold"></Label>
+										<ToolbarSpacer/>
+										<UploadCollectionToolbarPlaceholder/>
+									</OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem id="id_upc4" fileName="{ModelSSUDigitization>Filename}" documentId="{ModelSSUDigitization>Posnr}{ModelSSUDigitization>TabId}" visibleEdit="false" visibleDelete="{ModelSSUDigitization>/EditableFlag}"
+										url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}"></UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</IconTabFilter>
+						<IconTabSeparator icon="{ModelDefaultDataSet>/Icon/processIcon}"/>
+						<IconTabFilter text="Attachment" icon="{ModelDefaultDataSet>/Icon/attachmentIcon}"
+							iconColor="{ModelSSUDigitization>TabIconColor/Attachment}" key="AT" design="Horizontal">
+							<UploadCollection class="clsAllAttachment" 
+								items="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', sorter: { path: 'TabText', descending: false, group: true }}" multiple="false"
+								fileType="{ModelDefaultDataSet>/uploadFormat}" visible="{ path:'ModelSSUDigitization>PaperDataSet/Nav_DMS', formatter:'.formattAttachments'}"
+								uploadEnabled="false" noDataText="No file attached"
+								maximumFileSize="{ModelDefaultDataSet>/maxUploadSize}" maximumFilenameLength="{ModelDefaultDataSet>/filenameLength}"
+								fileSizeExceed="onFileSizeExceed" filenameLengthExceed="onFilenameLengthExceed" typeMissmatch="onTypeMissmatch"
+								selectionChange="onSelectionChange" uploadComplete="onUploadComplete" fileDeleted="onAttachDeleted">
+								<toolbar>
+									<OverflowToolbar design="Solid" visible="false"></OverflowToolbar>
+								</toolbar>
+								<items>
+									<UploadCollectionItem fileName="{ModelSSUDigitization>Filename}" visibleEdit="false" visibleDelete="false"
+										url="{parts:[{path:'ModelSSUDigitization>Filekey'},{path:'ModelSSUDigitization>Posnr'},{path:'ModelSSUDigitization>TabId'}],formatter:'.formatterGetDmsURL'}">
+										<attributes>
+											<ObjectAttribute title="Created On" text="{path:'ModelSSUDigitization>CreatedOn',formatter:'dateObjToLocal'}"/>
+										</attributes>
+									</UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</IconTabFilter>
+						<IconTabSeparator icon="{ModelDefaultDataSet>/Icon/processIcon}"/>
+						<IconTabFilter text="Workflow" icon="sap-icon://workflow-tasks" iconColor="{ModelSSUDigitization>TabIconColor/Workflow}" key="WF"
+							design="Horizontal">
+							<HBox class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" justifyContent="Center" wrap="Wrap" visible="{=${ModelSSUDigitization>PartSettlementTracker} === 'X' ? false:true}">
+								<VBox width="7%" >								
+									<Label text="Flow" />
+									<ComboBox required="true" items="{ModelSSUDigitization>/F4Approver}" editable="{ModelSSUDigitization>/EditableFlag}"
+										selectionChange="onChangeInitiator" selectedKey="{path:'ModelSSUDigitization>PaperDataSet/Cycle',formatter:'.formattInitiator'}">
+										<core:Item text="{ModelSSUDigitization>Cycle}" key="{ModelSSUDigitization>Cycle}"/>
+									</ComboBox>
+								</VBox>
+								<VBox>
+									<Label required="true" text="Initiator" class="sapUiLargeMarginBeginEnd"/>
+									<!--<HBox>-->
+									<!--<ComboBox width="20%" required="true" items="{ModelSSUDigitization>/F4Approver}" editable="{ModelSSUDigitization>/EditableFlag}"-->
+									<!--	selectionChange="onChangeInitiator" selectedKey="{path:'ModelSSUDigitization>PaperDataSet/Cycle',formatter:'.formattInitiator'}">-->
+									<!--	<core:Item text="{ModelSSUDigitization>Cycle}" key="{ModelSSUDigitization>Cycle}"/>-->
+									<!--</ComboBox>-->
+									<ComboBox required="true" items="{ModelSSUDigitization>/F4Approver}" editable="false" width="90%"
+										selectedKey="{ModelSSUDigitization>PaperDataSet/Initiator}">
+										<core:Item text="{ModelSSUDigitization>InitiName}" key="{ModelSSUDigitization>Initiator}"/>
+									</ComboBox>
+									<!--</HBox>-->
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver1',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 1" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>									
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver1}">
+										<core:Item text="{ModelSSUDigitization>Appr1Name}" key="{ModelSSUDigitization>Appr1}"/>
+									</ComboBox>
+									<!--<Input value="{ModelSSUDigitization>PaperDataSet/Approver1}" editable="false" textAlign="Center"
+											visible="{path:'ModelSSUDigitization>PaperDataSet/Approver1',formatter:'visibleApprover'}"/>-->
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver2',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 2" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>										
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver2}">
+										<core:Item text="{ModelSSUDigitization>Appr2Name}" key="{ModelSSUDigitization>Appr2}"/>
+									</ComboBox>
+									<!--<Input value="{ModelSSUDigitization>PaperDataSet/Approver2}" editable="false" textAlign="Center"
+											visible="{path:'ModelSSUDigitization>PaperDataSet/Approver2',formatter:'visibleApprover'}"/>-->
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver3',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 3" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver3}">
+										<core:Item text="{ModelSSUDigitization>Appr3Name}" key="{ModelSSUDigitization>Appr3}"/>
+									</ComboBox>
+									<!--<Input value="{ModelSSUDigitization>PaperDataSet/Approver3}" editable="false" textAlign="Center"
+											visible="{path:'ModelSSUDigitization>PaperDataSet/Approver3',formatter:'visibleApprover'}"/>-->
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver4',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 4" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver4}">
+										<core:Item text="{ModelSSUDigitization>Appr4Name}" key="{ModelSSUDigitization>Appr4}"/>
+									</ComboBox>
+									<!--<Input value="{ModelSSUDigitization>PaperDataSet/Approver4}" editable="false" textAlign="Center"
+											visible="{path:'ModelSSUDigitization>PaperDataSet/Approver4',formatter:'visibleApprover'}"/>-->
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver5',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 5" class="sapUiLargeMarginBeginEnd"/>									
+									</HBox>
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver5}">
+										<core:Item text="{ModelSSUDigitization>Appr5Name}" key="{ModelSSUDigitization>Appr5}"/>
+									</ComboBox>
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver6',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 6" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									
+									<ComboBox items="{ModelSSUDigitization>/F4Approver}" editable="false" selectedKey="{ModelSSUDigitization>PaperDataSet/Approver6}">
+										<core:Item text="{ModelSSUDigitization>Appr6Name}" key="{ModelSSUDigitization>Appr6}"/>
+									</ComboBox>
+								</VBox>
+							</HBox>
+							
+							<HBox class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" justifyContent="Center" wrap="Wrap" visible="{=${ModelSSUDigitization>PartSettlementTracker} !== 'X' ? false:true}">
+								<VBox width="7%" >								
+									<Label text="Flow" />
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Cycle}"/>
+								</VBox>
+								<VBox>
+									<Label required="true" text="Initiator" class="sapUiLargeMarginBeginEnd"/>
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/InitiName}"/>
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver1',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 1" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr1Name}"/>								
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver2',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 2" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr2Name}"/>									
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver3',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 3" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr3Name}"/>
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver4',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 4" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr4Name}"/>
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver5',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 5" class="sapUiLargeMarginBeginEnd"/>									
+									</HBox>
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr5Name}"/>
+								</VBox>
+								
+								<VBox visible="{path:'ModelSSUDigitization>PaperDataSet/Approver6',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approval Level 6" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ModelSSUDigitization>PaperDataSet/Appr6Name}"/>
+								</VBox>
+							</HBox>
+							
+							<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false" class="clsHeaderForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Price Paper Description" design="Bold"/>
+									<TextArea value="{ModelSSUDigitization>PaperDataSet/PricePprDesc}" editable="{ModelSSUDigitization>/EditableFlag}" 
+									growing="true" growingMaxLines="4" maxLength="255" showExceededText="true"/>
+									<core:Title text=""/>
+									<Label text="Justification" design="Bold"/>
+									<TextArea value="{ModelSSUDigitization>PaperDataSet/Justification}" editable="{ModelSSUDigitization>/EditableFlag}" 
+									growing="true" growingMaxLines="4" maxLength="255" showExceededText="true"/>
+								</f:content>
+							</f:SimpleForm>
+							
+							<Table width="90%" noDataText="no data" visible="{path:'ModelSSUDigitization>/PaperDataSet/Nav_Wf',formatter:'.formattWFvisible'}"
+								items="{ModelSSUDigitization>/PaperDataSet/Nav_Wf}" class="clsWFTable">
+								<headerToolbar>
+									<Toolbar class="custClassTblTool">
+										<content>
+											<Label text="Workflow History" design="Bold"/>
+											<ToolbarSpacer/>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<!--<Column hAlign="Center" width="12%">
+											<Label text="User" design="Bold"/>
+										</Column>-->
+									<Column hAlign="Center" width="15%">
+										<Label text="Name" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" width="10%">
+										<Label text="Level" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" width="10%">
+										<Label text="Date" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" width="10%">
+										<Label text="Time" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" width="10%">
+										<Label text="Action" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" width="10%">
+										<Label text="Ageing (Days)" design="Bold" wrapping="true"/>
+									</Column>
+									<Column hAlign="Left">
+										<Label text="Comments" design="Bold"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<!--<Text text="{ModelSSUDigitization>Actuser}"/>-->
+											<Text text="{ModelSSUDigitization>ActuserName}"/>
+											<Text text="{path:'ModelSSUDigitization>UsrLevel',formatter:'setUserLevel'}"/>
+											<Text text="{path:'ModelSSUDigitization>Createdon', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+											<Text text="{path:'ModelSSUDigitization>Createdtm', formatter:'oDataMSToTime'}"/>
+											<Text text="{path:'ModelSSUDigitization>Action',formatter:'setAction'}"/>
+											<Text text="{ModelSSUDigitization>Ageing}"/>
+											<Text text="{ModelSSUDigitization>UsrComment}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</content>
+			<footer>
+				<Toolbar>
+					<!--<Button icon="sap-icon://message-popup" text="{/messagesLength}" type="Emphasized" press="onMessagePopoverPress"/>-->
+					<ToolbarSpacer/>
+					<!-- Added By AGAWSA-CONT SF1K92101 -->
+					<Button text="Redelegate" tooltip="To Redelegate paper to associate" type="Emphasized" press="onPressofRedelegate" visible="false" id="redelegation"/>
+					<Button icon="{ModelDefaultDataSet>/Icon/editIcon}" type="Emphasized" text="Edit" press="onEdit"
+						visible="{parts: [{path:'ModelSSUDigitization>DisplayOnlyFlag'},{path:'ModelSSUDigitization>EditableFlag'}], formatter: 'formatterEditVisible'}"></Button>
+					<Button icon="{ModelDefaultDataSet>/Icon/saveIcon}" type="Emphasized" text="Save" press="onSave"
+						visible="{ModelSSUDigitization>EditableFlag}"></Button>
+					<Button icon="{ModelDefaultDataSet>/Icon/acceptIcon}" type="Accept" text="Submit" press="onSubmit"
+						visible="{ModelSSUDigitization>BEValidation}"></Button>
+					<Button icon="{ModelDefaultDataSet>/Icon/acceptIcon}" type="Accept" text="Validate" press="onBEValidate"
+						visible="{parts: [{path:'ModelSSUDigitization>DisplayOnlyFlag'},{path:'ModelSSUDigitization>BEValidation'},{path:'ModelSSUDigitization>PaperDataSet/Nav_Items/0'}], formatter: 'formatterValidationVisible'}"></Button>
+					<Button icon="{ModelDefaultDataSet>/Icon/acceptIcon}" type="Accept" text="Post to SAP" press="onSubmitPostToSap"
+						visible="{ModelSSUDigitization>PostToSAP}"/>
+					<Button icon="{ModelDefaultDataSet>/Icon/cancelIcon}" type="Reject" text="Mark for Deletion" press="onSubmitMark"
+						visible="{ModelSSUDigitization>PostToSAP}"/>
+					<!-- ADD Start by AGAWSA-CONT SF1K92101 -->
+					<Button icon="{ModelDefaultDataSet>/Icon/acceptIcon}" type="Accept" text="Accept" press="onApproveRequest"
+						visible="{ModelSSUDigitization>SSURequest}"/>
+					<Button icon="{ModelDefaultDataSet>/Icon/cancelIcon}" type="Reject" text="" id="RejectBtn" press="onRejectRequest"
+						visible="{ModelSSUDigitization>SSURequest}"/>
+					<!-- ADD End by AGAWSA-CONT SF1K92101 -->
+					<Button icon="{ModelDefaultDataSet>/Icon/printIcon}" type="Ghost" text="Print Preview" press="onPrintPreview"
+						visible="{ModelSSUDigitization>NotCreateNew}"/>
+				</Toolbar>
+			</footer>
+		</Page>
+	</App>	
+</core:View>

@@ -1,0 +1,174 @@
+/*.clsSegButton li .sapUiIcon {
+    color: black !important;
+    display: none;
+}*/
+
+
+/*.clsSegButton li.sapMSegBBtnSel .sapUiIcon {
+    display: inline;
+}*/
+
+
+/*.clsSegButton li.sapMSegBBtnSel{
+	
+}*/
+
+
+/*.clsSegButton li .sapMSegBBtnInner {
+    color: black !important;
+}*/
+
+/* .sapMPage {
+    height: 100%;
+    position: fixed !important;
+    isolation: isolate;
+    z-index: 0;
+} */
+.clsErrBtnPopover {
+    position: absolute !important;
+}
+
+.clsValidationErrorTxt {
+    color: #bb0000 !important;
+}
+
+.clsAllAttachment li.sapMGHLI {
+    background: #f7f7f7 !important;
+}
+
+.clsAllAttachment li span.sapMGHLITitle {
+    font-weight: bold;
+}
+
+.clsMadiUplod .sapMUCNoDataText {
+    color: #ee0000;
+}
+
+.clsWFTable {
+    padding-left: 10%;
+}
+
+.clsTaxonomyHeader {
+    position: sticky !important;
+    top: 0px;
+    width: 100%;
+    background: white;
+}
+
+.sapMComboBoxTextFieldArrow {
+    font-size: medium !important;
+}
+
+.clsTaxSett header.sapMDialogTitle > div {
+    background-color: #e31837 !important;
+}
+
+.clsTaxSett header.sapMDialogTitle h2 {
+    color: white !important;
+}
+
+.clsSegButton li:nth-child(1) {
+    /*background: white !important;*/
+    border-color: #d0cebe;
+    border-style: solid;
+    border-width: .15rem;
+}
+
+.clsSegButton li:nth-child(2) {
+    /*background: white !important;*/
+    border-color: #b1b0a8;
+    border-style: solid;
+    border-width: .15rem;
+}
+
+.clsSegButton li:nth-child(3) {
+    /*background: #eff77a !important;*/
+    border-color: #f3eb01;
+    border-style: solid;
+    border-width: .15rem;
+}
+.clsSegButton li:nth-child(4) {
+    /*background: #eff77a !important;*/
+    border-color: #74b0e4;
+    border-style: solid;
+    border-width: .15rem;
+}
+
+.clsSegButton li:nth-child(5) {
+    /*background: #c0f3b0 !important;*/
+    border-color: #5ea559;
+    border-style: solid;
+    border-width: .15rem;
+}
+
+.clsSegButton li:nth-child(6) {
+    /*background: #f57979 !important;*/
+    border-color: red;
+    border-style: solid;
+    border-width: .15rem;
+}
+
+.clsSegButton li:nth-child(1).sapMSegBBtnSel {
+    background: #a6a9a3 !important;
+}
+
+.clsSegButton li:nth-child(2).sapMSegBBtnSel {
+    background: #7b7f76 !important;
+}
+
+.clsSegButton li:nth-child(3).sapMSegBBtnSel {
+    background: #d6d144 !important;
+}
+
+.clsSegButton li:nth-child(4).sapMSegBBtnSel {
+    background: #366288  !important;
+}
+
+.clsSegButton li:nth-child(5).sapMSegBBtnSel {
+    background: #2b6d17 !important;
+}
+
+.clsSegButton li:nth-child(6).sapMSegBBtnSel {
+    background: #e31837 !important;
+}
+
+.sapMPopoverCont .sapTntNavLIGroup.sapTntNavLIItem {
+    display: none;
+}
+
+.simpleFormTitle .sapUiFormTitle {
+    display: none;
+}
+
+.toolCostSimpleFormTitle .sapUiFormTitle {
+    text-align: center;
+}
+
+.toolCostHead div.sapMFlexItem {
+    width: 50%;
+}
+
+.custClassHeader {
+    background-color: #e31837 !important;
+}
+
+.custClsHeaderTitle {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.custClassTblTool {
+    background-color: #eff4f9;
+}
+
+.clsRadioLabel {
+    padding-top: 8px;
+}
+
+.clsPanelHbox .clsPanelText {
+    font-weight: bold;
+}
+
+.clsPanelHbox > div {
+    padding-right: 40px;
+}

@@ -1,0 +1,114 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" binding="{/}" contentWidth="80%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Tool Cost Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Part Number:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="Vendor:" design="Bold"/>
+					<Text text="{Vendor}" class="txtColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{Plant}" class="txtColor"/>
+				</contentRight>
+			</Bar>
+		</subHeader>
+		<!--<HBox class="toolCostHead">
+			<ObjectIdentifier title="Kandi" text="Kandi"/>
+			<ObjectIdentifier title="98465" text="test Desc"/>
+			<ObjectIdentifier title="00125433" text="test Desc"/>
+		</HBox>-->
+		<f:SimpleForm class="toolCostSimpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="7" labelSpanM="6" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text="Basic Tool Cost" level="H3"/>
+				<Label text="Currency" design="Bold" />
+				<ComboBox  selectedKey="{TlCostCurrency}"
+					items="{ModelSSUDigitization>/F4ToolCurr}" editable="{ModelSSUDigitization>/EditableFlag}">
+					<core:Item text="{ModelSSUDigitization>CurrencyCode}" key="{ModelSSUDigitization>CurrencyCode}"></core:Item>
+				</ComboBox>
+				<Label text="Denomination" design="Bold" />
+				<ComboBox selectedKey="{CurrDenomination}"
+					items="{oDataNewPinfoModel>/ES_Denominator}" editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop"
+					selectionChange="onChangeBaseDenomi">
+					<core:Item text="{oDataNewPinfoModel>DenomDesc}" key="{oDataNewPinfoModel>DenomCode}"></core:Item>
+				</ComboBox>
+				<Label text="Budgeted" design="Bold"/>
+				<Input  value="{Budgeted}"
+					editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+				<Label text="Finalized Amortised" design="Bold"/>
+				<Input  value="{FinalAmortized}" type="Number"
+					liveChange="onChangeBaseAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Finalised UpFront" design="Bold"/>
+				<Input  value="{Finalupfront}" type="Number"
+					liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Amortization (Nos.)" design="Bold"/>
+				<Input  value="{Amortisation}" type="Number"
+					liveChange="onChangeBaseAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Tool Amortization/Pc" design="Bold"/>
+				<Text text="{ToolAmortisation}"></Text>
+				<core:Title text="Revenue Cost" level="H3"/>
+				<!--	<Label text="DVP" design="Bold"/>
+				<Input value="{Dvp}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>-->
+				<Label text="Rev.Currency" design="Bold"/>
+				<ComboBox selectedKey="{RevCurrency}" items="{ModelSSUDigitization>/F4ToolCurr}" editable="{ModelSSUDigitization>/EditableFlag}"
+					selectionChange="onRevCurrChange">
+					<core:Item text="{ModelSSUDigitization>CurrencyCode}" key="{ModelSSUDigitization>CurrencyCode}"></core:Item>
+				</ComboBox>
+				<Label text="Rev.Denomination" design="Bold"/>
+				<ComboBox selectedKey="{RevDenomination}" items="{oDataNewPinfoModel>/ES_Denominator}" editable="{ModelSSUDigitization>/EditableFlag}"
+					selectionChange="onChangeRevDenomi" change="onChangeDrop">
+					<core:Item text="{oDataNewPinfoModel>DenomDesc}" key="{oDataNewPinfoModel>DenomCode}"></core:Item>
+				</ComboBox>
+				<Label text="Rev.Budgeted" design="Bold"/>
+				<Input value="{RevBudgeted}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+				<Label text="Rev.Finalized Amortised" design="Bold"/>
+				<Input value="{RevFinalAmortized}" type="Number" liveChange="onChangeRevAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Rev.Finalised UpFront" design="Bold"/>
+				<Input value="{RevFinalUpfront}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Amortization(Nos.)" design="Bold"/>
+				<Input value="{RevAmortization}" type="Number" liveChange="onChangeRevAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Tool Amortization/Pc" design="Bold"/>
+				<Text text="{RevTlAmortization}"></Text>
+				<core:Title text="ED &amp; D" level="H3"/>
+				<!--<Label text="ED &amp; D" design="Bold"/>
+				<Input value="{EdD}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>-->
+				<Label text="ED.Currency" design="Bold"/>
+				<ComboBox selectedKey="{EdCurrency}" items="{ModelSSUDigitization>/F4ToolCurr}" editable="{ModelSSUDigitization>/EditableFlag}"
+					selectionChange="onEdCurrChange">
+					<core:Item text="{ModelSSUDigitization>CurrencyCode}" key="{ModelSSUDigitization>CurrencyCode}"></core:Item>
+				</ComboBox>
+				<Label text="ED.Denomination" design="Bold"/>
+				<ComboBox selectedKey="{EdDenomination}" items="{oDataNewPinfoModel>/ES_Denominator}" editable="{ModelSSUDigitization>/EditableFlag}"
+					selectionChange="onChangeEdDenomi" change="onChangeDrop">
+					<core:Item text="{oDataNewPinfoModel>DenomDesc}" key="{oDataNewPinfoModel>DenomCode}"></core:Item>
+				</ComboBox>
+				<Label text="ED.Budgeted" design="Bold"/>
+				<Input value="{EdBudgeted}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+				<Label text="ED.Finalized Amortised" design="Bold"/>
+				<Input value="{EdFinalAmortized}" type="Number" liveChange="onChangeEdAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="ED.Finalised UpFront" design="Bold"/>
+				<Input value="{EdFinalUpfront}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Amortization(Nos.)" design="Bold"/>
+				<Input value="{EdAmortization}" type="Number" liveChange="onChangeEdAmotizn" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Tool Amortization/Pc" design="Bold"/>
+				<Text text="{ToolAmortization}"></Text>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="OK" press="onToolOk" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

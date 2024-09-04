@@ -1,0 +1,124 @@
+{
+	"PageTitle": "",
+	"EditableFlag": false,
+	"DisplayOnlyFlag": true,
+	"NotCreateNew": true,
+	"BEValidation": false,
+	"PostToSAP" : false,
+	"SelectedTab": "VP",
+	"isAddNew": false,
+	"PaperDataSet": {},
+	"TabIconColor": {
+		"VendorPartDetails": "Positive",
+		"Attachment": "Positive",
+		"Workflow": "Positive"
+	},
+	"F4Curr": [{
+			"Key": "EURO"
+		},{
+			"Key": "GBP"
+		},{
+			"Key": "JPY"
+		},{
+			"Key": "KRW"
+		},{
+			"Key": "RMB"
+		},{
+			"Key": "USD"
+	}],
+	"PartDet": [{
+		"headerText": "Part Number",
+		"bkKey": "PartDesc",
+		"bkText": "PartNo",
+		"selected": true,
+		"fixed": true,
+		"width": "18%"
+	}, {
+		"headerText": "Vendor",
+		"bkKey": "VName",
+		"bkText": "Vendor",
+		"selected": true,
+		"fixed": true,
+		"width": "17%",
+		"importVendor":"ImportFlag"
+	}, {
+		"headerText": "Vendor Location",
+		"bkKey": "VLocation",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Plant",
+		"bkKey": "Plant",
+		"selected": true,
+		"fixed": true,
+		"width": "8rem"
+	}, {
+		"headerText": "P-Info Record",
+		"bkKey": "PirNo",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Existing Price",
+		"bkKey": "ExtPrice",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Settled Price",
+		"bkKey": "SettledPrice",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Change in percentage",
+		"bkKey": "ChgPrctng",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Sign",
+		"bkKey": "Sign",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Amendment",
+		"bkKey": "AmndcodeDesc",
+		"bkText": "Amndcode",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Currency",
+		"bkKey": "Currency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Valid From Date",
+		"bkKey": "ValidFrom",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "P-Info category",
+		"bkKey": "Pinforcat",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Organization",
+		"bkKey": "Purorg",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}]
+}

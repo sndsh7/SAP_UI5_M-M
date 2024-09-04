@@ -1,0 +1,119 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="60%" resizable="true">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="PO Item Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Purchasing Org" design="Bold" />
+				<Text text="INPO" class="clsText"/>
+				
+				<Label text="Vendor" design="Bold" />
+				<Input  value="{Vendor}" editable="false" showValueHelp="true"  valueHelpRequest="onVendorValHelp" 
+					   submit="onSubmitVendorCode" valueHelpOnly="true"  />
+				
+				<Label text="Vendor Name " design="Bold"/>
+				<Text  text="{VendName}" class="clsText"/>
+				
+				
+				
+				<Label text="Plant" design="Bold" />
+				<Input  value="{Plant}" editable="false" showValueHelp="true" valueHelpRequest="onPlantValueHelp"
+						 submit="onSubmitPlantCode" valueHelpOnly="true"  />
+				
+				<Label text="SLoc" design="Bold" />
+				<Input  value="{StrLoc}" editable="false" showValueHelp="true" valueHelpRequest="onStorageLocationValueHelp"
+						submit="onSubmitStorageLocation" valueHelpOnly="true"/>
+				
+				<Label text="Part No." design="Bold" />
+				<Input  value="{Material}" editable="false" showValueHelp="true"  valueHelpRequest="onMaterialValueHelp"
+						submit="onSubmitMaterial" valueHelpOnly="true" />
+				
+				<Label  text="Part Description" design="Bold"/>
+				<Text text="{MaterialDesc}" class="clsText"/>
+				
+				<Label  text="Delivery Date" design="Bold" />
+				<DatePicker  placeholder="DD MM YYYY" minDate="{ModelSSUDigitization>/DeliveryDate}" displayFormat="dd MM yyyy"  
+							 editable="false" change="onDateChange" 
+							 value="{path:'DelvryDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"
+							 />
+				
+					<!-- value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/> -->
+				<core:Title text=""/>
+				
+				
+				<Label  text="Qty Per Vehicle" design="Bold"/>
+				<Input value="{ProtoPerVeh}"  liveChange="handleNumericValidation" 
+					   editable="false" change="onProtoQtyPerVehChange"/>
+				
+				<Label text="Quoted Price" design="Bold"/>
+				<Input value="{QutProtoProce}" editable="false"
+					   change="onQutProtoPriceChange"/>
+				
+				<Label text="Vehicle Set Qty Reqd" design="Bold"/>
+				<Input value="{CurrenttSetQt}"  editable="false" 
+					   liveChange="handleNumericValidation" change="onVehicleQunatityChange"/>
+					   
+			<!-- Changes by Agnivesh -->					   
+				<Label text="Proto Qty to be ordered" design="Bold"/>
+				<Text text="{PrOrderQty}" class="clsText"/>
+				
+				<Label text="Existing Vehicle Set Qty" design="Bold"/>
+				<Text text="{ExtSetQty}" class="clsText"/>
+				
+				<Label text="Cumulative Vehicle Set Qty" design="Bold"  wrapping="true"/>
+				<Text text="{CumSetQty}" class="clsText"/>
+				
+				<!-- <Label text="CDMM Justification" design="Bold"  wrapping="true"/>
+				<TextArea value="{Note}" rows="2" change="onNoteChange" editable="false"/> -->
+				
+				<Label text="Settled Price" design="Bold"  wrapping="true" required="true"/>
+				<Input value="{SettledPrice}" required="true"  editable="{ModelSSUDigitization>/POEditableFlag}"
+					   liveChange="handleNumericValidation" type="Number"/>
+				<Label text="Tax Code" design="Bold" required="true"/>
+				<ComboBox required="true" value="{TaxCode}" items="{ModelSSUDigitization>/F4TaxCode}" change="OnTaxCodeChange"
+					editable="{ModelSSUDigitization>/POEditableFlag}" valueState="{path:'uiFields/MassValidation/TaxcodeFalg',formatter:'.formattValidationError'}"
+					valueStateText="{uiFields/MassValidation/TaxcodeFalg}" class="clsTaxCode" showSecondaryValues="true">
+					<core:ListItem text="{ModelSSUDigitization>TaxCode}" key="{ModelSSUDigitization>TaxCode}" additionalText="{ModelSSUDigitization>TaxCodeTxt}"/>
+				</ComboBox>
+				<!-- <Input  value="{TaxCode}"  showValueHelp="true"  valueHelpRequest="onTaxCodeValueHelp"
+						submit="onSubmitTaxCode" valueHelpOnly="true" editable="{ModelSSUDigitization>/POEditableFlag}" /> -->
+				<!-- <Input required="true" liveChange="onTaxcodeChange" 	showSuggestion="true"
+					   suggestionItems="{F4TaxCode}" 
+					   submit="onSubmitTaxCode"  value="{TaxCode}">
+					   	<suggestionItems>
+							<core:ListItem text="{TaxCode}" additionalText="{TaxCodeTxt}"/>
+						</suggestionItems>
+				</Input> -->
+				
+				
+				<Label  text="Tax Code Text" design="Bold"/>
+				<Text text="{TaxCodeTxt}" class="clsText"/>
+				
+								
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ColumnLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<Label text="CDMM Justification" design="Bold"  wrapping="true"/>
+				<TextArea value="{Note}" rows="3" change="onNoteChange" editable="false"/>
+				<Label text="SSU Initiator Remarks" design="Bold"  wrapping="true"/>
+				<TextArea value="{SSURemark}" rows="3" change="onNoteChange" editable="{ModelSSUDigitization>/POEditableFlag}"
+				 />
+				
+		</f:content>
+		</f:SimpleForm>
+		<buttons>
+<!-- 			<Button text="" class="clsErrBtnPopover" press="onErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"></Button>
+ -->			<Button text="OK" press="onOkItemDetail" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

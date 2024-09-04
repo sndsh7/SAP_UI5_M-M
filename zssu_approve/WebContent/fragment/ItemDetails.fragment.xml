@@ -1,0 +1,90 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="55%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--<VBox>-->
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Plant" design="Bold"/>
+				<Text text="{Plant}" class="clsText"/>
+				<Label text="Part Number" design="Bold"/>
+				<Text text="{PartNo}" class="clsText"/>
+				<Label text="Part Description" design="Bold"/>
+				<Text text="{PartDesc}" class="clsText"/>
+				<Label text="Vendor Code" design="Bold"/>
+				<Text text="{Vendor}" class="clsText"/>
+				<Label text="Vendor Name" design="Bold"/>
+				<Text text="{VName}" class="clsText"/>
+				<Label text="Vendor Location" design="Bold"/>
+				<Text text="{VLocation}" class="clsText"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}" class="clsText"/>
+				<Label text="Quote Price" design="Bold"/>
+				<Text text="{QuotePrice}" class="clsText"/>
+				<Label text="SBC/Existing Price" design="Bold"/>
+				<Text text="{Sbcprice}" class="clsText"/>
+				<Label text="Settled Price" design="Bold" wrapping="true"/>
+				<VBox>
+					<Text text="{SettledPrice}" class="clsText"/>
+					<ObjectStatus class="sapUiSmallMarginEnd boldcls" text="#Inclusive of Packaging &amp; Transport" state="Warning"/>
+				</VBox>
+				<Label text="Price Unit" design="Bold" wrapping="true"/>
+				<Text text="{Priceunit}" class="clsText"/>
+				<Label text="Packaging Cost" design="Bold"/>
+				<Text text="{PkgCost}" class="clsText"/>
+				<Label text="Transport Cost" design="Bold"/>
+				<Text text="{TranspCost}" class="clsText"/>
+				
+				<Label text="BAS Cond. Type" visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondType}" class="clsText" visible="{=${CondType}===''?false:true}"/>
+				<Label text="Cond. Type Desc." visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondTypText}" class="clsText" visible="{=${CondType}===''?false:true}"/>
+				<Label text="Cond. Percentage" design="Bold" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondPrcnt}" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondUnit}" class="clsText" visible="{=${CondType}===''?false:true}"/>
+				
+				<core:Title text=""/>
+				<Label text="Purchase Group" design="Bold"/>
+				<Text text="{Purgrp}" class="clsText"/>
+				<Label text="Delivery Time" design="Bold"/>
+				<Text text="{Pdeltime}" class="clsText"/>
+				<Label text="Delivery terms" design="Bold"/>
+				<Text text="{DelTerms}" class="clsText"></Text>
+				<Label text="Payment Term" design="Bold"/>
+				<Text text="{PaymntTerms}" class="clsText"></Text>
+				<Label text="P-Info category" design="Bold"/>
+				<Text text="{Pinforcat}" class="clsText"/>
+				<Label text="Purchase Organisation" design="Bold"/>
+				<Text text="{Purorg}" class="clsText"/>
+				<Label text="Tax Code" design="Bold"/>
+				<Text text="{Taxcode}" class="clsText"/>
+				<Label text="Tax Code Description" design="Bold"/>
+				<Text text="{TcDesc}" class="clsText" tooltip="{TcDesc}"/>
+				<Label text="Net Weight" design="Bold"/>
+				<Text text="{NetWeight}" class="clsText"/>
+				<Label text="Net Weight Unit" design="Bold"/>
+				<Text text="{NetWtUnit}" class="clsText"/>
+				<Label text="Taxonomy" design="Bold"/>
+				<Text text="{Taxonomy}" class="clsText"/>
+				<Label text="Annual Capacity" design="Bold"/>
+				<Text text="{AnnualCap}" class="clsText"/>
+				<Label text="Model Variant" design="Bold"></Label>
+				<Text text="{ModelVar}" class="clsText"/>
+				<Label text="Drg. Rev. No." design="Bold"></Label>
+				<Text text="{DrawingRevisedNo}" class="clsText"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="OK" press="onOkItemDetail" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

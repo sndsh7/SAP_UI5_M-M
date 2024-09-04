@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog class="custClassFilter" title="Filtering" confirm="onViewSettingsConfirm">
+		<filterItems>
+			<ViewSettingsFilterItem text="P-info" key="pinfo" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Pending for Approval" key="draft"/>
+					<ViewSettingsItem text="Approved" key="pending"/>
+					<ViewSettingsItem text="Rejected" key="rejected"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Package" key="package" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Pending for Approval" key="draft"/>
+					<ViewSettingsItem text="Approved" key="pending"/>
+					<ViewSettingsItem text="Rejected" key="rejected"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Forex" key="forex" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Pending for Approval" key="draft"/>
+					<ViewSettingsItem text="Approved" key="pending"/>
+					<ViewSettingsItem text="Rejected" key="rejected"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

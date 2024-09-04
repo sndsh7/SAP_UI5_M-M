@@ -1,0 +1,136 @@
+{
+	"EditableFlag": false,
+	"InitiatedBySSU": true,
+	"DisplayOnlyFlag": true,
+	"NotCreateNew": true,
+	"BEValidation": false,
+	"PostToSAP" : false,
+	"NonSSURequest": false, 
+	"SelectedTab": "VP",
+	"isAddNew": false,
+	"MessageList": [{
+		"type": "Success",
+		"title": "title",
+		"description": "description description description description",
+		"subtitle": "subtitle",
+		"counter": 1
+	}, {
+		"type": "Error",
+		"title": "Success message",
+		"description": "First Success message description",
+		"subtitle": "Example of subtitle",
+		"counter": 1
+	}],
+	"PaperDataSet": {},
+	"TabIconColor": {
+		"VendorPartDetails": "Positive",
+		"Attachment": "Positive",
+		"Workflow": "Positive"
+	},
+	"PartDet": [{
+		"headerText": "Part Number",
+		"bkKey": "PartDesc",
+		"bkText": "PartNo",
+		"selected": true,
+		"fixed": true,
+		"width": "18%"
+	}, {
+		"headerText": "Existing Vendor",
+		"bkKey": "Vendor",
+		"selected": false,
+		"fixed": false,
+		"width": "17%"
+	}, {
+		"headerText": "Existing Plant",
+		"bkKey": "Plant",
+		"selected": false,
+		"fixed": false,
+		"width": "8rem"
+	}, {
+		"headerText": "Revised Vendor",
+		"bkKey": "RvVName",
+		"bkText": "RvVendor",
+		"selected": true,
+		"fixed": true,
+		"width": "17%"
+	}, {
+		"headerText": "Vendor Location",
+		"bkKey": "RvVLocation",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Revised Plant",
+		"bkKey": "RvPlant",
+		"selected": true,
+		"fixed": true,
+		"width": "8rem"
+	}, {
+		"headerText": "Settled Price",
+		"bkKey": "SettledPrice",
+		"selected": true,
+		"fixed": true,
+		"width": ""
+	}, {
+		"headerText": "Existing Price",
+		"bkKey": "ExtPrice",
+		"selected": true,
+		"fixed": true,
+		"width": ""
+	}, {
+		"headerText": "Delta Price",
+		"bkKey": "DeltaPrice",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Valid From Date",
+		"bkKey": "ValidFrom",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Currency",
+		"bkKey": "Currency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Group",
+		"bkKey": "Purgrp",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Taxonomy",
+		"bkKey": "Taxonomy",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "P-Info category",
+		"bkKey": "Pinforcat",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Organization",
+		"bkKey": "Purorg",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Tax Code",
+		"bkKey": "Taxcode",
+		"bkText": "TcDesc",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}]
+}

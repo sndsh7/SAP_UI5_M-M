@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" showHeader="true">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Columns Selection"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<List mode="MultiSelect"/>
+		<buttons>
+			<Button text="OK" press="onSettingOk" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"></Button>
+			<!--<Button text="Cancel" press="onSettingCancel" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>-->
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

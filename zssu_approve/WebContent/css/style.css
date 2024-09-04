@@ -1,0 +1,64 @@
+.clsHeaderForm h5 {
+    display: none;
+}
+
+.clsText {
+    border-bottom: 1px solid #bfbfbf !important;
+}
+
+.clsMasterList .clsMaster {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: inset;
+    border-radius: 7px;
+}
+
+.simpleFormTitle .sapUiFormTitle {
+    display: none;
+}
+
+.toolCostSimpleFormTitle .sapUiFormTitle {
+    text-align: center;
+}
+
+.toolCostHead div.sapMFlexItem {
+    width: 50%;
+}
+
+.custClassHeader {
+    background-color: #e31837 !important;
+}
+
+.custClsHeaderTitle {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.custClassTblTool {
+    background-color: #eff4f9;
+}
+
+.clsRadioLabel {
+    padding-top: 8px;
+}
+
+.clsPanelText {
+    font-weight: bold;
+}
+
+.custClassFilter header > div {
+    background-color: #e31837 !important;
+}
+
+.custClassFilter .sapMVSDTitle {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.clsPanelHbox .clsPanelText {
+    font-weight: bold;
+}
+
+.clsPanelHbox > div {
+    padding-right: 40px;
+}

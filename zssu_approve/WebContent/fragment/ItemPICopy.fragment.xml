@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="60%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--<VBox>-->
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Existing Plant" design="Bold"/>
+				<Text text="{Plant}" class="clsText"/>
+				<Label text="Part Number" design="Bold"/>
+				<Text text="{PartNo}" class="clsText"/>
+				<Label text="Part Description" design="Bold"/>
+				<Text text="{PartDesc}" class="clsText"/>
+				<Label text="Existing Vendor" design="Bold"/>
+				<Text text="{Vendor}" class="clsText"/>
+				
+				<Label text="Revised Plant" design="Bold"/>
+				<Text text="{RvPlant}" class="clsText"/>
+				<Label text="Revised Vendor" design="Bold"/>
+				<Text text="{RvVendor}" class="clsText"/>
+				<Label text="Vendor Name" design="Bold"/>
+				<Text text="{RvVName}" class="clsText"/>
+				<Label text="Vendor Location" design="Bold"/>
+				<Text text="{RvVLocation}" class="clsText"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}" class="clsText"/>
+				<Label text="Taxonomy" design="Bold"/>
+				<Text text="{Taxonomy}" class="clsText"/>
+				
+				<core:Title text=""/>
+				
+				<Label text="BAS Cond. Type" visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondType}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Label text="Cond. Type Desc." visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondTypText}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Label text="Cond. Percentage" design="Bold" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondPrcnt}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Text text="{CondUnit}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				
+				<Label text="Tax Code" design="Bold"/>
+				<Text text="{Taxcode}" class="clsText"/>
+				<Label text="Tax Code Description" design="Bold"/>
+				<Text text="{TcDesc}" class="clsText" tooltip="{TcDesc}"/>
+				<Label text="Purchase Group" design="Bold"/>
+				<Text text="{Purgrp}" class="clsText"/>
+				<Label text="P-Info category" design="Bold" />
+				<Text text="{path:'Pinforcat',formatter:'.formattPInfoCatText'}" class="clsText"/>
+				<Label text="Purchase Organisation" design="Bold"/>
+				<Text text="{Purorg}" class="clsText"/>
+				<Label text="Valid From Date" design="Bold"/>
+				<DatePicker placeholder="dd.mm.yyyy" displayFormat="dd.mm.yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+					value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+				<Label text="Existing Price" design="Bold"/>
+				<Text text="{ExtPrice}" class="clsText"/>
+				<Label text="Settled Price" design="Bold" wrapping="true"/>
+				<Text text="{SettledPrice}" class="clsText"/>
+				<Label text="Price Unit" design="Bold" wrapping="true"/>
+				<Text text="{Priceunit}" class="clsText"/>
+				<Label text="Delta Price" design="Bold"/>
+				<Text text="{DeltaPrice}" class="clsText"/>
+			</f:content>
+		</f:SimpleForm>
+		<!--</VBox>-->
+		<buttons>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

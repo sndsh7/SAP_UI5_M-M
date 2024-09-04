@@ -1,0 +1,110 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="55%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Plant" design="Bold" required="true"/>
+				<!-- <ComboBox required="true" selectedKey="{Plant}" items="{ModelSSUDigitization>/F4Plant}" selectionChange="onPlantCode"
+					editable="{ModelSSUDigitization>/EditableFlag}" valueState="{path:'uiFields/MassValidation/PlantFlag',formatter:'.formattValidationError'}"
+					valueStateText="{uiFields/MassValidation/PlantFlag}">
+					<core:Item text="{ModelSSUDigitization>PlantCode}-{ModelSSUDigitization>PlantDesc}" key="{ModelSSUDigitization>PlantCode}"/>
+				</ComboBox> -->
+				<Text text="{Plant}" class="clsText"/>
+				<Label text="Part Number" design="Bold" required="true"/>
+				<Input required="true" value="{PartNo}" showValueHelp="true" valueHelpRequest="onPartValueHelp"
+				editable="false"></Input>
+				<Label text="Part Description" design="Bold"/>
+				<Text text="{PartDesc}" class="clsText"/>
+				<Label required="true" text="Vendor Code" design="Bold"/>
+				<Input required="true" value="{Vendor}" valueHelpRequest="onVendorValHelp" editable="false" showValueHelp="true"/>
+				<Label text="Vendor Name" design="Bold"/>
+				<Text text="{VName}" class="clsText"/>
+				<Label text="Vendor Location" design="Bold"/>
+				<Text text="{VLocation}" class="clsText"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}" class="clsText"/>
+				<Label text="Existing Price" design="Bold"/>
+				<Text text="{ExtPrice}" class="clsText"/>
+				<!--<Input required="true" value="{ExtPrice}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>-->
+				<Label text="Settled Price" design="Bold" wrapping="true"/>
+				<Input value="{SettledPrice}" type="Number" submit="onSubmitSettlePrice" liveChange="onSettledSub" editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="Change in percentage" design="Bold"/>
+				<Text text="{ChgPrctng}" class="clsText"/>
+				<Label required="true" text="Valid From Date" design="Bold"/>
+				<DatePicker required="true" placeholder="DD MM YYYY" displayFormat="DD MM YYYY" editable="{ModelSSUDigitization>/EditableFlag}"
+					value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+				<core:Title text=""/>
+				<Label text="P-Info Record" design="Bold"/>
+				<Text text="{PirNo}" class="clsText"/>
+				<Label text="Purchase Organisation" design="Bold"  wrapping="true"/>
+				<Text text="{Purorg}" class="clsText"/>
+				
+				<Label text="Amendment Code" design="Bold" required="true"/>
+				<!-- <ComboBox required="false" selectedKey="{Amndcode}" items="{ModelSSUDigitization>/F4Amentment}" selectionChange="onAmentmendCode"
+					editable="false" showSecondaryValues="true">
+					<core:ListItem text="{ModelSSUDigitization>Zpricecd}" key="{ModelSSUDigitization>Zpricecd}" additionalText="{ModelSSUDigitization>Zreason}"/>
+				</ComboBox> -->
+				<Text text="{Amndcode}" class="clsText"/>
+				<Label text="Amendment Code Descrption" design="Bold" wrapping="true"/>
+				<Text text="{AmndcodeDesc}" class="clsText"/>
+				
+				
+				<Label text="Existing Valid From Date" design="Bold" wrapping="true"/>
+				<!-- <Input value="{ValidFrom}" editable="{ModelSSUDigitization>/EditableFlag}"/> -->
+				<DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="false"
+					value="{path:'ExtValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+					
+				
+				
+				
+				
+				
+				<Label text="P-Info category" design="Bold"/>
+				<!-- <ComboBox required="false" selectedKey="{Pinforcat}" items="{oDataAmendmentModel>/ES_Category}" selectionChange="onInfoCategorySel"
+					editable="{=${ModelSSUDigitization>/PaperDataSet/PriceChange} === 0?true:false}" showSecondaryValues="true">
+                    <core:ListItem text="{oDataAmendmentModel>CatDesc}" key="{oDataAmendmentModel>CatCode}" additionalText="{oDataAmendmentModel>CatCode}"/>
+                </ComboBox> -->
+				<Text text="{path:'Pinforcat',formatter:'.formatterPinfoCatText'}"/>
+				<!-- New Field Inserted by Agnivesh -->
+				<Label text="Discounted Condition" design="Bold" visible="{=${ModelSSUDigitization>/PaperDataSet/PriceChange}===0?true:false}"/>
+				<Text text="{DiscountCond}" class="clsText" visible="{=${ModelSSUDigitization>/PaperDataSet/PriceChange}===0?true:false}"/>
+				
+				<Label text="Current Payment term" design="Bold" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}"/>
+				<Text text="{CurrentTerm}" class="clsText" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}"/>
+				
+				<Label text="New Payment term" design="Bold" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}"/>
+				<Input required="false" value="{NewPayTerm}" showValueHelp="true" valueHelpRequest="onNPayTermValHelp"
+					visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}" editable="{ModelSSUDigitization>/EditableFlag}" 
+					submit="onSubmitPayterm">
+				</Input>
+				
+				<Label text="Payment term Description" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}" wrapping="true" design="Bold"/>
+				<Text text="{NewPayTermDesc}" class="clsText" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visiblePayTerm'}"/>
+				
+				<Label text="Inco term" design="Bold" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}"/>
+				<Text text="{IncoTerm}" class="clsText" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}"/>
+				
+				<Label text=" New Inco term" design="Bold" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}"/>
+				<Input required="false" value="{NewIncoTerm}" showValueHelp="true" valueHelpRequest="onNIncoTermValHelp"
+					visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}" editable="{ModelSSUDigitization>/EditableFlag}" 
+					submit="onSubmitPayterm">
+				</Input>
+				
+				<Label text="Inco term Description" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}" design="Bold"/>
+				<Text text="{NewIncoTermDesc}" class="clsText" visible="{path:'ModelSSUDigitization>/PaperDataSet/TermsType',formatter:'.visibleInco'}"/>
+				
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

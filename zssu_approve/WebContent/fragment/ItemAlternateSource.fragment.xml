@@ -1,0 +1,97 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="60%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--<VBox>-->
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Plant" design="Bold" required="true"/>
+				
+				<Text text="{Plant}" class="clsText"/>
+				<Label text="Part Number" design="Bold" required="true"/>				
+					<Text text="{PartNo}" class="clsText"/>
+					
+				<Label text="Part Description" design="Bold"/>
+				<Text text="{PartDesc}" class="clsText"/>
+				
+				<Label required="true" text="Existing Vendor" design="Bold"/>
+					<Text text="{Vendor}" class="clsText"/>
+								
+				<Label text="Existing Vendor Name" design="Bold"/>
+				<Text text="{VName}" class="clsText"/>
+				<Label text="Existing Vendor Location" design="Bold"/>
+				<Text text="{VLocation}" class="clsText"/>
+				
+				
+				
+				<Label required="true" text="Revised Vendor" design="Bold"/>
+				<Text text="{RvVendor}" class="clsText"/>
+				<!-- editable="{parts:[{path:'ModelSSUDigitization>/EditableFlag'},{path:'RvPlant'}, {path:'ModelSSUDigitization>/InitiatedBySSU'}],formatter:'.formatterPartEdit'}" -->
+				<Label text="Revised Vendor Name" design="Bold"/>
+				<Text text="{RvVName}" class="clsText"/>
+				<Label text="Revised Vendor Location" design="Bold"/>
+				<Text text="{RvVLocation}" class="clsText"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}" class="clsText"/>
+				<Label text="Taxonomy" design="Bold"/>
+				<Text text="{Taxonomy}" class="clsText"/>
+				<Label text="P-Info Record" design="Bold"/>
+				<Text text="{PirNo}" class="clsText"/>
+				<Label text="P-Info category" required="true" design="Bold"/>
+				<Text text="{path:'Pinforcat',formatter:'.formattPInfoCatText'}" class="clsText"/>
+				<core:Title text=""/>
+				
+				<Label text="BAS Cond. Type" visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondType}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Label text="Cond. Type Desc." visible="{=${CondType}===''?false:true}" design="Bold"/>
+				<Text text="{CondTypText}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Label text="Cond. Percentage" design="Bold" visible="{=${CondType}===''?false:true}"/>
+				<Text text="{CondPrcnt}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				<Text text="{CondUnit}" visible="{=${CondType}===''?false:true}" class="clsText"/>
+				
+				<Label text="Delivery Time" design="Bold" required="true"/>				
+				<Text text="{Pdeltime}" class="clsText"/>
+				
+				<Label text="Tax Code" required="true" design="Bold"/>
+				<Text text="{Taxcode}" class="clsText"/>
+				<Label text="Tax Code Description" design="Bold"/>
+				<Text text="{TcDesc}" class="clsText" tooltip="{TcDesc}"/>
+				<Label text="Purchase Group" design="Bold" required="true"/>
+				<Text text="{Purgrp}" class="clsText" tooltip="{TcDesc}"/>
+				<Label text="Purchase Organisation" design="Bold" required="true"/>
+				<Text text="{Purorg}" class="clsText" tooltip="{TcDesc}"/>
+				<Label required="true" text="Valid From Date" design="Bold"/>
+				<DatePicker required="true" placeholder="dd.mm.yyyy" displayFormat="dd.mm.yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+					value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+				
+				<Label text="Existing Price" design="Bold"/>
+				<Text text="{ExtPrice}" class="clsText"/>
+				<Label text="Settled Price" design="Bold" required="true" wrapping="true"/>
+				<Text text="{SettledPrice}" class="clsText"/>
+				<Label text="Price Unit" design="Bold" wrapping="true"/>
+				<Text text="{Priceunit}" class="clsText"/>
+				<!-- <Label text="Delta Price" design="Bold"/>
+				<Text text="{DeltaPrice}" class="clsText"/> -->
+				<Label text="Existing SOB(%)" design="Bold"/>
+				<Text text="{ExistingSob}" class="clsText"/>
+				<Label text="Revised SOB(%)" design="Bold" required="true" wrapping="true"/>
+				<Text text="{RevisedSob}" class="clsText"/>
+				<Label text="New PIR" design="Bold" visible="{=${PirNo}?true:false}"/>
+				<Text text="{PiCopy}" class="clsText" visible="{=${PiCopy}?true:false}"/>
+				<Label text="Remarks" design="Bold"></Label>
+				<TextArea value="{Remarks}" editable="{ModelSSUDigitization>/EditableFlag}" growing="true" growingMaxLines="4"/>
+			</f:content>
+		</f:SimpleForm>
+		<!--</VBox>-->
+		<buttons>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

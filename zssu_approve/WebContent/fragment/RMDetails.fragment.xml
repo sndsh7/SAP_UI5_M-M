@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterOpen="" binding="{/}" afterClose="onAfterCloseFragment" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="RM Content Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="simpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Grade of RM &amp; Gross weight" design="Bold"/>
+				<Input tooltip="Grade" value="{RmGrade}" editable="false"/>
+				<Input tooltip="weight" value="{RmGrossWt}" editable="false"/>
+				<Label text="Index Cycle" design="Bold"/>
+				<Input value="{RmIndexCycle}" editable="false"/>
+				<Input value="{RmIndexCycleVal}" editable="false"/>
+				<Label text="Landing Factor" design="Bold"/>
+				<Input value="{RmLandingFact}" editable="false"/>
+				<Input value="{RmLandingFactVal}" editable="false"/>
+				<core:Title text=""/>
+				<Label text="Base Period" design="Bold"/>
+				<Input tooltip="month" value="{RmBasePeriod}" editable="false"/>
+				<Input tooltip="year" value="{RmBasePeriodYr}" editable="false"/>
+				<Label text="RM Base Price" design="Bold"/>
+				<Input value="{RmBasePrice}" editable="false"/>
+				<Label text="Remarks" design="Bold"/>
+				<Input value="{RmRemarks}" editable="false"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="OK" press="onRmOK" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}" visible="false"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

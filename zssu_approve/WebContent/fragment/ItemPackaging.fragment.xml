@@ -1,0 +1,80 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="60%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Part Price Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<f:SimpleForm class="simpleFormTitle" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6"
+			labelSpanS="12" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" binding="{/}">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Plant" design="Bold"/>
+				<Text text="{Plant}" class="clsText"/>
+				<Label text="Part Number" design="Bold"/>
+				<Text text="{PartNo}" class="clsText"/>
+				<Label text="Part Description" design="Bold"/>
+				<Text text="{PartDesc}" class="clsText"/>
+				<Label text="Vendor Code" design="Bold"/>
+				<Text text="{Vendor}" class="clsText"/>
+				<Label text="Vendor Name" design="Bold"/>
+				<Text text="{VName}" class="clsText"/>
+				<Label text="Vendor Location" design="Bold"/>
+				<Text text="{VLocation}" class="clsText"/>
+				<Label text="P-Info Record" design="Bold"/>
+				<Text text="{PirNo}" class="clsText"/>
+				
+				<Label text="Taxonomy" design="Bold"/>
+				<Text text="{Taxonomy}" class="clsText"/>
+				<Label text="Currency" design="Bold"/>
+				<Text text="{Currency}" class="clsText"/>
+				
+				<Label text="Existing Packaging" design="Bold" required="true" wrapping="true"/>
+				<Text text="{ExistngPackg}" class="clsText"/>
+				
+				<Label text="Settled Packaging" design="Bold" required="true" wrapping="true"/>
+				<Text text="{SettldPackg}" class="clsText"/>
+				
+				
+				<core:Title text=""/>
+				<Label  text="Purchase Organisation" design="Bold" wrapping="true"/>
+				<Text text="{Purorg}" class="clsText"/>
+				<Label text="P-Info category" design="Bold"/>
+				<Text text="{PinfoCatText}" class="clsText"/>
+				<Label text="Existing Price" design="Bold"/>
+				<Text text="{ExtPrice}" class="clsText"/>
+				<Label text="Settled Price" design="Bold" wrapping="true"/>
+				<Text text="{SettledPrice}" class="clsText"/>
+				<Label text="Delta Price" design="Bold"/>
+				<Text text="{DeltaPrice}" class="clsText"/>
+				<Label text="Change in percentage" design="Bold"/>
+				<Text visible="{=${Sign}?true:false}" text="{Sign} VE" class="clsText"/>
+				<Text text="{ChgPrctng}" class="clsText"/>
+				
+				<Label text="Existing Valid From Date" design="Bold" wrapping="true"/>
+				<!-- <Input value="{ValidFrom}" editable="{ModelSSUDigitization>/EditableFlag}"/> -->
+				<DatePicker placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="false"
+					value="{path:'ExtValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+					
+				
+				
+				
+				
+				<Label text="Amendment Code" design="Bold"/>
+				<Text text="{Amndcode}" class="clsText"/>
+				<Label text="Amendment Descrption" design="Bold" wrapping="true"/>
+				<Text text="{AmndcodeDesc}" class="clsText"/>
+				<Label text="Valid From Date" design="Bold"/>
+				<DatePicker  maxDate="{uiFields/maxDate}" minDate="{uiFields/minDate}" required="true" placeholder="dd mm yyyy" displayFormat="MMM dd yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+					value="{path:'ValidFrom', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+				<Label text="Remarks" design="Bold"></Label>
+				<TextArea value="{Remarks}" editable="{ModelSSUDigitization>/EditableFlag}" growing="true" growingMaxLines="4"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

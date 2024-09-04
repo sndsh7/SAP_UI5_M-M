@@ -1,0 +1,165 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog  contentWidth="70%" class="sapUiSizeCompact">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="WorkFlow Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+			<HBox class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" justifyContent="Center" wrap="Wrap" binding="{/}">
+								<VBox>
+									<Label text="CDMM Initiator" required="true" class="sapUiLargeMarginBeginEnd"/>
+									<Input editable="false" value="{InitiatorName}" textAlign="Center"/>
+								</VBox>
+								
+								<VBox visible="{path:'ApprP1Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="CDMM Approver 1" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprP1Name}" textAlign="Center"/>								
+								</VBox>
+								
+								<VBox visible="{path:'ApprP2Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="CDMM Approver 2" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprP2Name}" textAlign="Center"/>								
+								</VBox>
+								
+								<VBox visible="{path:'ApprP3Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="CDMM Approver 3" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprP3Name}" textAlign="Center"/>								
+								</VBox>
+								
+								<!-- <VBox visible="{path:'ApprP4Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="CDMM Approval 4" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprP4Name}"/>								
+								</VBox> -->
+								
+								
+								<VBox visible="{path:'ApprSSName',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="SSU Executive" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprSSName}" textAlign="Center"/>
+								</VBox>
+								
+								<VBox visible="{path:'ApprA1Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="SSU Approver 1" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprA1Name}" textAlign="Center"/>								
+								</VBox>
+								
+								<VBox visible="{path:'ApprA2Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="SSU Approver 2" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>	
+									<Input editable="false" value="{ApprA2Name}" textAlign="Center"/>									
+								</VBox>
+								
+								<VBox visible="{path:'ApprA3Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="SSU Approver 3" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ApprA3Name}" textAlign="Center"/>
+								</VBox>
+								
+								<VBox visible="{path:'ApprA4Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="SSU Approver 4" required="true" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ApprA4Name}" textAlign="Center"/>
+								</VBox>
+								
+								<!-- <VBox visible="{path:'ApprA5Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approver Level 5" class="sapUiLargeMarginBeginEnd"/>									
+									</HBox>
+									<Input editable="false" value="{ApprA5Name}"/>
+								</VBox>
+								
+								<VBox visible="{path:'ApprA6Name',formatter:'visibleApprover'}">
+									<HBox>
+										<core:Icon src="sap-icon://arrow-right" class="size2" color="#64E4CE"/>
+										<Label text="Approver Level 6" class="sapUiLargeMarginBeginEnd"/>
+									</HBox>
+									<Input editable="false" value="{ApprA6Name}"/>
+								</VBox> -->
+							</HBox>
+							
+		   <Table noDataText="no data" 
+							items="{/Nav_Wf/results}">
+							<headerToolbar>
+								<Toolbar class="custClassTblTool">
+									<content>
+										<Label text="Workflow History" design="Bold"/>
+										<ToolbarSpacer/>
+									</content>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<!--<Column hAlign="Center" width="12%">
+									<Label text="User" design="Bold"/>
+								</Column>-->
+								<Column hAlign="Center" width="19%">
+									<Label text="Name" design="Bold"/>
+								</Column>
+								<Column hAlign="Center" width="10%">
+									<Label text="Level" design="Bold"/>
+								</Column>
+								<Column hAlign="Center" width="13%">
+									<Label text="Date" design="Bold"/>
+								</Column>
+								<Column hAlign="Center" width="10%">
+									<Label text="Time" design="Bold"/>
+								</Column>
+								<Column hAlign="Center" width="10%">
+									<Label text="Action" design="Bold"/>
+								</Column>
+									<Column hAlign="Center" width="10%">
+									<Label text="Ageing (Days)" design="Bold" wrapping = "true"/>
+								</Column>
+								<Column hAlign="Left">
+									<Label text="Comments" design="Bold"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<!--<Text text="{ModelSSUDigitization>Actuser}"/>-->
+										<Text text="{ActuserName}"/>
+										<Text text="{path:'UsrLevel',formatter:'setUserLevel'}"/>
+										<Text text="{path:'Createdon', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"/>
+										<Text text="{path:'Createdtm', formatter:'oDataMSToTime'}"/>
+										<Text text="{path:'Action',formatter:'setAction'}"/>
+										<Text text="{Ageing}"/>
+										<Text text="{UsrComment}"/>
+			
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+		<buttons>
+			<!-- <Button text="" class="clsErrBtnPopover" press="onErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"></Button>
+			<Button text="OK" press="onOkItemDetail" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button> -->
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,81 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="com.mahindra.ZSSU_Approve.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page>
+		<customHeader>
+			<Toolbar class="custClassHeader">
+				<ToolbarSpacer/>
+				<Title class="custClsHeaderTitle" text="Approval({ModelMasterData>/MasterListCount})" level="H2"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
+		<subHeader>
+			<Toolbar>
+				<SearchField placeholder="Search" width="100%" liveChange="onSearchMaster"></SearchField>
+				<!--<Button icon="sap-icon://filter" press="onClickFilter"/>-->
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List class="clsMasterList" id="list" items="{ModelMasterData>/MasterList}" mode="SingleSelectMaster"
+				selectionChange="onSelectionChange">
+				<CustomListItem>
+					<l:Grid hSpacing="1" vSpacing="0" defaultSpan="L12 M12 S12" class="clsMaster">
+						<l:content>
+							<Label text="{ModelMasterData>NpiNo}" textAlign="Begin" class="PRNo" design="Bold">
+								<!-- <layoutData>
+									<l:GridData span="L8 M8 S8" />
+								</layoutData> -->
+							</Label>
+							<!-- <VBox justifyContent="End" alignItems="End">
+								<Label
+									text="{parts:[{path : 'Preis'},{path : 'Werks'}], formatter :'.formatter.masterListPriceFormat'}"
+									textAlign="End" class="Amount" />
+								<Label text="{Waers}" textAlign="End" class="PriceFormat" />
+								<layoutData>
+									<l:GridData span="L4 M4 S4" />
+								</layoutData>
+							</VBox> -->
+							<Label text="{ModelMasterData>Sector}" visible="{= ${Sector} !== ''? true : false}" textAlign="Begin">
+								<!-- <layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData> -->
+							</Label>
+							<Label text="{ModelMasterData>Model}" textAlign="Begin">
+								<!-- <layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData> -->
+							</Label>
+							
+							<Label text="{ModelMasterData>PaperText}" visible="{= ${PaperText} !== ''? true : false}" textAlign="Begin">
+								<!-- <layoutData>
+									<l:GridData span="L7 M5 S5"/>
+								</layoutData> -->
+							</Label>
+							<Label text="{ModelMasterData>InitiatorName}" visible="{= ${InitiatorName} !== ''? true : false}" textAlign="Begin">
+								<!-- <layoutData>
+									<l:GridData span="L5 M5 S5"/>
+								</layoutData> -->
+							</Label>
+							<!-- <Label
+								text="Approved date : {parts:[{path : 'Erdat'}], formatter :'.formatter.dateFormat'}"
+								textAlign="Begin">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Label>
+							<Link text="{REQJUST}" press="onClickShortText"
+								visible="{= ${REQJUST} !== ''? true : false}">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Link> -->
+							<!--<HBox justifyContent="End" class="Buttons">
+								<Button icon="{ModelDefaultDataSet>/Icon/acceptIcon}" type="Accept" text="Approve" press="onApprove"></Button>
+								<Button icon="{ModelDefaultDataSet>/Icon/cancelIcon}" type="Reject" text="Reject" press="onReject"></Button>
+							</HBox>-->
+						</l:content>
+					</l:Grid>
+				</CustomListItem>
+			</List>
+		</content>
+	</Page>
+</core:View>

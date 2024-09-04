@@ -1,0 +1,11 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page>
+		<customHeader>
+			<Toolbar class="custClassHeader">
+				<ToolbarSpacer/>
+				<Title class="custClsHeaderTitle" text="File not found" level="H2"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
+	</Page>
+</core:View>

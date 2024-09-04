@@ -1,0 +1,47 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" binding="{/}" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Forex Content Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="simpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Currency &amp; Content" design="Bold"/>
+				<Input value="{ForexCur}" editable="false"/>
+				<Input tooltip="Content" value="{ForexContent}" editable="false"/>
+				<Label text="Index Cycle" design="Bold"/>
+				<Input value="{ForexIndex}" editable="false"/>
+				<Input value="{ForexIndexVal}" editable="false"/>
+				<Label text="Landing Factor" design="Bold"/>
+				<Input value="{ForexLandFact}" editable="false"/>
+				<Input value="{ForexLandFactVal}" editable="false"/>
+				<core:Title text=""/>
+				<Label text="Base Period" design="Bold"/>
+				<Input value="{ForexBaseperiod}" tooltip="month" editable="false"/>
+				<Input tooltip="year" value="{FxBasePeriodYr}" editable="false"/>
+				<Label text="Base exchange rate" design="Bold"/>
+				<Input value="{FxBaseExchRate}" editable="false"/>
+				<Label text="Remarks" design="Bold"/>
+				<Input value="{ForexRemarks}" editable="false"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="OK" press="onForexOK" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

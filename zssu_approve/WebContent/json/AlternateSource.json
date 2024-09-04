@@ -1,0 +1,216 @@
+{
+	"EditableFlag": false,
+	"InitiatedBySSU": true,
+	"DisplayOnlyFlag": true,
+	"NotCreateNew": true,
+	"BEValidation": false,
+	"PostToSAP" : false,
+	"NonSSURequest": false,
+	"SelectedTab": "VP",
+	"isAddNew": false,
+	"MessageList": [{
+		"type": "Success",
+		"title": "title",
+		"description": "description description description description",
+		"subtitle": "subtitle",
+		"counter": 1
+	}, {
+		"type": "Error",
+		"title": "Success message",
+		"description": "First Success message description",
+		"subtitle": "Example of subtitle",
+		"counter": 1
+	}],
+	"PaperDataSet": {},
+	"TabIconColor": {
+		"VendorPartDetails": "Positive",
+		"BusinessReduction": "Positive",
+		"Attachment": "Positive",
+		"Workflow": "Positive"		
+	},
+	"PartDet": [{
+		"headerText": "Part Number",
+		"bkKey": "PartDesc",
+		"bkText": "PartNo",
+		"selected": true,
+		"fixed": true,
+		"width": "18%"
+	}, {
+		"headerText": "Existing Vendor",
+		"bkKey": "Vendor",
+		"selected": true,
+		"fixed": true,
+		"width": "17%"
+	}, {
+		"headerText": "Revised Vendor Location",
+		"bkKey": "VLocation",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Plant",
+		"bkKey": "Plant",
+		"selected": true,
+		"fixed": true,
+		"width": "8rem"
+	}, {
+		"headerText": "Revised Vendor",
+		"bkKey": "RvVName",
+		"bkText": "RvVendor",
+		"selected": true,
+		"fixed": true,
+		"width": "17%"
+	}, {
+		"headerText": "Revised Vendor Location",
+		"bkKey": "RvVLocation",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Settled Price",
+		"bkKey": "SettledPrice",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Existing Price",
+		"bkKey": "ExtPrice",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Valid From Date",
+		"bkKey": "ValidFrom",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Currency",
+		"bkKey": "Currency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Group",
+		"bkKey": "Purgrp",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Taxonomy",
+		"bkKey": "Taxonomy",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "P-Info category",
+		"bkKey": "Pinforcat",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "P-Info Record",
+		"bkKey": "PirNo",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Delivery Time",
+		"bkKey": "Pdeltime",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Existing SOB",
+		"bkKey": "ExistingSob",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Revised SOB",
+		"bkKey": "RevisedSob",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Organization",
+		"bkKey": "Purorg",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Tax Code",
+		"bkKey": "Taxcode",
+		"bkText": "TcDesc",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}],
+	"BusinessReduction": [{
+		"headerText": "YOY Reduction",
+		"bkKey": "YoyRed",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+1",
+		"bkKey": "Sop1yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+2",
+		"bkKey": "Sop2yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+3",
+		"bkKey": "Sop3yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	},  {
+		"headerText": "SOP Date - Effective Date/Year of Discount",
+		"bkKey": "DiscountYear",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+1 DOE",
+		"bkKey": "Sop1doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+2 DOE",
+		"bkKey": "Sop2doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+3 DOE",
+		"bkKey": "Sop3doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Value of Discount(Cr.)",
+		"bkKey": "DiscountValue",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}]
+}

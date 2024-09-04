@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" afterOpen="" binding="{/}" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Tool Cost Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{Plant}" class="txtColor"/>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="Vendor:" design="Bold"/>
+					<Text text="{Vendor}" class="txtColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Label text="Part Number:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentRight>
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="toolCostSimpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="6" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text="Basic Tool Cost" level="H3"/>
+				<Label text="Currency" design="Bold" required="true"/>
+				<Text text="{TlCostCurrency}"/>
+				<Label text="Denomination" design="Bold" required="true"/>
+				<Text text="{CurrDenomination}"/>
+				<Label text="Budgeted" design="Bold"/>
+				<Text text="{Budgeted}"/>
+				<Label text="Finalized Amortised" design="Bold"/>
+				<Text text="{FinalAmortized}"/>
+				<Label text="Finalised UpFront" design="Bold"/>
+				<Text text="{Finalupfront}"/>
+				<Label text="Amortization (Nos.)" design="Bold"/>
+				<Text text="{Amortisation}"/>
+				<Label text="Tool Amortization" design="Bold"/>
+				<Text text="{ToolAmortisation}"></Text>
+				<core:Title text="Revenue Cost" level="H3"/>
+				<Label text="Rev.Currency" design="Bold"/>
+				<Text text="{RevCurrency}"/>
+				<Label text="Rev.Denomination" design="Bold"/>
+				<Text text="{RevDenomination}"/>
+				<Label text="Rev.Budgeted" design="Bold"/>
+				<Text text="{RevBudgeted}"/>
+				<Label text="Rev.Finalized Amortised" design="Bold"/>
+				<Text text="{RevFinalAmortized}"/>
+				<Label text="Rev.Finalised UpFront" design="Bold"/>
+				<Text text="{RevFinalUpfront}"/>
+				<Label text="Amortization(Nos.)" design="Bold"/>
+				<Text text="{RevAmortization}"/>
+				<Label text="Tool Amortization" design="Bold"/>
+				<Text text="{RevTlAmortization}"></Text>
+				<core:Title text="ED &amp; D" level="H3"/>
+				<Label text="ED.Currency" design="Bold"/>
+				<Text text="{EdCurrency}"/>
+				<Label text="ED.Denomination" design="Bold"/>
+				<Text text="{EdDenomination}"/>
+				<Label text="ED.Budgeted" design="Bold"/>
+				<Text text="{EdBudgeted}"/>
+				<Label text="ED.Finalized Amortised" design="Bold"/>
+				<Text text="{EdFinalAmortized}"/>
+				<Label text="ED.Finalised UpFront" design="Bold"/>
+				<Text text="{EdFinalUpfront}"/>
+				<Label text="Amortization(Nos.)" design="Bold"/>
+				<Text text="{EdAmortization}"/>
+				<Label text="Tool Amortization" design="Bold"/>
+				<Text text="{ToolAmortization}"></Text>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="OK" press="onToolOk" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

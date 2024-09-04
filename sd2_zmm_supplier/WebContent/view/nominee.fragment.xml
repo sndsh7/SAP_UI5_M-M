@@ -1,0 +1,50 @@
+<core:FragmentDefinition  xmlns="sap.m"
+  xmlns:core="sap.ui.core"   xmlns:u="sap.ui.unified"
+  xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout"
+   xmlns:semantic="sap.m.semantic">
+ <Dialog title="Search Criteria" class="sapUiContentPadding" >
+     <f:SimpleForm id="SimpleForm" class="sapUiSizeCompact"
+                     editable="true"
+                     title=""
+                     layout="ResponsiveGridLayout"
+                     labelSpanL="5"
+                     labelSpanM="5"
+                     labelSpanS="5"
+                     emptySpanL="0"
+                     emptySpanM="0"
+                     emptySpanS="0"
+                     columnsL="4"
+                     columnsM="4">
+                     <f:content>
+
+                      <Label text="From Date" id="fromDateId" />
+                      <DatePicker id="fromdate" type="Date" placeholder="use Calender"
+                  valueFormat="yyyyMMdd" displayFormat="dd.MM.yyyy"
+                  width="auto"  change="onFromDate"/>
+                       <Label text="To Date" id="toDateId" />
+                        <DatePicker id="todate" dateValue="" placeholder="use Calender"
+                  valueFormat="yyyyMMdd" displayFormat="dd.MM.yyyy"
+                  width="auto"  />
+            <Label text="Select Type"></Label>
+           
+           <RadioButtonGroup columns="2" id="select" select="fnselectedtype">
+                       <buttons>
+                              
+                <RadioButton  id="RB1-11" key="S" text="Service" selected="true"/>
+                <RadioButton id="RB1-12" key="M" text="Material" />
+                
+                </buttons>
+                </RadioButtonGroup> 
+                     </f:content>
+              </f:SimpleForm>
+                           <beginButton>
+                     <Button type="" text="Submit" press="fnSubmit"/>
+                     
+              </beginButton>
+              <endButton>
+              <Button type="" text="Close" press="fnClose"/>
+              </endButton>       
+ 
+ </Dialog>
+</core:FragmentDefinition>

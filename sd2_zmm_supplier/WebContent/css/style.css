@@ -1,0 +1,77 @@
+
+.header {
+  background-color: #e31837 !important;
+}
+
+
+tr[data-mydata="RED"]{
+  background:   #ebbaba !important;
+}
+
+tr[data-mydata="GREEN"]{
+  background:  #7fdd7f !important;
+}
+
+
+.title {
+  color: white !important;
+  font-size: large;
+}
+.sapUiFormResGrid>div {
+    padding: -1rem 0.75rem;
+    box-sizing: border-box;
+}
+
+.sapMUCNoDataPage .sapMUCNoDataText {
+    padding: 0rem 0rem 2rem 3rem;
+    line-height: 2rem;
+    font-size: 1.375rem;
+    color: #e31837;
+    font-weight: bold;
+}
+.sapMUCNoDataPage .sapMUCNoDataDescription {
+    padding: 0rem 2rem 2rem 3rem;
+    font-size: 1rem;
+    color: #e31837;
+    width : 79% ;
+}
+/*
+  .sapUiFormResGrid>div {
+    background-color: rgba(247, 247, 247, 0);
+    padding: 1rem 0.75rem;
+    -moz-box-sizing: padding-box;
+    box-sizing: border-box;
+}
+
+.sapMPage {
+    height: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.sapMIBar.sapMFooter-CTX {
+    background-color: black!important;
+}
+
+.Image{
+      margin: 5px 10px;
+}
+.sapMIBar-CTX.sapMFooter-CTX .sapMLabel {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.875rem;
+    color: #666666;
+}
+ .tcount{
+
+    font-weight: bold;
+}
+.Page .header {
+  background-color: #ff0000!important;
+}
+.title{
+      text-align: left;
+    font-family: verdana !important;
+    color: #f7f7f7 !important;
+    font-size: 16px;
+    font-weight: bold;
+} */

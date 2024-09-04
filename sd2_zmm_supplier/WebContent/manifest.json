@@ -1,0 +1,65 @@
+{
+  "_version": "2.0",
+  "sap.app": {
+    "_version": "2.0",
+    "id": "Sample",
+    "type": "application",
+    "title": "ASN Document Upload",
+    "description": "ASN Document Upload",
+    "applicationVersion": {
+      "version": "2.0"
+    },
+    "dataSources": {
+      "ZZSRM_ASN_TO_INVOICE_SRV": {
+        "uri": "/sap/opu/odata/sap/ZZSRM_ASN_TO_INVOICE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+     "Fiori_usage": {
+        "uri": "/sap/opu/odata/sap/ZFIORI_USAGE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      } ,
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_belize"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": "ZMM_Supplier.view.Home",
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "ZZSRM_ASN_TO_INVOICE": {
+        "dataSource": "ZZSRM_ASN_TO_INVOICE_SRV",
+        "settings": {
+          "useBatch": false,
+          "defaultUpdateMethod":"PUT"
+        }
+      }
+    },
+    "resources": {
+      "css": [{
+        "uri": "css/style.css"
+      }]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<core:FragmentDefinition    xmlns="sap.m"
+                xmlns:core="sap.ui.core"
+                xmlns:u="sap.ui.unified"
+                xmlns:f="sap.ui.layout.form"
+              xmlns:l="sap.ui.layout"
+                xmlns:semantic="sap.m.semantic">
+ <Dialog title="File Attachment" class="sapUiSizeCompact" >
+ 	<UploadCollection
+    id            ="id_MassUpload"
+    multiple        ="true"
+    maximumFilenameLength ="{settings>/maximumFilenameLength}"
+    maximumFileSize     = "{settings>/maximumFileSize}"
+    noDataText        = "Invoice file name convention:(VENDORCODE_INVOICENO_INVOICEDATE) "
+    noDataDescription     = ""
+    change          ="onFileChange"
+    fileDeleted       ="onFileDeleted"
+    filenameLengthExceed  ="onFilenameLengthExceed"
+    fileRenamed       ="onFileRenamed"
+    fileSizeExceed      ="onFileSizeExceed"
+    selectionChange     ="onSelectionChange"
+    typeMissmatch     ="onTypeMissmatch"
+    uploadComplete      ="onUploadComplete"
+    beforeUploadStarts    ="onBeforeUploadStarts"
+    uploadTerminated    ="onUploadTerminated"
+    numberOfAttachmentsText =""
+    showSeparators      ="{settings>/showSeparators}"
+    uploadEnabled     ="{settings>/uploadEnabled}"
+    uploadButtonInvisible ="{=!${settings>/uploadButtonVisible}}"
+    mode          ="{settings>/mode}"
+    items         ="{MASS>/items}"
+    class         ="sapUiSizeCompact">
+
+    <!-- <toolbar>
+      <OverflowToolbar id="myId">
+        <Title id="attachmentTitle" />
+        <ToolbarSpacer />
+        <SearchField width="10rem" search="onSearch" />
+        <Button
+          id="deleteSelectedButton"
+          text="Delete"
+          press="onDeleteSelectedItems"
+          enabled="false"
+          visible="false"
+          type="Transparent" />
+        <ToggleButton
+          id="selectAllButton"
+          text="Select all"
+          press="onSelectAllPress"
+          enabled="false"
+          visible="false"
+          type="Transparent" />
+        <UploadCollectionToolbarPlaceholder />
+      </OverflowToolbar>
+    </toolbar> -->
+    <items>
+      <UploadCollectionItem
+        documentId="{MASS>documentId}" 
+        fileName="{MASS>FileName}"
+        mimeType="{MASS>FileType}" 
+        enableEdit="false"
+        enableDelete="true"
+        visibleDelete="true"
+        visibleEdit="false"
+        class="sapUiSizeCompact">
+        <attributes>
+          <ObjectAttribute title="Uploaded On" text="{MASS>uploadedOn}"/> 
+          <ObjectAttribute title="Filesize" text="{MASS>size}"/>
+        </attributes>
+      </UploadCollectionItem>
+    </items>
+   </UploadCollection>
+    <CheckBox id="id_Check" text="I hereby declare that all the Attachments are digitally signed." select="onCloseMsg">
+
+    </CheckBox>
+   <beginButton>
+          <Button id="id_SubmitMass" text="Submit" press="fnAttachMassUpload"/>
+   </beginButton>   
+   <endButton>
+       <Button id="id_CancelMass" text="Close" press="onCloseMassAttach"/>
+   </endButton> 
+ </Dialog>
+</core:FragmentDefinition>

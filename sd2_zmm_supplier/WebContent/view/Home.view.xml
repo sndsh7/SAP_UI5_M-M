@@ -1,0 +1,278 @@
+<core:View 	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+      xmlns="sap.m"
+      xmlns:f="sap.ui.layout.form"
+      xmlns:u="sap.ui.unified"
+      xmlns:ui="sap.ca.ui"
+      xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+      xmlns:l="sap.ui.layout"
+      xmlns:t="sap.ui.table"
+      xmlns:uit="sap.ui.table"
+      xmlns:tnt="sap.tnt"
+      controllerName="ZMM_Supplier.controller.Home"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:p="sap.suite.ui.commons">
+  <SplitApp id="SplitAppDemo" class="sapUiSizeCompact">
+    <detailPages>
+
+      <Page id="newpage" class="Page">
+        <customHeader>
+          <Bar class="header">
+            <contentMiddle>
+              <Label class="title" id="masterT" text="Details" />
+            </contentMiddle>
+          </Bar>
+        </customHeader>
+      <content>
+
+        <f:SimpleForm minWidth="1024" maxContainerCols="2"
+          editable="true" id="form" layout="ResponsiveGridLayout" title="Header Details"
+          labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
+          columnsL="2" columnsM="2" class="sapUiSizeCompact">
+          <f:content>
+            <core:Title text="" />
+            <Label id="idpono" />
+            <Input id="PONumber" text-align="left" editable="false">
+            </Input>
+            <!-- <Label text="Vendor" /> <Input id="Vendornumber" text-align="left" 
+              editable="false"> <layoutData> <l:GridData span="L2 M2 S2" /> </layoutData> 
+              </Input> -->
+            <Label text="Created Date" />
+            <!-- <DatePicker
+					id="DP8"
+					placeholder="Enter Date"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/> -->
+            <DatePicker id="PoDate" valueFormat="yyyy-MM-ddT00:00:00"
+              displayFormat="dd.MM.yyyy" editable="false" />
+            <Label text="Delivery Date" id="idS1" />
+            <DatePicker id="DocD1ate" valueFormat="yyyy-MM-ddT00:00:00"
+              displayFormat="dd.MM.yyyy" editable="false" />
+
+            <Label text="Invoice Date" id="idS2" />
+            <DatePicker id="InvDate" valueFormat="yyyy-MM-ddT00:00:00"
+              displayFormat="dd.MM.yyyy" editable="false" />
+            <core:Title text="" />
+            <!-- <Label text=" Purchase PONumber" /> <Input id="PONumber1" text-align="left" 
+              editable="false"> </Input> -->
+            <Label id="idasnno" />
+            <Input id="ASNNumber" editable="false" />
+            <Label text="Description" id="idS3" />
+            <Input id="Description" editable="false" />
+            <Label text="Invoice Number" />
+            <Input id="InvoiceNumber" type="text" editable="false">
+            </Input>
+            <Label id="invoiceamnt1" text="Invoice Amount" />
+            <Input id="invoiceamnt" text-align="left" editable="false">
+            </Input>
+            <Label text="Status" visible="false" />
+            <Input id="idStatus" text-align="left" editable="false"
+              visible="false">
+            </Input>
+          </f:content>
+        </f:SimpleForm>
+
+        <IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}"
+          class="sapUiResponsiveContentPadding">
+          <items>
+            <IconTabFilter id="idItem" icon="sap-icon://activity-items">
+              <Table id="Itemtable41" showRowCount="true"
+                items="{Item>/Details/NAV_MasterToItem/results}" updateFinished="onUpdTbl">
+
+                <columns class="head">
+                  <Column width="4rem" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Item No." textAlign="Begin" />
+                  </Column>
+                  <Column width="8rem" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Product" />
+                  </Column>
+                  <Column width="16rem" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Description" textAlign="Center" />
+                  </Column>
+                  <Column width="8rem" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Quality" />
+                  </Column>
+                  <Column width="4rem" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Unit" />
+                  </Column>
+                </columns>
+                <items>
+                  <ColumnListItem>
+                    <cells>
+                      <Input id="Posnr"
+                        value="{path: 'Item>ItemNo',formatter:'.RequestStatus1'}"
+                        editable="false" />
+
+                    </cells>
+                    <cells>
+                      <Input id="id701" value="{Item>OrderedProd}" editable="false" />
+                    </cells>
+                    <cells>
+                      <Input id="id7918" value="{Item>Description}" editable="false" />
+                    </cells>
+
+                    <cells>
+                      <Input id="id70" value="{Item>Quantity}" editable="false" />
+                    </cells>
+
+                    <cells>
+                      <Input id="id71" value="{Item>Unit}" editable="false" />
+                    </cells>
+
+
+                  </ColumnListItem>
+                </items>
+
+              </Table>
+            </IconTabFilter>
+              <!-- <Text text="Info content goes here ..." /> -->
+
+            <IconTabFilter id="idAttachment" icon="sap-icon://attachment">
+              <Table id="attachTab" items="{Item>/Details/NAV_MasterToAttachments/results}">
+                <headerToolbar>
+                  <Toolbar>
+                    <ToolbarSpacer />
+                    <Button type="Accept" text="Upload Invoice" id="idBtnIA"
+                      icon="sap-icon://add" press="fnfileAttachment" />
+                    <Button type="Emphasized" text="File Attachment" id="domheaderadd"
+                      icon="sap-icon://add" press="fnfileAttachment" />
+                  </Toolbar>
+                </headerToolbar>
+                <columns>
+                  <Column width="auto" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Attachment Name" />
+                  </Column>
+                  <Column width="auto" minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="Delete" />
+                  </Column>
+                  <!-- <Column width="auto" minScreenWidth="Tablet" demandPopin="true" 
+                    visible="false"> <Text text="Attachment Content" /> </Column> -->
+                </columns>
+                <items>
+                  <ColumnListItem>
+                    <cells>
+                      <Link id="attLink" text="{Item>OBJDES}" press="onDispDoc" />
+                      <!-- value="{path: 'Item>ItemNo',formatter:'.RequestStatus1'}" 
+                        editable="false" -->
+                      <Button id="delete" type="Reject" icon="sap-icon://delete"
+                        press="fnDelete" enabled="{Item>dlt}" />
+                    </cells>
+                  </ColumnListItem>
+                </items>
+              </Table>
+            </IconTabFilter>
+
+            <!--Process flow  -->
+            <!-- <IconTabFilter id="idFlow" icon="sap-icon://detail-view">
+              <p:ProcessFlow
+                id="id_ProceeFlow"
+                scrollable="false"
+                nodes="{PF>/nodes}"
+                lanes="{PF>/lanes}">
+                <p:nodes>
+                  <p:ProcessFlowNode
+                    laneId="{PF>id}"
+                    nodeId="{PF>id}"
+                    title="{PF>id}"
+                    children="{PF>id}"
+                    state="{PF>id}"
+                    stateText="{PF>id}"
+                    texts="{PF>id}"
+                    focused="{PF>id}" />
+                </p:nodes>
+                <p:lanes>
+                  <p:ProcessFlowLaneHeader
+                    laneId="{PF>id}"
+                    iconSrc="{PF>icon}"
+                    text="{PF>label}"
+                    position="{PF>position}"
+                    state="{PF>state}" />
+                </p:lanes>
+              </p:ProcessFlow>
+            </IconTabFilter> -->
+          </items>
+        </IconTabBar>
+        <!-- <footer> <OverflowToolbar id="otbFotd"> <ToolbarSpacer /> <Button 
+          type="Accept" text="Submit" icon="sap-icon://save" press="fnAccept" id="dsSpecplySave" 
+          visible="true" align="center" /> <layoutData> <FlexItemData growFactor="1" 
+          /> </layoutData> </OverflowToolbar> </footer> -->
+      </content>
+      <footer>
+        <Toolbar>
+
+        </Toolbar>
+      </footer>
+    </Page>
+
+    </detailPages>
+    <masterPages>
+      <Page id="master" icon="sap-icon://action" class="sapUiSizeCompact">
+        <customHeader>
+          <Bar class="header">
+            <contentMiddle>
+              <Label class="title" id="masterTitle" text="Purchase Order List" />
+            </contentMiddle>
+          </Bar>
+        </customHeader>
+        <subHeader>
+          <!-- <Toolbar> <ToolbarSpacer></ToolbarSpacer> </Toolbar> -->
+          <Toolbar>
+            <SearchField liveChange="onSearching" width="100%"
+              placeholder="Invoice/ASN/PO No" search="onSearching"/>
+            <Button type="Accept" text="Search" icon="sap-icon://search"
+              press="fnSearch" id="serach1" visible="true" align="center" />
+          </Toolbar>
+        </subHeader>
+        <content>
+          <List id="list1" items="{List>/ASN/results/}" updateFinished="fnListUpdate"
+            visible="false">
+            <headerToolbar>
+            <Toolbar>
+            <Button type="Accept" text="Invoicing Done"
+            press="onDone"></Button>
+            <ToolbarSpacer/>
+            <Button type="Reject" text="Pending Invoice"
+            press="onPending"></Button>
+            <ToolbarSpacer/>
+            <Button type="Emphasized" text="All"
+            press="onAll"></Button>
+            </Toolbar>
+            </headerToolbar>
+            <items>
+              <ObjectListItem
+                title="{= ${List>/Category}==='M'?'ASN No.': 'Cnf No.'} {List>AsnConfNo}"
+                type="Active" press="onListItemPress">
+                <attributes>
+                  <ObjectAttribute title="PO" text="{List>Ebeln}" />
+                  <ObjectAttribute title="Invoice" text="{List>Invoice}" />
+                </attributes>
+                <firstStatus>
+                  <!-- <ObjectStatus text="{parts:[{path: 'List>STATUS'}],formatter: 
+                    '.RequestStatus'}" /> -->
+                  <ObjectStatus text="{= ${List>DocType}==='X' ? 'Done' : 'Pending'}"
+                    state="{= ${List>DocType}==='X' ? 'Success' : 'Error'}" />
+                </firstStatus>
+
+              </ObjectListItem>
+            </items>
+          </List>
+        </content>
+
+        <!-- Added by chaithra on 19/6/2019  -->
+        <footer>
+          <Toolbar>
+            <ToolbarSpacer></ToolbarSpacer>
+            <Button id='id_MassUploadBtn' icon="sap-icon://back-to-top" text="Mass Upload" press="onHandleMultiUpload" tooltip="Upload Attachments"></Button>
+          </Toolbar>
+        </footer>
+      </Page>
+    </masterPages>
+  </SplitApp>
+</core:View>

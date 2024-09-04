@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" class="sapUiSizeCompact"
+  xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+ <Dialog  contentWidth="50%" contentHeight="auto">
+    <f:SimpleForm  editable="false"
+      layout="ResponsiveGridLayout"
+      title=""
+      labelSpanXL="4"
+      labelSpanL="3"
+      labelSpanM="4"
+      labelSpanS="12"
+      adjustLabelSpan="false"
+      emptySpanXL="0"
+      emptySpanL="4"
+      emptySpanM="0"
+      emptySpanS="0"
+      columnsXL="2"
+      columnsL="1"
+      columnsM="1"
+          singleContainerFullSize="false">
+          <f:content>
+            <Label design="Bold"  text="ASN / Confirmation" />
+            <Text  text="{header>/Asnno}" />
+            <Label  design="Bold"  text="Invoice Number"/>
+            <Text   text="{header>/InvNo}" />
+            <Label design="Bold"   text="Invoice Date"/>
+            <Text  text="{header>/InvDate}"  />
+            <Label design="Bold"   text="OCR Status"/>
+            <Text   text="{header>/OCRStatus}" />
+          </f:content>
+        </f:SimpleForm>
+
+        <Panel id="panel2" expandable="true" expanded="false" headerText="Information" class="PanelBackClr">
+        <f:SimpleForm  editable="true"
+          layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3"
+          labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4"
+          emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="2"
+          columnsL="1" columnsM="1" singleContainerFullSize="false">
+          <f:content id="content">
+
+          <Text renderWhitespace="true" wrapping="true"
+              text="Dear Supplier,&#xA;&#xA;We are in simulation process for OCR Details Below details are for Simulation and Analysis for now.&#xA;&#xA;Request you to please submit on below button to Upload the Details.&#xA;&#xA;Thanks and
+ Regards&#xA;Supplier+
+ Team" />
+          </f:content>
+        </f:SimpleForm>
+    </Panel>
+
+            <Panel  expandable="true" expanded="true" headerText="OCR Output Results" class="PanelBackClr">
+
+        <Table sticky="ColumnHeaders,HeaderToolbar" items="{OCR>/results}">
+            <columns>
+                <Column minScreenWidth="Tablet" demandPopin="true"  width="11rem">
+                    <Label design="Bold" text="Description" />
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" width="6rem" >
+                    <Label  text="SAP Value" wrapping="true"  design="Bold"/>
+                </Column>
+                <Column  minScreenWidth="Tablet" demandPopin="true"  width="6rem">
+                    <Label  text="OCR Value" design="Bold"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true"  width="4rem">
+                    <Label  text="Status" design="Bold" />
+                </Column>
+                 </columns>
+                 <items>
+                <ColumnListItem id="" vAlign="Middle">
+                 	<customData>
+               <core:CustomData key="mydata" value="{OCR>COLOR}" writeToDom="true"></core:CustomData>
+          </customData>
+                    <cells>
+                        <Label design="Bold"  text="{OCR>DESC}" />
+                        <Text  text="{OCR>SAP_VALUE}" />
+                        <Text text="{OCR>OCR_VALUE}" />
+                        <Text text="{OCR>STATUS}" />
+                     </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+    </Panel>
+
+             <buttons>
+      <Button text="Cancel" press="onApprDialogSubmit"></Button>
+      <Button text="Submit" enabled="false" press="onOCRSubmit"></Button>
+    </buttons>
+ 
+ </Dialog>
+</core:FragmentDefinition>

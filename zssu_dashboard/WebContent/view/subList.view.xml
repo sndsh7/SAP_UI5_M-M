@@ -1,0 +1,110 @@
+<mvc:View controllerName="ZSSU_DASHBOARD.controller.subList"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:l="sap.ui.layout" xmlns:suite="sap.suite.ui.commons"
+	 xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data">
+	
+		<m:App>
+			<m:pages>
+				<m:Page id="subpage" title="Associate Details" navButtonPress="onPressNavButton" showNavButton="true">
+					<m:content>
+						<l:Grid defaultSpan="L12 M12 S12" class="sapUiResponsiveMargin" vSpacing="0" hSpacing="0">
+			<!-- 				<suite:ChartContainer title="">
+								
+								<suite:ChartContainerContent icon="sap-icon://table-chart" title="table">
+									<suite:content> -->
+										<m:Table sticky="HeaderToolbar,ColumnHeaders" selectionChange="OnSelectionofSubList"  mode="SingleSelectMaster"  id="idProductsTable1"  width="auto" items="{/results}">
+											<m:headerToolbar id="count">
+												<m:OverflowToolbar>
+													<m:Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+													<m:SearchField width="30%" id="id_search" change="onSelectPapaer" placeholder="Enter Paper No." class="sapUiSmallMargin" />
+												</m:OverflowToolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column>
+													<m:Text text="Paper No"/>
+												</m:Column>
+												<m:Column>
+													<m:Text text="Paper Code"/>
+												</m:Column>
+												<m:Column visible="false">
+													<m:Text text="Status"/>
+												</m:Column>
+												<m:Column>
+													<m:Text text="SSU Buyer"/>
+												</m:Column>
+												<m:Column>
+													<m:Text text="Associate"/>
+												</m:Column>
+												<m:Column visible="false">
+													<m:Text text="Current Holder Name"/>
+												</m:Column>
+												<m:Column>
+													<m:Text text="Ageing"/>
+												</m:Column>
+																		
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{NpiNo}"/>
+														<m:Text text="{PaperCode}"/>
+														<m:Text text="{path:'Status',formatter:'.formatter.setStatusHDR'}"/>
+														<m:Text text="{InitiatorName}"/>
+														<m:Text text="{AssociateName}"/>
+														<m:Text text="{CurrentHolderName}"/>
+														<m:Text text="{AgeingDiffDays} Days"/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									<!-- </suite:content>
+									
+								</suite:ChartContainerContent> -->
+								
+								
+								<!-- <suite:ChartContainerContent icon="sap-icon://vertical-bullet-chart" title="chart">
+									<suite:content>
+										<viz:VizFrame id="vizFrame" vizProperties="{title: {text: 'Pie Chart' ,visible : true}}" uiConfig="{applicationSet:'fiori'}"
+											selectData="onSelectionData" height='20rem' width="100%" vizType='pie'>
+											<viz:dataset>
+												<viz.data:FlattenedDataset data="{/results}">
+													 <viz.data:dimensions>
+								                            <viz.data:DimensionDefinition name="PaperCode"
+								                                value="{PaperCode}" />
+								                        </viz.data:dimensions>
+								                        <viz.data:measures>
+								                            <viz.data:MeasureDefinition name="count"
+								                                value="{count}" />
+								                            <viz.data:MeasureDefinition name="Ageing"
+								                                value="{Ageing}" />
+								                        </viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Ageing" />
+							                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="PaperCode" />
+							                    <viz.feeds:FeedItem uid="size" type="Measure" values="Ageing" />
+                    							<viz.feeds:FeedItem uid="color" type="Dimension" values="PaperCode" />
+											</viz:feeds>
+										</viz:VizFrame>
+									</suite:content>
+								</suite:ChartContainerContent> -->
+								
+								<!-- <suite:dimensionSelectors>
+										<m:Text text="Paper Code : "/>
+										<m:ComboBox id="idSelector" change="onSelectPapaer" items="{paperCode>/results}" wrapItemsText="true"	showSecondaryValues= "true">
+											<core:ListItem key="{paperCode>PaperCode}" text="{paperCode>PaperCode}" additionalText="{paperCode>PaperText}"/>
+											<core:Item key="CCR" text="CCR"/>
+											<core:Item key="FOREX" text="FOREX"/>
+										</m:ComboBox>
+										<m:Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+										<m:SearchField width="30%" id="id_search" change="onSelectPapaer" placeholder="Enter Paper No." class="sapUiSmallMargin" />
+									</suite:dimensionSelectors>
+							</suite:ChartContainer> -->
+						</l:Grid>
+					</m:content>
+				</m:Page>
+			</m:pages>
+		</m:App>
+	
+</mvc:View>

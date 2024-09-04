@@ -1,0 +1,167 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 	xmlns:l="sap.ui.layout" xmlns:ui="sap.ui.table"
+	xmlns:f="sap.ui.layout.form"
+		controllerName="ZPART_SETTLEMENT.controller.PartSettl" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}"   binding="{ModelSSUDigitization>/}" class="sapUiSizeCompact">
+					<customHeader>
+						<Toolbar class="custClassHeader">
+							
+							<ToolbarSpacer/>
+							<Title class="custClsHeaderTitle" text="{i18n>title}" level="H2"/>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</customHeader>
+		<content>
+			<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange354"
+			editable="true">
+			
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="2"
+					labelSpanL="2"
+					labelSpanM="2"
+					labelSpanS="2"
+					adjustLabelSpan="false"
+					emptySpanXL="1"
+					emptySpanL="1"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement>
+							<f:fields>
+								<RadioButtonGroup id="idRadioButton" columns="2">
+									<RadioButton text="Part Number" selected="true" />
+									<RadioButton text="Paper Number" />
+								</RadioButtonGroup>
+								<!-- <ComboBox selectedKey="01">
+									<core:Item key="01" text="Part Number" />
+									<core:Item key="02" text="Paper Number" />
+								</ComboBox> -->
+								<!-- <Label label="Part Number" required="true"/> -->
+								<Input required="true" id="id_part" value="{PartNo}" showValueHelp="true" submit="onSubmitPartNum" valueHelpRequest="onPartValueHelp"></Input>
+								<Button text="Search" press="fnSearch" type="Emphasized">
+								<layoutData>
+										<l:GridData span="XL2 L2 M2 S4" />
+									</layoutData>
+								</Button>
+								<Button text="Clear" press="fnClear" type="Emphasized">
+								<layoutData>
+										<l:GridData span="XL2 L2 M2 S4" />
+									</layoutData>
+									</Button>	
+								<Button text="Download Report" press="fnDownloadReport" type="Emphasized">	
+								<layoutData>
+										<l:GridData span="XL2 L2 M2 S4" />
+									</layoutData>
+								</Button>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>	
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+	  <ui:Table 
+          id="id_tab" 
+          rows="{P>/}" 
+          selectionMode="None"   
+          class="sapUiSizeCompact" 
+          enableColumnReordering="false"
+          visibleRowCountMode="Interactive"
+          visibleRowCount="auto">
+          <ui:toolbar class="SvrToolbar">
+            <Toolbar design="Solid" class="saptoolclass  sapUiTinyMarginTop">
+            <Title 
+             text="" 
+            design="Bold" 
+            id="id_titletab" 
+            class="sapUiSmallMarginBegin custitle"/>
+              <ToolbarSpacer />  
+            </Toolbar>
+          </ui:toolbar>
+          <ui:columns>
+           <ui:Column width="10rem" filterProperty="PartNo"  hAlign="Left" autoResizable="false" resizable="false" >
+              <Label text="Part Number" tooltip="Part Number"  />
+              <ui:template>
+               <Text text="{P>PartNo}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="6rem" filterProperty="PaperCode"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Paper Desc." tooltip="Paper Description"  />
+              <ui:template>
+               <Text text="{P>PaperCode}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="10rem" filterProperty="PaperNo"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Price Paper Number" tooltip="PaperNo"  />
+              <ui:template>
+               <Link text="{P>PaperNo}" press="fnOpenPaper"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="6rem" filterProperty="Vendor"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Vendor" tooltip="Paper Vendor"  />
+              <ui:template>
+               <Text text="{P>Vendor}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="4rem" filterProperty="Plant"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Plant" tooltip="Plant"  />
+              <ui:template>
+               <Text text="{P>Plant}"/>		
+              </ui:template>
+            </ui:Column>
+            
+            <ui:Column width="11rem" filterProperty="Status"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Status" tooltip="Status"  />
+              <ui:template>
+               <Text text="{path: 'P>Status', formatter: '.formattStatus'}"/>
+               		
+              </ui:template>
+              
+            </ui:Column>
+            <ui:Column width="13rem" filterProperty="TokenName"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Current Holder Name" tooltip="Current Holder Name"  />
+              <ui:template>
+               <Text text="{P>TokenName}"/>
+               		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="13rem" filterProperty="UserName"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Created By" tooltip="Created By"  />
+              <ui:template>
+               <Text text="{P>UserName}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="7rem" hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Created Date" tooltip="Created Date"  />
+              <ui:template>
+               <Text text="{path: 'P>Crdate', formatter: '.formattDate'}"/>
+               	
+              </ui:template>
+            </ui:Column>
+           <!--   <ui:Column width="13rem" filterProperty="TokenID"  hAlign="Left" autoResizable="false" resizable="false">
+              <Label text="Current Holder" tooltip="Current Holder"  />
+              <ui:template>
+               		
+               <Text text="{P>TokenID}"/>
+              </ui:template>
+            </ui:Column> -->
+             
+           
+            </ui:columns>
+            </ui:Table>
+		</content>
+		
+	</Page>
+			</pages>
+		</App>
+</core:View>

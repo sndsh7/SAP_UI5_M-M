@@ -1,0 +1,502 @@
+<mvc:View controllerName="ZSSU_DASHBOARD.controller.app"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:card="sap.f.cards" xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:t="sap.ui.table" xmlns:core="sap.ui.core" displayBlock="true"
+	height="100%" xmlns:unified="sap.ui.unified">
+	
+<html:style>
+
+.font{
+font-size: x-large;
+margin: 0.5rem;
+}
+.infoLabel {
+	height: 3rem;
+   <!--  margin: 1rem; -->
+    width: auto;
+    
+}
+span.sapTntInfoLabelText {
+    font-size: x-large;
+    line-height: 3rem
+}
+
+.PVC {
+    margin-left: 15rem;
+}
+.AVPC{
+    margin-left: 15rem;
+}
+.associate{
+    margin-left: 15rem;
+}
+
+.segOptions {
+    margin-left: 3rem;
+}
+.tileColor{
+	<!-- background: #ed4a7bb5 !important; -->
+	border-radius: 1rem !important;
+}
+.items{
+border-radius: 1rem !important;
+}
+.items {
+background: #b6abab;
+}
+
+.panelForGridList {
+margin-left: -1.3rem
+}
+
+div#__xmlview0--Headerbar {
+    background-color: #b72c39;
+}
+
+div#__bar1-BarLeft {
+    width: 26%;
+}
+
+
+.items:nth-child(1) {
+background: #e83108ab !important;
+}
+
+.items:nth-child(2) {
+background: #0d4cda52 !important;
+}
+
+.items:nth-child(3) {
+background: #e09d22 !important;
+}
+
+.items:nth-child(4) {
+background: #9a309a99 !important;
+}
+
+.items:nth-child(5) {
+background:  #31b5898f  !important;
+}
+
+.items:nth-child(6) {
+background: #ed4a7bb5 !important;
+}
+
+	</html:style>
+	<m:App id="app" class="sapUiSizeCompact">
+		<m:pages>
+			<m:Page id="page" title="Team Lead" showFooter="True" showHeader="true">
+
+				<m:customHeader>
+					<m:Bar id="Headerbar" class="Headerbar">
+					<m:contentLeft>
+						<!-- <m:Title text="Date Range"/> -->
+						<m:DateRangeSelection width="100%" id="DRS1" class="DRS1" change="handleChange" 
+							value= "{'type': 'sap.ui.model.type.DateInterval','formatOptions': {'pattern': 'dd-MM-yyyy'},
+							'parts': [{'path': 'MasterDate>/FromDate'},{'path': 'MasterDate>/ToDate'}]}" />						
+					</m:contentLeft>
+						<m:contentMiddle>
+							<m:Label id="header" text="Team Lead"/>
+						</m:contentMiddle>
+						<m:contentRight>
+							<m:SegmentedButton selectedKey="0" id="segOptions" select="onViewSelection">
+								<m:items>
+									<m:SegmentedButtonItem tooltip="Dashboard" id="dashboard" icon="sap-icon://bbyd-dashboard" text="Dashboard" key="dashboard"/>
+									<m:SegmentedButtonItem id="report" tooltip="Report" icon="sap-icon://table-view" text="Report" key="report"/>
+								</m:items>
+							</m:SegmentedButton>
+						</m:contentRight>
+					</m:Bar>
+				</m:customHeader>
+				
+			<m:content>	
+			<m:HBox id="dash">
+			<m:ScrollContainer height="100%" width="auto" vertical="true" horizontal="true" class="sapUiSizeCompact">
+				<m:Panel id="panelForGridList" class="panelForGridList">
+					<f:GridList selectionChange="onSelectionChange" mode="None"
+						class="sapUiSmallMargin" id="gridList1"  items="{/}">
+						<f:customLayout>
+							<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(25rem, 1fr))" gridGap="0.5rem" />
+						</f:customLayout>
+						<f:GridListItem press="onSelectionChange" type="Active" class="items">
+							<m:VBox height="100%" justifyContent="SpaceBetween">
+								<m:layoutData>
+									<m:FlexItemData growFactor="1" shrinkFactor="0" /><!-- Don't shrink below minimum size. Fill space if available. -->
+								</m:layoutData>		
+								<m:VBox class="sapUiSmallMargin">
+									<m:HBox justifyContent="SpaceBetween">
+										<m:Title text="{name}" wrapping="true" class="font"/>
+										<tnt:InfoLabel text="{count}" colorScheme="4" class="infoLabel" />
+									</m:HBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						</f:GridList>
+						<!-- 
+						<f:GridListItem class="blue">
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+										Don't shrink below minimum size. Fill space if available.
+									</m:layoutData>
+									<m:VBox class="sapUiSmallMargin">
+										<m:HBox>
+											<m:VBox>
+												<m:Title text="Request" wrapping="true" width="100%" />
+											</m:VBox>
+											<m:NumericContent valueColor="Good"
+												truncateValueTo="10" id="req" withMargin="true" />
+										</m:HBox>
+									</m:VBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						<f:GridListItem class="violet">
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:VBox class="sapUiSmallMargin">
+										<m:HBox>
+											<m:VBox>
+												<m:Title text="Draft" wrapping="true" width="100%" />
+											</m:VBox>
+											<m:NumericContent id="draft" truncateValueTo="10"
+												withMargin="true" valueColor="Good" />
+										</m:HBox>
+									</m:VBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+					</f:GridList>
+					<f:GridList selectionChange="onSelectionChange" mode="SingleSelectMaster"
+						class="sapUiSmallMargin" id="gridList2" growing="true"
+						growingThreshold="4">
+						<f:customLayout>
+							<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(6rem, 1fr))"
+								gridGap="0.5rem" />
+						</f:customLayout>
+						<f:GridListItem class="green">
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:VBox class="sapUiSmallMargin">
+										<m:HBox>
+											<m:VBox>
+												<m:Title text="Post to SAP" wrapping="true" width="100%" />
+											</m:VBox>
+											<m:NumericContent truncateValueTo="10" id="ptoSAP"
+												valueColor="Good" withMargin="true" />
+										</m:HBox>
+									</m:VBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						<f:GridListItem class="orange">
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:VBox class="sapUiSmallMargin">
+										<m:HBox>
+											<m:VBox>
+												<m:Title text="Completed" wrapping="true" width="100%" />
+											</m:VBox>
+											<m:NumericContent valueColor="Good"
+												truncateValueTo="10" id="Comp" withMargin="true" />
+										</m:HBox>
+									</m:VBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						<f:GridListItem class="yellow">
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:VBox class="sapUiSmallMargin">
+										<m:HBox>
+											<m:VBox>
+												<m:Title text="Rejected" wrapping="true" width="100%" />
+											</m:VBox>
+											<m:NumericContent id="reject" valueColor="Good"
+												truncateValueTo="10" withMargin="true" />
+										</m:HBox>
+									</m:VBox>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem> -->
+					
+					<f:GridList class="sapUiSmallMargin" id="gridList3"
+						growing="true" growingThreshold="4">
+						<f:customLayout>
+							<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))"
+								gridGap="0.5rem" />
+						</f:customLayout>
+						<f:GridListItem>
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<layout:FixFlex id='FixFlexOver' minFlexSize="250">
+										<layout:flexContent>
+											<viz:VizFrame legendVisible="false" id="vizFrame"
+												vizProperties="{plotArea: { drawingEffect: 'glossy' , dataLabel: { visible: 'true' }},title: {text: 'OVERALL STATUS' ,visible : true}}"
+												uiConfig="{applicationSet:'fiori'}" selectData="" height='300px'
+												width="600px" vizType='pie'>
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{/}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition
+																name="name" value="{name}" />
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition
+																name="count" value="{count}" />
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<!-- <viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+														values="count" />
+													<viz.feeds:FeedItem uid="categoryAxis"
+														type="Dimension" values="name" />
+												</viz:feeds> -->
+												<viz:feeds>
+								                    <viz.feeds:FeedItem uid="size" type="Measure"
+								                        values="count" />
+								                    <viz.feeds:FeedItem uid="color" type="Dimension"
+								                        values="name" />
+								                </viz:feeds>
+											</viz:VizFrame>
+										</layout:flexContent>
+									</layout:FixFlex>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						<f:GridListItem>
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:Select change="onselectDrop" id="PVC" class="PVC" width="60%" forceSelection="false">
+										<!-- <core:Item key="All" text="All" /> -->
+										<core:Item key="PA" text="Pending with Associate" />
+										<core:Item key="PP" text="Pending with Approver" />
+										<core:Item key="PB" text="Pending with SSU Buyer" />
+										<core:Item key="PT" text="Pending with Team Lead" />
+										<core:Item key="C" text="Completed" />
+									</m:Select>
+									<layout:FixFlex id='FixFlexPaper' minFlexSize="250">
+										<layout:flexContent>
+											<viz:Popover></viz:Popover>
+											<viz:VizFrame legendVisible="false" id="vizFramePaper"
+												vizProperties="{plotArea: { drawingEffect: 'glossy' , dataLabel: { visible: 'true' }},title: {text: 'PAPER TYPE VS COUNT' ,visible : true}}"
+												uiConfig="{applicationSet:'fiori'}" selectData=""
+												height='20rem' width="100%" vizType='column'>
+												 <viz:dataset> 
+												<viz.data:FlattenedDataset data="{PVC>/results}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="PaperCode" value="{PVC>PaperCode}" />
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Count" value="{PVC>Count}" />
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+	
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+													<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="PaperCode" />
+												</viz:feeds>
+											</viz:VizFrame>
+										</layout:flexContent>
+									</layout:FixFlex>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+					</f:GridList>
+					<f:GridList class="sapUiSmallMargin" id="gridList5"
+						growing="true" growingThreshold="4">
+						<f:customLayout>
+							<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))"
+								gridGap="0.5rem" />
+						</f:customLayout>
+						<f:GridListItem>
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:Select change="onselectDrop" id="AVPC" class="AVPC" width="60%" forceSelection="false">
+										<!-- <core:Item key="Select" text="Select" /> -->
+										<core:Item key="AR" text="Request" />
+										<core:Item key="AS" text="Draft" />
+										<core:Item key="AJ" text="Reject" />
+										<core:Item key="AC" text="Post To SAP" />
+										<core:Item key="AB" text="Pending" />
+										<core:Item key="C" text="Complete" />
+									</m:Select>
+									<layout:FixFlex id='FixFlex' minFlexSize="250">
+										<layout:flexContent>
+											<viz:VizFrame id="vizAVPC" legendVisible="false" 
+												vizProperties="{plotArea: { drawingEffect: 'glossy' , dataLabel: { visible: 'true' }},title:{ text:'ASSOCIATE STATUS VS PAPER COUNT'}}"
+												uiConfig="{applicationSet:'fiori'}" selectData="" height='20rem'
+												width="100%" vizType='line'>
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{AVPC>/results}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition
+																name="Holder_Name" value="{AVPC>Holder_Name}" />
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition
+																name="Count" value="{AVPC>Count}" />
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+													<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Holder_Name" />
+												</viz:feeds>
+											</viz:VizFrame>
+										</layout:flexContent>
+									</layout:FixFlex>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+						<f:GridListItem>
+							<m:VBox height="100%">
+								<m:VBox justifyContent="SpaceBetween">
+									<m:layoutData>
+										<m:FlexItemData growFactor="1" shrinkFactor="0" />
+									</m:layoutData>
+									<m:Select change="onselectDrop" id="associate" class="associate" width="60%" items="{associate>/results}"	forceSelection="false">
+										<core:Item key="{associate>Associate}" text="{associate>AssociateName}" />
+									</m:Select>
+									<layout:FixFlex id='FixFlex4' minFlexSize="250">
+										<layout:flexContent>
+											<viz:VizFrame legendVisible="false" id="vizFrame4"
+												vizProperties="{plotArea: { drawingEffect: 'glossy' , dataLabel: { visible: 'true' }},title: {text: 'ASSOCIATE PAPER STATUS VS PAPER COUNT' ,visible : true}}"
+												uiConfig="{applicationSet:'fiori'}" selectData=""
+												height='20rem' width="100%" vizType='bar'>
+												 <viz:dataset> 
+												 <!--<viz.data:FlattenedDataset data="{/results}"> 
+													<viz.data:dimensions> <viz.data:DimensionDefinition name="InitiatorName" 
+													value="{InitiatorName}" /> <viz.data:DimensionDefinition name="Ageing" value="{Ageing}" 
+													/> </viz.data:dimensions> <viz.data:measures> <viz.data:MeasureDefinition 
+													name="pendingNo" value="{pendingNo}" /> </viz.data:measures> </viz.data:FlattenedDataset> 
+													</viz:dataset> <viz:feeds> <viz.feeds:FeedItem uid="valueAxis" type="Measure" 
+													values="pendingNo" /> <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" 
+													values="InitiatorName" /> <viz.feeds:FeedItem uid="color" type="Dimension" 
+													values="Ageing" /> </viz:feeds> -->
+	
+												<viz.data:FlattenedDataset data="{Associate>/results}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="StatusDescription" value="{Associate>StatusDescription}" />
+														<!-- <viz.data:DimensionDefinition name="PaperCode" value="{PaperCode}" /> -->
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Count" value="{Associate>Count}" />
+														<!-- <viz.data:MeasureDefinition	name="pendingNo" value="{pendingNo}" /> -->
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+	
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+													<!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+														values="pendingNo" /> -->
+													<viz.feeds:FeedItem id="categoryAxis" uid="categoryAxis" type="Dimension" values="StatusDescription" />
+												</viz:feeds>
+											</viz:VizFrame>
+										</layout:flexContent>
+									</layout:FixFlex>
+								</m:VBox>
+							</m:VBox>
+						</f:GridListItem>
+					</f:GridList>
+				</m:Panel>
+			</m:ScrollContainer>
+			</m:HBox>
+			
+			<m:HBox  id="reports" visible="false" renderType="Bare">
+				<m:Table id="idProjectTable" inset="false" visible="true" sticky="HeaderToolbar,ColumnHeaders" items="{allData>/results}" class="sapUiResponsiveMargin">
+							<m:headerToolbar id="count">
+								<m:OverflowToolbar>
+									<m:Title id="count" text="Total Tasks ({count>/})" level="H2"/>
+									<m:DateRangeSelection width="30%" id="DateReport" class="DRS1" change="handleDateChangeReport" 
+									value= "{'type': 'sap.ui.model.type.DateInterval','formatOptions': {'pattern': 'dd-MM-yyyy'},
+									'parts': [{'path': 'MasterDate>/FromDate'},{'path': 'MasterDate>/ToDate'}]}" />		
+									<m:ToolbarSpacer/>
+									<m:SearchField id="search" change="onSearch" width="30%" showRefreshButton="true"></m:SearchField>
+									<m:Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>							
+									<m:Button icon="sap-icon://excel-attachment" press="onExport" tooltip="Export Formatting Example"/>
+								</m:OverflowToolbar>
+							</m:headerToolbar>
+							<m:columns>
+								<m:Column hAlign="Begin" width="7rem" >
+									<m:Label wrapping="true" text="Pape No" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center"  width="4rem" 	demandPopin="true">
+									<m:Label wrapping="true" text="Paper Type" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center" width="8rem">
+									<m:Label wrapping="true" text="Status" design="Bold"/>
+								</m:Column>
+								<m:Column  hAlign="Center" minScreenWidth="desktop" width="6rem" 	demandPopin="true">
+									<m:Label wrapping="true" text="Paper Creation Date" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center" minScreenWidth="desktop" width="10rem" 	demandPopin="true">
+									<m:Label wrapping="true" text="Buyer Name" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Begin" width="8rem" minScreenWidth="desktop"	demandPopin="true">
+									<m:Label wrapping="true" text="Associate Name" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center" width="5rem" minScreenWidth="desktop"	demandPopin="true">
+									<m:Label wrapping="true" text="Total Line Item Count" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center" width="5rem" minScreenWidth="desktop"	demandPopin="true">
+									<m:Label wrapping="true" text="Post To SAP Date" design="Bold"/>
+								</m:Column>
+								<m:Column hAlign="Center" width="4rem" minScreenWidth="desktop"	demandPopin="true">
+									<m:Label wrapping="true" text="Ageing" design="Bold"/>
+								</m:Column>								
+							</m:columns>
+							<m:items>
+								<m:ColumnListItem id="TableColList" vAlign="Middle">
+									<m:cells>
+										<m:Text text="{allData>NpiNo}"/>
+										<m:Text text="{allData>PaperCode}"/>
+										<m:Text text="{path:'allData>Status',formatter:'.formatter.setStatusHDR'}"/>										
+										<m:Text text="{path: 'allData>Crdate', formatter:'.formatter.setDateformatter'}"/>
+										<m:Text text="{allData>InitiatorName}"/>										
+										<m:Text text="{allData>AssociateName}"/>										
+										<m:Text text="{allData>Item_Count}"/>										
+										<m:Text text="{path: 'allData>PTS_Date', formatter:'.formatter.setDateformatter'}"/>	
+										<m:Text text="{allData>AgeingDiffDays} days"/>										
+									</m:cells>
+								</m:ColumnListItem>
+							</m:items>
+						</m:Table>
+			</m:HBox>
+			
+			
+			
+			</m:content>
+			
+		</m:Page>
+		</m:pages>
+
+	</m:App>
+</mvc:View>

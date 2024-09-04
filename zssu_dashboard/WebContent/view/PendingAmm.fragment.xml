@@ -1,0 +1,126 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:ui="sap.ui.table"
+controllerName="ZSSU.controller.Home">
+	<Dialog afterClose="onAfterCloseFragment"  contentWidth="90%">
+	<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Pending Amendments"/>					
+				</contentMiddle>		
+			</Bar>			
+		</customHeader>		
+		 <ui:Table id="id_tab"  rows="{R>/results}" selectionMode="None"  design="Bold" class="sapUiSizeCompact" enableColumnReordering="false"
+          visibleRowCountMode="Interactive" visibleRowCount="auto">
+          <ui:toolbar class="SvrToolbar">          
+            <Toolbar design="Solid">
+            <Label design="Bold" text="From" ></Label>
+		   <Text id= "id_From"> </Text>
+		   <Label design="Bold" text="To" class="custTo"></Label>
+		   <Text id= "id_ToDate" > </Text>
+		    <Label design="Bold"  text=" No.of records :" ></Label>
+		    <Text id= "id_count"> </Text>
+		      <Label design="Bold"  text=" As on :" ></Label>
+		    <Text id= "id_datetime" > </Text> 
+		    <ToolbarSpacer/>
+		    	<SearchField id="pend_search" change="onSearch" width="30%" showRefreshButton="true"/>
+		    </Toolbar>
+          </ui:toolbar>
+          <ui:columns>
+           <ui:Column width="9rem" filterProperty="Paper_no"  hAlign="Center" autoResizable="false" resizable="false" >
+              <Label text="Price Paper No"  design="Bold" tooltip="Price Paper number"  /> 
+              <ui:template>
+               <!-- <Link text="{R>Paper_no}" press="fnNavToDetail"/>	 -->
+               <Text text="{R>Paper_no}"/>		
+              </ui:template>
+              
+              </ui:Column>
+              <ui:Column width="6rem" filterProperty="Created_on"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Created On" design="Bold" tooltip="Created On"  />
+              <ui:template>
+               <Text text="{R>Created_on}"/>		
+              </ui:template>
+            </ui:Column>
+            
+             <ui:Column width="10rem" filterProperty="CreatedbyName"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Created By" design="Bold" tooltip="Created By"  />
+              <ui:template>
+               <Text text="{R>CreatedbyName}"/>		
+              </ui:template>
+            </ui:Column>
+            
+            <ui:Column width="6rem" filterProperty="Time"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Time" design="Bold" tooltip="Time"  />
+              <ui:template>
+               <Text text="{R>Time}"/>		
+              </ui:template>
+            </ui:Column>
+               <ui:Column width="6rem" filterProperty="Item_for_D"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Item"  design="Bold" tooltip="Item Details"  />
+              <ui:template>
+               <Text text="{R>Item_for_D}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="6rem" filterProperty="Sub_Item"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Sub Item" design="Bold" tooltip="Sub Item Details"  />
+              <ui:template>
+               <Text text="{R>Sub_Item}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="6rem" filterProperty="Vender"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Vendor" design="Bold" tooltip="Vendor Name"  />
+              <ui:template>
+               <Text text="{R>Vender}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="10rem" filterProperty="Material"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Material" design="Bold" tooltip="Material"  />
+              <ui:template>
+               <Text text="{R>Material}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="6rem" filterProperty="Plant"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Plant" design="Bold" tooltip="Plant Details"  />
+              <ui:template>
+               <Text text="{R>Plant}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="10rem" filterProperty="PIR_Cat"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="P-Info Category" design="Bold" tooltip="P-Info Category"  />
+              <ui:template>
+               <Text text="{R>PIR_Cat}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="9rem"  filterProperty="Amend_Type"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Amendmend type" design="Bold" tooltip="Amendmend type"  />
+              <ui:template>
+               <Text text="{R>Amend_Type}"/>		
+              </ui:template>
+            </ui:Column>
+            
+            
+            <ui:Column width="10rem" filterProperty="Rel_Indicator"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Document Type" design="Bold" tooltip="Document Type"  />
+              <ui:template>
+               <Text text="{R>Rel_Indicator}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="10rem" filterProperty="Completion_Indicator"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="SAP Status" design="Bold" tooltip="SAP Status"  />
+              <ui:template>
+               <Text text="{R>Completion_Indicator}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="20rem" filterProperty="Error"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Error" design="Bold" tooltip="Error Description"  />
+              <ui:template>
+               <Text text="{R>Error}"/>		
+              </ui:template>
+            </ui:Column>
+              </ui:columns>
+          </ui:Table>
+          
+          <buttons>
+          <!-- <Button text="Download Report" Align="Right" press="fnDownloadReport" type="Emphasized"></Button> -->
+          <Button text="Cancel" Align="Right" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+			</buttons>
+			</Dialog>
+</core:FragmentDefinition>

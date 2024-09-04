@@ -1,0 +1,709 @@
+{
+"results": [{
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000145')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000145')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-RM-000145",
+			"Sector": "M&M AD",
+			"Model": "ABS – THAR",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1679529600000)\/",
+			"Crtime": "PT11H30M16S",
+			"PaperCode": "RM",
+			"PaperText": "Raw Material",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "28",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-CIT-000020')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-CIT-000020')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-CIT-000020",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "50001245",
+			"Crdate": "\/Date(1675987200000)\/",
+			"Crtime": "PT15H33M49S",
+			"PaperCode": "CIT",
+			"PaperText": "Change in Terms",
+			"InitiatorName": "Rajat Lath",
+			"Maker": "",
+			"Ageing": "69",
+			"pendingNo": "40",
+			"CurrentHolder": "",
+			"CurrentHolderName": ""
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000048')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000048')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-RM-000048",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1674777600000)\/",
+			"Crtime": "PT12H00M37S",
+			"PaperCode": "RM",
+			"PaperText": "Raw Material",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "83",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000036')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000036')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-RM-000036",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1674518400000)\/",
+			"Crtime": "PT15H04M32S",
+			"PaperCode": "RM",
+			"PaperText": "Raw Material",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "86",
+			"pendingNo": "50",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00063')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00063')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-NPI-00063",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT19H14M32S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "30",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00062')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00062')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-NPI-00062",
+			"Sector": "M&M AD",
+			"Model": "ABS – SUPRO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT19H04M44S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "80",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PIC-000018')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PIC-000018')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-PIC-000018",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT15H31M30S",
+			"PaperCode": "PIC",
+			"PaperText": "PI Copy",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "60",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NEG-000006')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NEG-000006')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-NEG-000006",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT15H10M15S",
+			"PaperCode": "NEG",
+			"PaperText": "Negotiation",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-CCR-000004')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-CCR-000004')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-CCR-000004",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT12H08M45S",
+			"PaperCode": "CCR",
+			"PaperText": "Conversion Cost Revision",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "30",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00059')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-NPI-00059')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-NPI-00059",
+			"Sector": "M&M AD",
+			"Model": "ABS - SCORPIO LCCR",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT11H18M39S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"pendingNo": "10",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PC-000018')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PC-000018')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-PC-000018",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1673913600000)\/",
+			"Crtime": "PT11H04M36S",
+			"PaperCode": "PC",
+			"PaperText": "Price Correction",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "91",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PC-000002')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-PC-000002')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-PC-000002",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1659398400000)\/",
+			"Crtime": "PT15H37M23S",
+			"PaperCode": "PC",
+			"PaperText": "Price Correction",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "261",
+			"pendingNo": "40",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000008')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY23-RM-000008')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY23-RM-000008",
+			"Sector": "M&M AD",
+			"Model": "ABS – THAR",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "AGAWSA-CONT",
+			"Crdate": "\/Date(1654646400000)\/",
+			"Crtime": "PT11H58M50S",
+			"PaperCode": "RM",
+			"PaperText": "Raw Material",
+			"InitiatorName": "Sandesh Agawane",
+			"Maker": "",
+			"Ageing": "316",
+			"pendingNo": "200",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00177')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00177')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00177",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1641168000000)\/",
+			"Crtime": "PT14H25M56S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "472",
+			"pendingNo": "300",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-PIC-000014')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-PIC-000014')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-PIC-000014",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1640131200000)\/",
+			"Crtime": "PT11H06M05S",
+			"PaperCode": "PIC",
+			"PaperText": "PI Copy",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "484",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00172')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00172')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00172",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1639699200000)\/",
+			"Crtime": "PT14H33M34S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "485",
+			"pendingNo": "200",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000289%3A10')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000289%3A10')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "",
+			"NpiNo": "2800000289:10",
+			"Sector": "M&M AD",
+			"Model": "ABS–BOLERO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "23096350",
+			"Crdate": "\/Date(1639267200000)\/",
+			"Crtime": "PT00H00M00S",
+			"PaperCode": "PPP",
+			"PaperText": "Proto Price Paper",
+			"InitiatorName": "Shivkumar Swamy",
+			"Maker": "",
+			"Ageing": "484",
+			"pendingNo": "100",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00167')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00167')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00167",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1638144000000)\/",
+			"Crtime": "PT14H48M54S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "489",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00132')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00132')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00132",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1633046400000)\/",
+			"Crtime": "PT17H34M54S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "486",
+			"pendingNo": "20",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00119')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00119')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00119",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1632873600000)\/",
+			"Crtime": "PT13H57M02S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "568",
+			"pendingNo": "209",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00094')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00094')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00094",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1632182400000)\/",
+			"Crtime": "PT17H20M25S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "555",
+			"pendingNo": "301",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00085')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00085')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00085",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1631664000000)\/",
+			"Crtime": "PT17H05M41S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "555",
+			"pendingNo": "200",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00044')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-NPI-00044')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-NPI-00044",
+			"Sector": "M&M AD",
+			"Model": "ABS – SUPRO",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1628812800000)\/",
+			"Crtime": "PT13H14M30S",
+			"PaperCode": "NPI",
+			"PaperText": "New P-Info",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "486",
+			"pendingNo": "400",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-PKG-000003')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('FY22-PKG-000003')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "A",
+			"NpiNo": "FY22-PKG-000003",
+			"Sector": "M&M AD",
+			"Model": "ABS",
+			"StatusDesc": "SSU Approver 1",
+			"Status": "A1",
+			"Initiator": "23105509",
+			"Crdate": "\/Date(1623801600000)\/",
+			"Crtime": "PT17H14M16S",
+			"PaperCode": "PKG",
+			"PaperText": "Packaging",
+			"InitiatorName": "Ankit Deshmukh",
+			"Maker": "",
+			"Ageing": "673",
+			"pendingNo": "300",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000152%3A10')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000152%3A10')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "",
+			"NpiNo": "2800000152:10",
+			"Sector": "M&M AD",
+			"Model": "ABS – JEETO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "CLICT-09",
+			"Crdate": "\/Date(1607472000000)\/",
+			"Crtime": "PT00H00M00S",
+			"PaperCode": "PPP",
+			"PaperText": "Proto Price Paper",
+			"InitiatorName": "Adwait Bandiwdekar",
+			"Maker": "",
+			"Ageing": "801",
+			"pendingNo": "500",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000152%3A20')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000152%3A20')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "",
+			"NpiNo": "2800000152:20",
+			"Sector": "M&M AD",
+			"Model": "ABS – JEETO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "CLICT-09",
+			"Crdate": "\/Date(1607472000000)\/",
+			"Crtime": "PT00H00M00S",
+			"PaperCode": "PPP",
+			"PaperText": "Proto Price Paper",
+			"InitiatorName": "Adwait Bandiwdekar",
+			"Maker": "",
+			"Ageing": "827",
+			"pendingNo": "600",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}, {
+			"__metadata": {
+				"id": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000150%3A10')",
+				"uri": "https://vhmamsf1ci.sap.mahindra.com:44300/sap/opu/odata/sap/ZMM_SSU_NPI_SRV/ES_Master('2800000150%3A10')",
+				"type": "ZMM_SSU_NPI_SRV.ET_Master"
+			},
+			"Application": "",
+			"NpiNo": "2800000150:10",
+			"Sector": "M&M AD",
+			"Model": "ABS – JEETO",
+			"StatusDesc": "",
+			"Status": "A1",
+			"Initiator": "CLICT-09",
+			"Crdate": "\/Date(1607299200000)\/",
+			"Crtime": "PT00H00M00S",
+			"PaperCode": "PPP",
+			"PaperText": "Proto Price Paper",
+			"InitiatorName": "Adwait Bandiwdekar",
+			"Maker": "",
+			"Ageing": "801",
+			"pendingNo": "450",
+			"CurrentHolder": "213888",
+			"CurrentHolderName": "Vaibhav Kumbhar"
+		}],
+		
+		
+		
+		"TileData":[{
+		"name" : "Associate Pending",
+		"count" : "20"
+		},		{
+		"name" : "Request",
+		"count" : "3"
+		},{
+		"name" : "Draft",
+		"count" : "4"
+		},{
+		"name" : "Post To SAP",
+		"count" : "5"
+		},{
+		"name" : "Submitted",
+		"count" : "7"
+		},{
+		"name" : "Rejected",
+		"count" : "8"
+		}],
+		
+		"PendingData" : [
+		{
+		"AssoName" : "Beena",
+		"count" :"12"
+		},
+		{
+		"AssoName" : "Sandesh",
+		"count" :"8"
+		}
+		],
+		
+		"subList" : [
+		{
+		"CurrentHolder":"Beena",
+		"PaperNo" : "FY23-CIT-000020",
+		"PaperCode" :" CIT",
+		"ageing" : "21",
+		"count": "2"
+		},
+		{
+		"CurrentHolder":"Beena",
+		"PaperNo" : "FY23-RM-000020",
+		"PaperCode" :"RM",
+		"ageing" : "10",
+		"count" : "5"
+		},
+		{
+		"CurrentHolder":"Beena",
+		"PaperNo" : "FY23-FOREX-000020",
+		"PaperCode" :"FOREX",
+		"ageing" : "2",
+		"count" : "5"
+		},
+		{
+		"CurrentHolder":"Sandesh",
+		"PaperNo" : "FY23-RM-000020",
+		"PaperCode" :"RM",
+		"ageing" : "11",
+		"count" : "10"
+		}
+		]
+		,
+		
+		"Reports":[
+		{
+		"Buyer" : "Kamal",
+		"PaperType":"FOREX",
+		"AmmndDate" : "11.04.2023",
+		"PaperNo": "FY23-FOREX-000145",
+		"Associate" : "Beena",
+		"LineCount" : "3",
+		"Status" : "Pending with Buyer"
+		},
+		{
+		"Buyer" : "Kamal",
+		"PaperType":"RM",
+		"AmmndDate" : "11.04.2023",
+		"PaperNo": "FY23-RM-000145",
+		"Associate" : "Sandesh",
+		"LineCount" : "3",
+		"Status" : "Pending with Associate"
+		}
+		]
+}

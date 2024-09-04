@@ -1,0 +1,126 @@
+/*===========================================================================*/
+/*                Responsive Screen Design for Mobile                                 */
+/*===========================================================================*/
+.lblAlignRes{
+  padding-top: 0.5rem !important;
+  padding-right: 0.2rem;
+  text-align: end !important;
+}
+.txtAlignRes{
+  padding-top: 0.5rem !important;
+  padding-right: 0.5rem;
+  text-align: right !important;
+  padding-left: 0.5rem;
+}
+.sapMPanelContent:not(.sapMPanelBGTransparent) {
+    border-bottom: 0rem !important;
+}
+
+.sapMPanelContent {
+    padding: 0rem !important;
+    overflow: hidden;
+}
+.sapUiRespGrid.sapUiRespGridVSpace1>div {
+    margin-bottom: 0rem !important;
+}
+/* .sapMPage {
+    background-color: white;
+} */
+.PagebackgroudColr {
+    background-color: white;
+}
+.sapMNLI {
+    padding: 0rem;
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.5);
+    border-bottom: 0;
+}
+.hb1 {
+	width: 30rem;
+}
+
+.textclass {
+	color: white;
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+__component0---PIRSearch--idRBGroup {
+	display: inline-flex ;
+}
+.RadioButtonInline {
+	display: inline-flex !important ;
+}
+.sapMTile:hover {
+	box-shadow: 1px 2px 4px 6px lightgrey;
+}
+.shelltext {
+	font-weight: bold;
+	font-size: 1.25rem !important;
+	color: black;
+	&
+	nbsp;
+	&
+	nbsp;
+	&
+	nbsp;
+	&
+	nbsp;
+}
+.BackgroundPage {
+	background-image: -moz-linear-gradient(top, #2da9b1 0%, #178299 50%, #1a4c7d 100%);
+	background-image: linear-gradient(top, #2da9b1 0%, #178299 50%, #1a4c7d 100%);
+	background-image: -webkit-linear-gradient(top, #2da9b1 0%, #178299 50%, #1a4c7d 100%);
+	background-image: -o-linear-gradient(top, #2da9b1 0%, #178299 50%, #1a4c7d 100%);
+	background-image: -ms-linear-gradient(top, #2da9b1 0%, #178299 50%, #1a4c7d 100%);
+	background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, #2da9b1
+		);
+	color-stop: (50%, #178299), color-stop(100%, #1a4c7d));
+}
+.timeshadow{
+	box-shadow: 10px 10px 4px;
+    border: 5px solid lightblue;
+}
+.administrationTile {
+    width: 10rem;
+    height: 10rem;
+}
+StandardTile:hover{
+	 background-color: yellow;
+}
+.SvrToolbar {
+    height: 2rem !important;
+   /*  background: #0f5b80 !important; */
+    background: red !important;
+}
+.LabelMargin {
+	margin-left: .5rem;
+}
+.TitleWhite {
+	 color: white !important;
+}
+.UITableHeaderbg{
+background: black !important;
+}
+/* .UITableHeaderColor{
+background: black !important;
+color: #ffffff!important;
+} */
+/* .sapUiTableCol{
+background:   red !important;
+color: #408080!important;
+} */
+/* .sapUiSizeCompact .sapUiTableCol, .sapUiSizeCompact .sapUiTableColRowHdr, .sapUiSizeCompact .sapUiTableColHdrCnt {
+background-color: #0f5b80 !important;
+} */
+.sapUiTable>.sapUiTableTbr.sapUiTableMTbr {
+    height: auto !important;
+}
+.custClassHeader {
+    background-color: #e31837 !important;
+}
+.custClsHeaderTitle {
+    color: white !important;
+    font-weight: bold !important;
+}

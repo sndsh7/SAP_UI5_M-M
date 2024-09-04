@@ -1,0 +1,114 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ZPART_SETTLEMENT",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "Part Settlement Tracker",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+            "ZMM_SSU_AMEND_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMM_SSU_PST_SRV/",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ZPART_SETTLEMENT.view.PartSettl",
+			"type": "XML",
+			"async": true,
+			"id": "PaymentTerms"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZPART_SETTLEMENT.i18n.i18n"
+				}
+			},
+			"oDataAmendmentModel": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneWay",
+                    "defaultCountMode": "Request",
+                    "useBatch": false
+                },
+                "dataSource": "ZMM_SSU_AMEND_SRV",
+                "preload": true
+            }
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/Style.css"
+			}],
+			"js": []
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZPART_SETTLEMENT.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "PartSettl",
+				"pattern": "PartSettl",
+				"target": ["PartSettl"]
+			}],
+			"targets": {
+				"PartSettl": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "PartSettl",
+					"viewName": "PartSettl"
+				}
+			}
+		}
+	}
+}

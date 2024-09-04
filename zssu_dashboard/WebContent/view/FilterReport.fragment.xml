@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleFilterDialogConfirm">
+		<filterItems>
+			<ViewSettingsFilterItem text="Paper Code" items="{paperCode>/results}" key="PaperCode" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{paperCode>PaperCode}" key="PaperCode" />
+				</items>
+			</ViewSettingsFilterItem>
+	
+			<ViewSettingsFilterItem text="Associate" items="{associate>/results}" key="AssociateName" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{associate>AssociateName}" key="AssociateName" />
+				</items>
+			</ViewSettingsFilterItem>
+			
+				<ViewSettingsFilterItem text="Status" key="Status" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="SSU Buyers Request" key="Status" />
+					<ViewSettingsItem text="SSU Buyers Draft" key="Status" />
+					<ViewSettingsItem text="Associate Request" key="Status" />
+					<ViewSettingsItem text="SSU Buyers Rejected" key="Status" />
+					<ViewSettingsItem text="Associate Rejected" key="Status" />
+					<ViewSettingsItem text="SSU Buyers Post to SAP" key="Status" />
+					<ViewSettingsItem text="Associate Post to SAP" key="Status" />
+					<ViewSettingsItem text="Approver 1" key="Status" />
+					<ViewSettingsItem text="Approver 2" key="Status" />
+					<ViewSettingsItem text="Approver 3" key="Status" />
+					<ViewSettingsItem text="Approver 4" key="Status" />
+					<ViewSettingsItem text="Approver 5" key="Status" />
+					<ViewSettingsItem text="Associate Draft" key="Status" />
+					<ViewSettingsItem text="Completed" key="Status" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+		
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

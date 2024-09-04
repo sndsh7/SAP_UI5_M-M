@@ -1,0 +1,121 @@
+<mvc:View controllerName="ZSSU_DASHBOARD.controller.Detail"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:suite="sap.suite.ui.commons"
+	 xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:html="http://www.w3.org/1999/xhtml">
+	<!-- <Shell id="shell"> -->
+	
+		<App>
+			<pages>
+				<Page id="detailpage" title="" navButtonPress="onPressNavButton" showNavButton="true">
+					<content>
+			<l:Grid defaultSpan="L12 M12 S12" class="sapUiResponsiveMargin" vSpacing="0" hSpacing="0">
+				<suite:ChartContainer title="">
+					<suite:ChartContainerContent icon="sap-icon://table-chart" title="table">
+						<suite:content>
+							<Table sticky="HeaderToolbar,ColumnHeaders" mode="SingleSelectMaster" id="idProductsTable" selectionChange="OnSelection" width="auto" items="{/results}">
+								<columns>
+									<Column hAlign="Center" >
+										<Label text="Associate" design="Bold"/>
+									</Column>
+									<Column hAlign="Center"  visible="false">
+										<Label text="Associate Draft" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Associate Request" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Associate Complete" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Associate Reject" design="Bold"/>
+									</Column>
+									
+									<Column hAlign="Center" visible="false" >
+										<Label text="Approver 1" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Approver 2" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Approver 3" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Approver 4" design="Bold"/>
+									</Column>
+									
+																	
+									<Column hAlign="Center" visible="false">
+										<Label text="Draft" design="Bold"/>
+									</Column>
+									<Column hAlign="Center" visible="false">
+										<Label text="Request" design="Bold"/>
+									</Column>									
+									<Column hAlign="Center" visible="false">
+										<Label text="Reject" design="Bold"/>
+									</Column>
+									<!-- <Column hAlign="Center" visible="false">
+										<Label text="Initiator Complete" design="Bold"/>
+									</Column> -->
+									
+									<!-- <Column>
+										<Text text="Initiated By"/>
+									</Column> -->										
+									<Column hAlign="Center" >
+										<Label text="Counts" design="Bold"/>
+									</Column>															
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{AssociateName}" />
+											<Text text="{AssociateDraft}"/>
+											<Text text="{AssociateRequest}"/>
+											<Text text="{AssociateComplete}"/>
+											<Text text="{AssociateReject}"/>
+											
+											<Text text="{A1}"/>
+											<Text text="{A2}"/>
+											<Text text="{A3}" />
+											<Text text="{A4}" />
+											
+											<Text text="{SSUDraft}"/>
+											<Text text="{SSURequest}"/>
+											<Text text="{SSUReject}" />
+											<!-- <Text text="{SSUComplete}" /> -->
+											
+											<Text text="{count}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</suite:content>
+					</suite:ChartContainerContent>
+					<suite:ChartContainerContent icon="sap-icon://vertical-bullet-chart" title="chart">
+						<suite:content>
+							<viz:VizFrame id="vizFrame" vizProperties="{title: {text: 'Area Chart' ,visible : true}}" uiConfig="{applicationSet:'fiori'}"
+								selectData="onSelectionData" height='20rem' width="100%" vizType='area'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{/results}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="AssociateName" value="{AssociateName}"/>
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="count" value="{count}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="count"/>
+									<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="AssociateName"/>
+								</viz:feeds>
+							</viz:VizFrame>
+						</suite:content>
+					</suite:ChartContainerContent>
+				</suite:ChartContainer>
+			</l:Grid>
+		</content>
+				</Page>
+			</pages>
+		</App>
+	<!-- </Shell> -->
+</mvc:View>

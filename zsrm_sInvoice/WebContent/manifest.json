@@ -1,0 +1,115 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "SRM_Invoice",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "S-Invoice details",
+    "description": "Supplier invoice details",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "ZSIModelDS": {
+        "uri": "/sap/opu/odata/SAP/ZZSRM_VENDORINVOICE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      },
+      "ZZSRM_ASN_TO_INVOICE_SRV": {
+        "uri": "/sap/opu/odata/sap/ZZSRM_ASN_TO_INVOICE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      },
+      "Fiori_usage": {
+        "uri": "/sap/opu/odata/sap/ZFIORI_USAGE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_bluecrystal"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": "ZSRM_SINVOICE.view.App",
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ZSRM_SINVOICE.i18n.i18n"
+        }
+      },
+      "ZSRM_SINVOICE": {
+        "dataSource": "ZSIModelDS",
+        "settings": {
+          "useBatch": false
+        }
+      },
+      "ZZSRM_ASN_TO_INVOICE": {
+        "dataSource": "ZZSRM_ASN_TO_INVOICE_SRV",
+        "settings": {
+          "useBatch": false,
+          "defaultUpdateMethod": "PUT"
+        }
+      },
+      "Fiori_usage": {
+        "dataSource": "Fiori_usage",
+        "settings": {
+          "useBatch": false,
+          "defaultUpdateMethod": "PUT"
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "ZSRM_SINVOICE.view",
+        "controlId": "App",
+        "controlAggregation": "pages",
+        "transition": "flip"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "SInvoice",
+          "view": "SInvoice"
+        }
+      ]
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    }
+  },
+  "sap.platform.abap": {
+    "uri": "/sap/bc/ui5_ui5/sap/zsrm_sinvoice/webcontent",
+    "_version": "1.1.0"
+  }
+}

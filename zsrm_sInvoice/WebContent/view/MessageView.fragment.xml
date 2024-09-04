@@ -1,0 +1,32 @@
+<core:FragmentDefinition    xmlns="sap.m"
+  							xmlns:core="sap.ui.core"   
+  							xmlns:u="sap.ui.unified"
+  							xmlns:f="sap.ui.layout.form"
+							xmlns:l="sap.ui.layout" 
+   							xmlns:semantic="sap.m.semantic">
+<Dialog  class="sapUiContentPadding" >
+	<customHeader>
+		<Bar class="headerBgColor">
+			<contentMiddle>
+				<Label text="Information" design="Bold" class="headerTitle" />
+			</contentMiddle>
+		</Bar>
+	</customHeader>
+	
+	<content>
+		<MessageView items="{MSG>/oData}" id="id_MsgView">
+			<items>
+				<MessageItem 	
+						type= "{MSG>type}"
+						title= "{MSG>Msg}"
+						description="{MSG>FileName}" >
+				</MessageItem>
+			</items>
+		</MessageView>
+	</content>
+	 <endButton>
+	     <Button id="id_Cancelmsg" text="Close" press="onCloseMsg"/>
+	 </endButton> 
+	
+</Dialog>
+</core:FragmentDefinition>

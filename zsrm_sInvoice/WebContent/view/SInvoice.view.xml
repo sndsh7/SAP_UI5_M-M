@@ -1,0 +1,308 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"  xmlns:u="sap.ui.unified"
+		   xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+		   controllerName="ZSRM_SINVOICE.controller.SInvoice"
+	 	   xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<Page>
+		<customHeader>
+			<Bar class='header'>
+				<contentMiddle>
+					<Label text='S-Invoice Details' class='title'>
+					</Label>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+<!-- 		<ScrollContainer height="100%" width="100%" -->
+<!-- 			horizontal="true" vertical="true" focusable="true"> -->
+
+			<f:SimpleForm id="SimpleFormChange354wideDual" class="sapUiSizeCompact"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="5" labelSpanM="6" labelSpanS="12" adjustLabelSpan="false"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsL="2" columnsM="2">
+<!-- 				columnsS="1"> -->
+				<f:content>
+<!-- 					<core:Title level="H1" -->
+<!-- 						class="sapUiFormTitle sapUiFormTitleH1" /> -->						
+
+					<Label text="Vendor" design="Bold" />
+<!-- 					<Input value="" id="LifnrId" maxLength="10" change='InputValidation' -->
+<!-- 					       showValueHelp="true" valueHelpRequest="onF4pressVendor"/>						 -->
+
+<!-- 					<Select id='LifnrId' items="{selectModel>/results}" -->
+<!-- 							showSecondaryValues="true" enabled="true" > -->
+<!-- 						<core:Item key="{selectModel>VENDCODE}" text="{selectModel>VENDCODE}"/> -->
+<!-- 					</Select> -->
+
+					<MultiComboBox id='LifnrId' items="{selectModel>/results}">
+						<core:Item key="{selectModel>VENDCODE}" text="{selectModel>VENDCODE}" />
+					</MultiComboBox>
+					
+					<Label text="GR Number" design="Bold" />
+					<Input value="" id="GRFromId" placeholder="From" 
+						change="onGRChange" maxLength='10'  width="70%" />
+<!-- 						minLength='10' -->
+					<Input value="" id="GRToId" placeholder="To"
+						change="onGRChange" maxLength='10' />
+<!-- 						minLength='10'
+					 -->
+					<Label text="Entry Uploaded date" design="Bold" />
+					<DatePicker id="DTI1" change="onDtChange"
+						placeholder="From Date ..." enabled="true"
+						displayFormat="dd MMM yyyy" valueFormat="dd.MM.yyyy" width="70%"
+						value="{path:'DTI1', type:'sap.ui.model.type.Date',formatOptions: {pattern: 'dd.MM.yyyy'}}"
+						class="sapUiSmallMarginBottom" />
+					<DatePicker id="DTI2" change="onDtChange"
+						placeholder="To Date ..." enabled="true"
+						displayFormat="dd MMM yyyy" valueFormat="dd.MM.yyyy"
+						value="{path:'DTI2', type:'sap.ui.model.type.Date',formatOptions: {pattern: 'dd.MM.yyyy'}}"
+						class="sapUiSmallMarginBottom" />
+					 <Label text="Plant" design="Bold" />
+					<Input value="" id="idPlant" placeholder="Plant"
+						change="" maxLength='10' />
+						<Label text="Invoice attached" design="Bold" />
+						<!-- <MultiComboBox id='InvoiceId' items="{selectModel1>/results}">
+						<core:Item key="{selectModel1>Invoice_no}" text="{selectModel1>Invoice_no}" />
+					</MultiComboBox> -->
+					<Select id="InvoiceId" change="on">
+						  <items>														
+							<core:Item key="" text=" " />
+							<core:Item key="X" text="With Attachment" />
+							<core:Item key="Y" text="Without Attachment" />
+																									
+						  </items>
+						</Select>	
+					<!-- Added-start by AGAWSA-CONT on 27/04/2024 -->	
+					<!-- <Label text="Original Invoice Received" design="Bold" />	
+					<Select id="id_OrgInvc" change="on">
+						  <items>														
+							<core:Item key="" text=" " />
+							<core:Item key="X" text="Rejected" />
+							<core:Item key="Y" text="Original Invoice received" />
+																									
+						  </items>
+					</Select> -->	
+					<!-- Added by AGAWSA-CONT on 27/04/2024 -->																				
+					<core:Title level="H1"	class="sapUiFormTitle sapUiFormTitleH1" />
+			
+					<VBox>
+						<Button text="Get Details" id="getDetail" type="Accept"
+							width="33%" press="onGetdetail" visible="true" />
+						<Button text="Reset" id="resetId" type="Reject" width="33%"
+							press="onReset" visible="true" />
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+			
+					
+			
+<!-- 					<Toolbar class="sapUiSizeCompact"> -->
+<!-- 						<Title text="Report" level="H1" /> -->
+<!-- 						<ToolbarSpacer /> -->
+<!-- 						<Button text="Details Download" id="download" -->
+<!-- 							type="Accept" width="15%" press="onDownload" visible="true" /> -->
+<!-- 						<Button id="download" type="Accept" press="onDownload" -->
+<!-- 							 	icon="sap-icon://download" visible="false" /> -->
+<!-- 						<ToolbarSpacer />							 	 -->
+<!-- 						<Button id="idSave" text="Update Selected Records" press="onActionPress"  type='Accept' -->
+<!-- 				  				visible="true" icon="sap-icon://icon-save-as"/>	 	 -->
+<!-- 					</Toolbar>			 -->
+
+<!-- 		class="sapUiRespnsiveContentPadding" -->
+<!--   	height="25rem" width="90rem"  -->
+		  <ScrollContainer height="75%" width="100%" 
+						   horizontal="true" vertical="true" focusable="true"> 
+			 
+			 
+			<Table id="idTable" items="{/results}" growing="true" mode='MultiSelect' 
+				   select="onTbSelect" selectionChange="onTbSelectionChange"
+				   updateFinished="onLoadAddiAsset" class="sapUiSizeCompact" visible='false' >
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Report" level="H1" />
+<!-- 						<ToolbarSpacer /> -->
+<!-- 						<Button text="Details Download" id="download" -->
+<!-- 							type="Accept" width="15%" press="onDownload" visible="true" /> -->
+						<Button id="download" type="Accept" press="onDownload"
+							 	icon="sap-icon://download" visible="false" />
+						<Button id="idSave" text="Update Selected Records" press="onActionPress"  type='Emphasized'
+				  				visible="false" icon="sap-icon://save"/>
+				  		<Button id="id_MassUploadBtn" text="Mass Upload" press="onHandleMultiUpload"  type='Emphasized'
+				  				visible="true" icon="sap-icon://back-to-top"/>	 
+				  					
+						<ToolbarSpacer />
+						
+						<Label text="Reason for Deletion" design="Bold" />
+						<Select id="IdDelReason" change="on">
+						  <items>														
+							<core:Item key=" " text="Select" />
+							<core:Item key="01" text="Incorrect S-Invoice details" />
+							<core:Item key="02" text="Incorrect Tax code entered" />
+							<core:Item key="03" text="Incorrect price entered" />
+<!-- 							<core:Item key="04" text="This is the Deletion Reason 4" />	 -->
+<!-- 							<core:Item key="05" text="This is the Deletion Reason 5" />																				 -->
+						  </items>
+						</Select>							 	
+						<Button id="idDelete" text="Delete Selected Records" press="onActionPress"  type='Reject'
+				  				visible="true" icon="sap-icon://delete"/>	 	
+					</Toolbar>
+				</headerToolbar>
+				
+				<columns>
+<!--   column :  0	 -->
+					<Column hAlign="Left" minScreenWidth="Desktop"	demandPopin="true" width="6rem">
+						<ObjectIdentifier title="GR Number" />
+					</Column>
+<!--   column :  1	 -->
+					<Column hAlign="Left" minScreenWidth="Desktop"	demandPopin="true" width="6rem">
+						<ObjectIdentifier title="Vendor" />
+					</Column>
+<!--   column :  2   -->
+					<Column hAlign="Left" minScreenWidth="Desktop"  demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Plant" />
+					</Column>					
+<!--   column :  3	 -->
+					<Column hAlign="Left" minScreenWidth="Desktop"  demandPopin="true" width="10rem">
+						<ObjectIdentifier title="S-Invoice No" />
+					</Column>					
+<!--   column :  4	 -->
+					<Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true" width="6rem">
+						<ObjectIdentifier title="S-Invoice Date" />
+					</Column>					
+<!--   column :  5	 -->
+					<Column hAlign="Right" minScreenWidth="Desktop" demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Old Price(INR)" />
+					</Column>
+<!--   column :  6	 -->
+					<Column hAlign="Right"   minScreenWidth="Desktop" demandPopin="true" width="5rem">
+						<ObjectIdentifier title="New Price(INR)" />
+					</Column>
+<!--   column :  7	 -->
+					<Column hAlign="Right" minScreenWidth="Desktop"	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Net Value(INR)" />
+					</Column>
+<!--   column :  8	 -->
+					<Column hAlign="Right" minScreenWidth="Desktop"	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="S-Invoice Amount(INR)" />
+					</Column>					
+<!--   column :  9  -->
+<!--  "Posting Date in the Document" -->
+					<Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true" width="5rem">					
+						<ObjectIdentifier title="Entry Uploaded date" /> 
+					</Column>
+<!--   column : 10	 -->				
+					<Column hAlign="Center" visible='false'	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Tax code" />
+					</Column>
+<!--   column : 11	 -->					
+					<Column hAlign="Center" visible='true'	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="S-Invoice Status" />
+					</Column>
+<!--   column : 12	  -->
+									
+					<Column hAlign="Center" visible='false'	demandPopin="true" width="8rem">
+					  <VBox>	
+						<ObjectIdentifier title="Digi. Sign" />
+						<Select id='idsignsel' enabled="true" visible="false" change="onSignChange">
+							<items>
+<!-- 								<core:Item key="0" text=" " /> -->
+<!-- 								<core:Item key="Y" text="Yes" /> -->
+<!-- 								<core:Item key="N" text="No" /> -->
+								<core:Item key=" " text="Select" />
+								<core:Item key="Y" text="YES" />
+								<core:Item key="N" text="No" />
+								
+							</items>
+						</Select>
+					  </VBox>	
+					</Column>									
+<!--   column : 13	 -->					
+					<Column hAlign="Center" visible='true'	demandPopin="true" width="3rem">
+						<ObjectIdentifier title="" />
+					</Column>										
+<!--   column : 14	 -->					
+					<Column hAlign="Center" visible='true'	demandPopin="true" width="3rem">
+						<ObjectIdentifier title="" />
+					</Column>
+<!--   column : 15	 -->
+					<Column hAlign="Left" visible='true'	demandPopin="true" width="23rem">
+						<ObjectIdentifier title="File" />
+					</Column>
+<!--   column : 16	 -->					
+					<Column hAlign="Center" visible='true'	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Orig. Invoice Received" />
+					</Column>						
+<!--   column : 17	 -->
+					<Column hAlign="Center" visible='true'	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="Reason" />
+					</Column>
+<!--   column : 18	 -->
+					<Column hAlign="Center" visible='false'	demandPopin="true" width="5rem">
+						<ObjectIdentifier title="TCS" />
+					</Column>								
+					
+				</columns>
+
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier text="{GR_NO}"/>							
+							<ObjectIdentifier text="{LIFNR}" />
+							<ObjectIdentifier text="{WERKS}" />							
+							
+<!-- 							enabled="{= ${STATS} !== '' ? false:${FILE_NAME} === '' ? true:false}" -->
+							<Input id="SIId"  value="{S_INVOICE_NO}"  
+								   enabled="false"
+							       change="onSInvoiceChange"/>
+							
+<!-- 							enabled="{= ${STATS} !== '' ? false:${FILE_NAME} === '' ? true:false}" -->
+							<DatePicker valueFormat="dd-MM-yyyy" displayFormat="dd.MM.yyyy" change="onListDtChange" 
+										enabled="false"
+										value="{path:'S_INVOICE_DT', type:'sap.ui.model.type.Date',formatOptions: {pattern: 'dd.MM.yyyy',UTC: true}}">
+							</DatePicker>
+												 
+							<ObjectIdentifier text="{OLD_PRICE}" />
+							<ObjectIdentifier text="{NEW_PRICE}" />
+							<ObjectIdentifier text="{NET_VALUE}" />
+							<ObjectIdentifier text="{S_INVOICE_AMT}" />
+<!-- 							<Text text="{S_INVOICE_AMT}" /> -->
+							<ObjectIdentifier text="{POSTED_ON}" />
+							<ObjectIdentifier text="{MWSKZ}" />
+							<ObjectIdentifier text="{STATS}" />
+							
+<!-- 							forceSelection="true" -->
+<!-- 							enabled="{= ${STATS} !== '' ? false:${FILE_NAME} === '' ? true:false}" -->
+							<Select change="onSignchange" id="IS_DIGI_SIGNED" 									
+									enabled="false"
+									  selectedKey="{IS_DIGI_SIGNED}">
+								<items>																		
+									<core:Item key=" " text="Select" />
+									<core:Item key="Y" text="YES" />
+									<core:Item key="N" text="No" />
+								</items>
+							 </Select>							
+																														
+							<Button text='' icon="sap-icon://delete" type="Reject" 
+									enabled="{= ${STATS} !== '' ? false:${FILE_NAME} === '' ? false:true}"
+									id="delete" press="fnDelete"/>
+
+<!-- 							enabled="{= ${FILE_NAME} === '' ? true:false}" -->
+							<u:FileUploader id="fileUploader1"  name="myFileUpload" placeholder="No File Chosen" 
+											enabled="{= ${STATS} !== '' ? false:${FILE_NAME} === '' ? true:false}" 
+											sameFilenameAllowed='true'
+						                    iconOnly='true' icon="sap-icon://attachment" buttonOnly='true' style='Accept'				                    
+						                    tooltip="Upload Your File" change="fnAttach1" useMultipart="false"/>
+
+							<Link id="attLink" text="{FILE_NAME}" press="onDispDoc"/>
+							<ObjectIdentifier text="{INV_RECV_STAT}" />
+							<ObjectIdentifier text="{RESN}" />
+							<ObjectIdentifier text="{TCS}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</ScrollContainer>
+	   </content>
+	</Page>
+
+</core:View>

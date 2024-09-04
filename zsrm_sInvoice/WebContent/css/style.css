@@ -1,0 +1,35 @@
+/* header color */
+.header {
+  background-color: #e31837 !important;
+}
+
+/* Title Color and font */
+.title {
+  color: white !important;
+  font-size: large;
+}  
+
+.sapMCb>label {
+    background-color: yellow;
+    vertical-align: top;
+}
+
+/*table multiple select coloumn width */
+/* .sapUiSizeCompact .sapMListTblSelCol {
+    width: 0.2rem !important;
+} */
+
+/* to remove the top space of simpleform */
+div[id*="GRFromId"] div h5 {
+	display: none !important;
+}
+
+/*   Horizontal scroller */
+/* html.sap-desktop ::-webkit-scrollbar-thumb { */
+/*     background-color: #949494;!Important */
+/* } */
+
+/* to highlight the scroll of table */
+/* .sapUiTableHSb::-webkit-scrollbar-thumb { */
+/*     background-color: #333333!important; */
+/* }  */

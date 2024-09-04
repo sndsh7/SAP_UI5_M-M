@@ -1,0 +1,36 @@
+<core:FragmentDefinition  xmlns="sap.m"
+  xmlns:core="sap.ui.core"   xmlns:u="sap.ui.unified"
+  xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout" 
+   xmlns:semantic="sap.m.semantic">
+ <Dialog title="File Attachment" class="sapUiContentPadding" >
+   <f:SimpleForm id="SimpleFormIdl" class="sapUiSizeCompact"
+                     editable="true"
+                     title=""
+                     layout="ResponsiveGridLayout"
+                     labelSpanL="2"
+                     labelSpanM="2"
+                     labelSpanS="2"
+                     emptySpanL="0"
+                     emptySpanM="0"
+                     emptySpanS="0"
+                     columnsL="1"
+                     columnsM="1">
+                     <f:content>
+                     <Label text="File" />
+                   <u:FileUploader id="fileUploader1" uploadOnChange="true" uploadComplete="upldStart" name="myFileUpload"
+                    buttonText="Choose File" placeholder="No File Chosen" 
+                    tooltip="Upload Your File" change="fnUploadUrl" useMultipart="false"/>
+                 
+                     </f:content>
+              </f:SimpleForm>
+
+              <beginButton>
+                     <Button type="Emphasized" text="Submit Document" press="fnAttach"/>
+              </beginButton>   
+              <endButton>
+                  <Button type="" text="Close" press="onCloseAttach"/>
+              </endButton>    
+ 
+ </Dialog>
+</core:FragmentDefinition>

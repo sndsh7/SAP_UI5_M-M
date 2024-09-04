@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:layout="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data">
+	
+	<Dialog width="50%"
+		title="Disclaimer" showHeader="true"
+		class="sapUiPopupWithPadding sapUiSizeCompact">
+		 
+		<beginButton>
+		<Button text="Ok" press="fnPressok"/>
+		</beginButton> 
+		<endButton>
+			<Button icon="" text="Close" press="fnclose" />
+		</endButton>
+		
+		<content>
+          <CheckBox class="sapUiSmallMarginBegin" id="id_CheckInd" 
+            text="We have attached invoices as per data uploaded by us in portal.
+            If there is any data mismatch then we will be solely responsible for same." select="fnSelCheckInd"> </CheckBox>
+		</content>
+		</Dialog>		
+</core:FragmentDefinition>

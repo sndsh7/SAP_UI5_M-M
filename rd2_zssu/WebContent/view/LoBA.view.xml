@@ -1,0 +1,850 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	controllerName="com.mahindra.ZSSU.controller.LoBA"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="LoBA" binding="{ModelSSULoBA>/PaperDataSet}">
+		<customHeader>
+			<Toolbar class="custClassHeader">
+				<Button type="Back" press=".navBackNPI" />
+				<ToolbarSpacer />
+				<Title class="custClsHeaderTitle" text="LoBA" level="H2" />
+				<ToolbarSpacer />
+			</Toolbar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{ModelSSULoBA>NpiNo}"
+				visible="true" condensed="true" />
+			<!-- <f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" 
+				labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" columnsXL="3" columnsL="3" 
+				columnsM="2" singleContainerFullSize="false"> <f:content> <core:Title text=""/> 
+				<Label text="Dear Mr/Ms:"/> <Input value="{ModelVar}" maxLength="15" editable="{ModelSSULoBA>/EditableFlag}"></Input> 
+				<core:Title text=""/> <Label text="Model"/> <MultiInput editable="{ModelSSULoBA>EditableFlag}" 
+				valueHelpOnly="true" valueHelpRequest="oModelSelection" value="{ModelSSULoBA>PaperDataSet/Model}"/> 
+				</f:content> </f:SimpleForm> -->
+			<VBox class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom"
+				justifyContent="Center" wrap="Wrap">
+				<HBox alignItems="Center" renderType="Bare">
+					<Label text="Dear Mr/Ms:" design="Bold" width="10%" />
+					<Input value="{ModelSSULoBA>LoBAOwner}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="80%" />
+				</HBox>
+
+				<HBox alignItems="Center" renderType="Bare">
+					<Label text="Vendor Name:" design="Bold" width="10%" />
+					<Text text="{ModelSSULoBA>VName}" width="30%" class="clsText" />
+					<Label text="Vendor Code:" design="Bold" width="10%" />
+					<!-- <Input value="zac" width="10%" editable="false"/> -->
+					<Text text="{ModelSSULoBA>Vendor}" width="10%" class="clsText" />
+					<Label text="Vendor Location:" design="Bold" width="10%" />
+					<Text text="{ModelSSULoBA>VLocation}" width="30%"
+						class="clsText" />
+				</HBox>
+
+				<HBox alignItems="Center" renderType="Bare">
+					<Label text="Project:" design="Bold" width="10%" />
+					<Text text="{ModelSSULoBA>Model}" width="30%" class="clsText" />
+					<Label text="Sector:" design="Bold" width="10%" />
+					<Text text="{ModelSSULoBA>Sector}" width="50%" class="clsText" />
+				
+				</HBox>
+
+			</VBox>
+			<HBox alignItems="Center" renderType="Bare"
+				class="custClassHBoxIndicaVol">
+				<Label text="Indicative Volumes:" design="Bold" width="13%" />
+				<VBox width="12%">
+					<Text
+						text="{parts:[{path:'ModelSSULoBA>SopDate'}],formatter:'.fnFiscalYearText1'}"
+						width="90%" class="clsText" textAlign="Center" />
+					<Input value="{ModelSSULoBA>FiscalYear1}" maxLength="7"
+						editable="{ModelSSULoBA>/EditableFlag}" width="90%" type="Number" />
+				</VBox>
+				<VBox width="12%">
+					<Text
+						text="{parts:[{path:'ModelSSULoBA>SopDate'}],formatter:'.fnFiscalYearText2'}"
+						width="90%" class="clsText" textAlign="Center" />
+					<Input value="{ModelSSULoBA>FiscalYear2}" maxLength="7"
+						editable="{ModelSSULoBA>/EditableFlag}" width="90%" type="Number" />
+				</VBox>
+				<VBox width="12%">
+					<Text
+						text="{parts:[{path:'ModelSSULoBA>SopDate'}],formatter:'.fnFiscalYearText3'}"
+						width="90%" class="clsText" textAlign="Center" />
+					<Input value="{ModelSSULoBA>FiscalYear3}" maxLength="7"
+						editable="{ModelSSULoBA>/EditableFlag}" width="90%" type="Number" />
+				</VBox>
+				<VBox width="12%">
+					<Text
+						text="{parts:[{path:'ModelSSULoBA>SopDate'}],formatter:'.fnFiscalYearText4'}"
+						width="90%" class="clsText" textAlign="Center" />
+					<Input value="{ModelSSULoBA>FiscalYear4}" maxLength="7"
+						editable="{ModelSSULoBA>/EditableFlag}" width="90%" type="Number" />
+				</VBox>
+				<VBox width="12%">
+					<Text
+						text="{parts:[{path:'ModelSSULoBA>SopDate'}],formatter:'.fnFiscalYearText5'}"
+						width="90%" class="clsText" textAlign="Center" />
+					<Input value="{ModelSSULoBA>FiscalYear5}" maxLength="7"
+						editable="{ModelSSULoBA>/EditableFlag}" width="90%" type="Number" />
+				</VBox>
+
+				<!-- <Text text="{ModelSSULoBA>FiscalYear2}" width="12%" class="clsText"/> 
+					<Text text="{ModelSSULoBA>FiscalYear3}" width="12%" class="clsText"/> <Text 
+					text="{ModelSSULoBA>FiscalYear4}" width="12%" class="clsText"/> <Text text="{ModelSSULoBA>FiscalYear5}" 
+					width="12%" class="clsText"/> -->
+				<Label text="SOP Date:" textAlign="Center" design="Bold"
+					width="10%" />
+				<!-- <Text text="{ModelSSULoBA>SopDate}" width="17%" class="clsText"/> -->
+				<DatePicker width="17%" placeholder="mm/yyyy"
+					displayFormat="MM/yyyy" editable="{ModelSSULoBA>/EditableFlag}"
+
+					value="{path: 'ModelSSULoBA>SopDate', type: 'sap.ui.model.type.DateTime', formatOptions: {pattern: 'MM/yyyy'}}"
+					valueFormat="yyyy-MM-ddT00:00:00" change="onChangeSopDate" />
+				<!-- value="{ModelSSULoBA>SopDate}" valueFormat="yyyy-MM-ddT00:00:00" 
+					change="onChangeSopDate"/> -->
+			</HBox>
+
+			<Table noDataText="no data"
+				items="{ModelSSULoBA>Nav_LoBANpiItem}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Part Price &amp; YOY" design="Bold" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Plant Code" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text=" Model Variant" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Drg. Rev. No." design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Finalised Price" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="With Amortisation if any" design="Bold"
+							wrapping="true" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Packaging Cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Transport Cost" design="Bold" />
+					</Column>
+
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{ModelSSULoBA>PartNo}"
+								text="{ModelSSULoBA>PartDesc}" />
+							<ObjectIdentifier title="{ModelSSULoBA>Plant}"
+						        text="{ModelSSULoBA>PlantDesc}" />	
+							<Text text="{ModelSSULoBA>ModelVar}" />
+							<Text text="{ModelSSULoBA>DrawingRevisedNo}" />
+							<!-- <Input value="{ModelSSULoBA>DrawingRevisedNo}" editable="{ModelSSULoBA>/EditableFlag}"/> -->
+							<Text text="{ModelSSULoBA>Currency}" />
+							<Text text="{ModelSSULoBA>SettledPrice}" />
+							<Text text="{ModelSSULoBA>ToolAmortisation}" />
+							<Text text="{ModelSSULoBA>PkgCost}" />
+							<Text text="{ModelSSULoBA>TranspCost}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox class="custClassHbox" justifyContent="Start" wrap="Wrap"
+				alignItems="Center" renderType="Bare">
+				<Label text="RM Index Period:" design="Bold" width="10%" />
+				<Text
+					text="{ModelSSULoBA>RmBasePeriod}  {ModelSSULoBA>RmBasePeriodYr}"
+					width="20%" />
+				<Label text="Payment Terms:" design="Bold" width="10%" />
+				<Text text="{ModelSSULoBA>PayTermDesc}" width="20%" />
+				<Label text="Delivery Terms: " design="Bold" width="10%" />
+				<Text text="{ModelSSULoBA>IncoTermDesc}" width="30%" />
+			</HBox>
+
+			<Table noDataText="no data" items="{ModelSSULoBA>Nav_LoBARM}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="RM Content" design="Bold" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Raw Material (settled)" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Base RM cost (settled)" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Input Weight (settled) in Kg" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Finished Weight (settled)" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{ModelSSULoBA>PartNo}"
+								text="{ModelSSULoBA>PartDesc}" />
+							<Text text="{ModelSSULoBA>RmGradeDescription}" />
+							<Text text="{ModelSSULoBA>RmBasePrice}" />
+							<Text text="{ModelSSULoBA>RmGrossWt}" />
+							<!-- <Input value="{ModelSSULoBA>RmNetWeight}" editable="{ModelSSULoBA>/EditableFlag}"/> -->
+							<Text text="{ModelSSULoBA>RmNetWeight}" />
+							<Text text="{ModelSSULoBA>RmCurrency}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+			<!-- custom table -->
+			<Table noDataText="no data" items="{ModelSSULoBA>Nav_LoBASub}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Direct Supplier &amp; Subcontracting Parts"
+								design="Bold" />
+							<ToolbarSpacer />
+							<Label text="Rows" design="Bold"
+								visible="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>/CountSupplier}" width="4%"
+								type="Number" visible="{ModelSSULoBA>/EditableFlag}" />
+							<Button icon="{ModelDefaultDataSet>/Icon/addIcon}"
+								press="onAddSupplier" visible="{ModelSSULoBA>/EditableFlag}" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<infoToolbar>
+					<Toolbar class="custClassTblTool" design="Solid">
+						<content>
+							<HBox width="100%" renderType="Bare">
+								<Label text="Direct Supplier" design="Bold" width="50%" />
+								<Label text="Subcontracting Parts" design="Bold"
+									width="50%" />
+							</HBox>
+							<!-- <Label text="Direct Supplier" design="Bold"/> <ToolbarSpacer/> 
+								<Label text="Subcontracting Parts" design="Bold"/> -->
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Supplier" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Description" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Rate" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Description" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Supplier" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Actions" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Input value="{ModelSSULoBA>Supplier1}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>PartNo1}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Maktx1}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Rate}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="12"
+								type="Number" />
+							<Input value="{ModelSSULoBA>PartNo2}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Maktx2}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Supplier2}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<HBox justifyContent="Center">
+								<Button tooltip="Copy"
+									icon="{ModelDefaultDataSet>/Icon/copy}" press="onCopy"
+									visible="{ModelSSULoBA>/EditableFlag}" class="clsEditButton" />
+								<Button tooltip="Delete"
+									icon="{ModelDefaultDataSet>/Icon/deleteIcon}" type="Reject"
+									press="onDelete" visible="{ModelSSULoBA>/EditableFlag}" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+			<Table noDataText="no data"
+				items="{ModelSSULoBA>Nav_LoBAForex}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Import Content" design="Bold" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<!-- <Column hAlign="Center"> <Label text="Part" design="Bold"/> </Column> -->
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part Description with Country of Origin"
+							design="Bold" wrapping="true" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Forex Index" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Content" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Price (Forex Base Rate)" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!-- <ObjectIdentifier title="{ModelSSULoBA>PartNo}" text="{ModelSSULoBA>PartDesc}"/> -->
+							<Text text="{ModelSSULoBA>ForexCur}" />
+							<Text text="{ModelSSULoBA>Herkl}" />
+							<!-- <Input value="{ModelSSULoBA>Herkl}" editable="{ModelSSULoBA>/EditableFlag}"/> -->
+							<Text text="{ModelSSULoBA>ForexIndex}" />
+							<Text text="{ModelSSULoBA>ForexContent}" />
+							<Text text="{ModelSSULoBA>FxBaseExchRate}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+				wrap="Wrap" alignItems="Start" width="98%" renderType="Bare">
+				<Label text="Note:" design="Bold" width="5%" />
+				<TextArea value="{ModelSSULoBA>ImportNotes}"
+					editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+					growingMaxLines="4" maxLength="800" showExceededText="true"
+					width="90%" />
+			</HBox>
+
+			<Table noDataText="no data"
+				items="{ModelSSULoBA>Nav_LoBANpiItem}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Tool Cost/Revenue Cost" design="Bold" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Pcs" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Years" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Shots /Strokes" design="Bold" wrapping="true" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Basic Tool Cost (W/O Taxes) Finalised"
+							design="Bold" wrapping="true" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Lease Amortisation Amt." design="Bold"
+							wrapping="true" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Qty/No." design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="No. of Yrs." design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="per Pcs cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="RC-Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="DVP" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="ED &amp; D (Testing)" design="Bold"
+							wrapping="true" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{ModelSSULoBA>PartNo}"
+								text="{ModelSSULoBA>PartDesc}" />
+							<!-- <Input value="{ModelSSULoBA>Pieces}" editable="{ModelSSULoBA>/EditableFlag}"/> 
+								<Input value="{ModelSSULoBA>ToolYears}" editable="{ModelSSULoBA>/EditableFlag}"/> 
+								<Input value="{ModelSSULoBA>Strokes}" editable="{ModelSSULoBA>/EditableFlag}"/> -->
+							<Text text="{ModelSSULoBA>Pieces}" />
+							<Text text="{ModelSSULoBA>ToolYears}" />
+							<Text text="{ModelSSULoBA>Strokes}" />
+							<Text text="{ModelSSULoBA>Currency}" />
+							<Text text="{ModelSSULoBA>Finalupfront}" />
+							<Text text="{ModelSSULoBA>FinalAmortized}" />
+							<Text text="{ModelSSULoBA>Amortisation}" />
+							<!-- Add start By AGAWSA-CONT -->
+							<Input value="{ModelSSULoBA>Noy}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="2" type="Number"/>
+							<!-- Add end By AGAWSA-CONT -->
+							<Text text="{ModelSSULoBA>ToolAmortisation}" />
+							<Text text="{ModelSSULoBA>RevCurrency}" />
+							<!-- <Text text="{ModelSSULoBA>Dvp}"/> -->
+							<Input value="{ModelSSULoBA>Dvp}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Text text="{ModelSSULoBA>EdD}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+				wrap="Wrap" alignItems="Start" width="98%" renderType="Bare">
+				<Label text="Note:" design="Bold" width="5%" />
+				<TextArea value="{ModelSSULoBA>ToolCostNotes}"
+					editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+					growingMaxLines="4" maxLength="800" showExceededText="true"
+					width="90%" />
+			</HBox>
+
+			<!-- custom table -->
+			<Table noDataText="no data" items="{ModelSSULoBA>Nav_LoBAProp}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Proto Part" design="Bold" />
+							<ToolbarSpacer />
+							<Label text="Rows" design="Bold"
+								visible="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>/CountProtoPart}" width="4%"
+								type="Number" visible="{ModelSSULoBA>/EditableFlag}" />
+							<Button icon="{ModelDefaultDataSet>/Icon/addIcon}"
+								press="onAddProtoPart" visible="{ModelSSULoBA>/EditableFlag}" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Part" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part Desc." design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part Cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Tooling Cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="DVP" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="ED &amp; D (Testing)" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Proto Mfg. Location" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Actions" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!-- <ObjectIdentifier title="{ModelSSULoBA>ProtoPartNo}" text="{ModelSSULoBA>Maktx}"/> 
+								<Text text="{ModelSSULoBA>Currency}"/> -->
+							<Input value="{ModelSSULoBA>ProtoPartNo}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Maktx}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>Currency}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>ProtoCost}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>ToolingCost}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>DvpCost}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>Testing}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>ProtoMfcLoc}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<HBox justifyContent="Center">
+								<Button tooltip="Copy"
+									icon="{ModelDefaultDataSet>/Icon/copy}" press="onCopy"
+									visible="{ModelSSULoBA>/EditableFlag}" class="clsEditButton" />
+								<Button tooltip="Delete"
+									icon="{ModelDefaultDataSet>/Icon/deleteIcon}" type="Reject"
+									press="onDelete" visible="{ModelSSULoBA>/EditableFlag}" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+			<!-- custom table -->
+			<Table noDataText="no data"
+				items="{ModelSSULoBA>Nav_LoBATmaker}"
+				class="sapUiSmallMarginTopBottom">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Tool Maker Details" design="Bold" />
+							<ToolbarSpacer />
+							<Label text="Rows" design="Bold"
+								visible="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>/CountToolMaker}" width="4%"
+								type="Number" visible="{ModelSSULoBA>/EditableFlag}" />
+							<Button icon="{ModelDefaultDataSet>/Icon/addIcon}"
+								press="onAddToolMaker" visible="{ModelSSULoBA>/EditableFlag}"></Button>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Tool Maker" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Tool Description" design="Bold" />
+					</Column>
+					<Column hAlign="Center" width="10%">
+						<Label text="Actions" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Input value="{ModelSSULoBA>Tmaker}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>TmakDesc}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<HBox justifyContent="Center">
+								<Button tooltip="Copy"
+									icon="{ModelDefaultDataSet>/Icon/copy}" press="onCopy"
+									visible="{ModelSSULoBA>/EditableFlag}" class="clsEditButton" />
+								<Button tooltip="Delete"
+									icon="{ModelDefaultDataSet>/Icon/deleteIcon}" type="Reject"
+									press="onDelete" visible="{ModelSSULoBA>/EditableFlag}" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+				wrap="Wrap" alignItems="Start" width="98%" renderType="Bare">
+				<Label text="Note:" design="Bold" width="5%" />
+				<TextArea value="{ModelSSULoBA>ToolMkrNotes}"
+					editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+					growingMaxLines="4" maxLength="800" showExceededText="true"
+					width="90%" />
+			</HBox>
+
+			<!-- custom table -->
+			<HBox class="custClassHbox" justifyContent="Start" wrap="Wrap"
+				alignItems="Start" renderType="Bare">
+				<Label text="Spare Price same as OE" class="clsRadioLabel" />
+				<RadioButtonGroup columns="2"
+					select="onSelectOERadio" editable="{ModelSSULoBA>/EditableFlag}"
+					selectedIndex="{path :'ModelSSULoBA>SameAsOe', formatter: '.formatterRadioYesNo'}">
+					<buttons>
+						<RadioButton text="Yes" />
+						<RadioButton text="No" />
+					</buttons>
+				</RadioButtonGroup>
+				<!-- Add Start BY AGAWSA-CONT -->
+				<Label text="Special packaging cost on OE:" class="cl_label"/>
+				<Input value="{ModelSSULoBA>SPCO}" editable="{ModelSSULoBA>/EditableFlag}" type="Number" class="cl_input" width="20%"/>
+				<!-- Add END BY AGAWSA-CONT -->
+			</HBox>
+			<Table noDataText="no data"
+				items="{ModelSSULoBA>Nav_LoBASpare}"
+				class="sapUiSmallMarginTopBottom"
+				visible="{path :'ModelSSULoBA>SameAsOe', formatter: '.formatterSameAsOE'}">
+				<headerToolbar>
+					<Toolbar class="custClassTblTool">
+						<content>
+							<Label text="Spare Part price" design="Bold" />
+							<ToolbarSpacer />
+							<Label text="Rows" design="Bold"
+								visible="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>/CountSparePart}" width="4%"
+								type="Number" visible="{ModelSSULoBA>/EditableFlag}" />
+							<Button icon="{ModelDefaultDataSet>/Icon/addIcon}"
+								press="onAddSparePart" visible="{ModelSSULoBA>/EditableFlag}" />
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Center">
+						<Label text="Part No" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part Desc." design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Currency" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Part Cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Packaging cost" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="% Margin" design="Bold" />
+					</Column>
+					<Column hAlign="Center">
+						<Label text="Actions" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!-- <ObjectIdentifier title="{ModelSSULoBA>SparePartNo}" text="{ModelSSULoBA>SpareDesc}"/> -->
+							<Input value="{ModelSSULoBA>SparePartNo}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>SpareDesc}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>SpareCurr}"
+								editable="{ModelSSULoBA>/EditableFlag}" />
+							<Input value="{ModelSSULoBA>SparePartCost}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>SparePackCost}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="16"
+								type="Number" />
+							<Input value="{ModelSSULoBA>Margin}"
+								editable="{ModelSSULoBA>/EditableFlag}" maxLength="5"
+								type="Number" />
+							<HBox justifyContent="Center">
+								<Button tooltip="Copy"
+									icon="{ModelDefaultDataSet>/Icon/copy}" press="onCopy"
+									visible="{ModelSSULoBA>/EditableFlag}" class="clsEditButton" />
+								<Button tooltip="Delete"
+									icon="{ModelDefaultDataSet>/Icon/deleteIcon}" type="Reject"
+									press="onDelete" visible="{ModelSSULoBA>/EditableFlag}" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<!-- <HBox alignItems="Center" renderType="Bare"> <Label text="Vendor 
+				Name:" design="Bold" width="10%"/> <Input value="zac" width="30%" editable="false"/> 
+				<Label text="Vendor Code:" textAlign="Center" design="Bold" width="10%"/> 
+				<Input value="zac" width="10%" editable="false"/> <Text text="zac" width="10%" 
+				class="clsText"/> <Label text="Vendor Location:" textAlign="Center" design="Bold" 
+				width="10%"/> <Input value="zac" width="30%" editable="false"/> </HBox> <HBox 
+				alignItems="Center" renderType="Bare"> <Label text="Project:" design="Bold" 
+				width="10%"/> <Input value="zac" width="30%" editable="false"/> <Label text="Sector:" 
+				textAlign="Center" design="Bold" width="10%"/> <Input value="zac" width="10%" 
+				editable="false"/> <Label text="Plant Code:" textAlign="Center" design="Bold" 
+				width="10%"/> <Input value="zac" width="30%" editable="false"/> </HBox> <HBox 
+				alignItems="Center" renderType="Bare"> <Label text="Indicative Volumes:" 
+				design="Bold" width="13%"/> <Input value="zac" width="10%" editable="false"/> 
+				<Input value="zac" width="10%" editable="false"/> <Input value="zac" width="10%" 
+				editable="false"/> <Input value="zac" width="10%" editable="false"/> <Input 
+				value="zac" width="10%" editable="false"/> <Label text="SOP Date:" textAlign="Center" 
+				design="Bold" width="10%"/> <Input value="zac" width="20%" editable="true"/> 
+				</HBox> -->
+			<!-- <l:Grid hSpacing="1" vSpacing="0" defaultSpan="L12 M12 S12" class="clsMaster"> 
+				<l:content> 1st line starting <Label text="Dear Mr/Ms:" textAlign="End" design="Bold"> 
+				<layoutData> <l:GridData span="L1 M2 S2" /> </layoutData> </Label> <Input 
+				value="abcd" maxLength="15" editable="{ModelSSULoBA>/EditableFlag}"> <layoutData> 
+				<l:GridData span="L11 M6 S6" /> </layoutData> </Input> 2nd line starting 
+				<Label text="Vendor Name:" textAlign="End" design="Bold"> <layoutData> <l:GridData 
+				span="L2 M2 S2" /> </layoutData> </Label> <Text text="zac"> <layoutData> 
+				<l:GridData span="L3 M6 S6" /> </layoutData> </Text> <Label text="Vendor 
+				Code:" textAlign="End" design="Bold"> <layoutData> <l:GridData span="L2 M2 
+				S2" /> </layoutData> </Label> <Text text="zac"> <layoutData> <l:GridData 
+				span="L1 M6 S6" /> </layoutData> </Text> <Label text="Vendor Location:" textAlign="End" 
+				design="Bold"> <layoutData> <l:GridData span="L2 M2 S2" /> </layoutData> 
+				</Label> <Text text="zac"> <layoutData> <l:GridData span="L2 M6 S6" /> </layoutData> 
+				</Text> 3rd line starting <Label text="Project:" textAlign="End" design="Bold"> 
+				<layoutData> <l:GridData span="L4 M2 S2" /> </layoutData> </Label> <Text 
+				text="zac"> <layoutData> <l:GridData span="L4 M6 S6" /> </layoutData> </Text> 
+				<Label text="Sector:" textAlign="End" design="Bold"> <layoutData> <l:GridData 
+				span="L1 M2 S2" /> </layoutData> </Label> <Text text="zac"> <layoutData> 
+				<l:GridData span="L1 M6 S6" /> </layoutData> </Text> <Label text="Plant Code:" 
+				textAlign="End" design="Bold"> <layoutData> <l:GridData span="L2 M2 S2" /> 
+				</layoutData> </Label> <Text text="A003 AS Nasik Plant"> <layoutData> <l:GridData 
+				span="L3 M6 S6" /> </layoutData> </Text> 4th line starting <Label text="Indicative 
+				Volumes:" textAlign="End" design="Bold"> <layoutData> <l:GridData span="L2 
+				M2 S2" /> </layoutData> </Label> <Text text="Year 1 - FY21"> <layoutData> 
+				<l:GridData span="L1 M6 S6" /> </layoutData> </Text> <Text text="Year 1 - 
+				FY21"> <layoutData> <l:GridData span="L1 M6 S6" /> </layoutData> </Text> 
+				<Text text="Year 1 - FY21"> <layoutData> <l:GridData span="L1 M6 S6" /> </layoutData> 
+				</Text> <Text text="Year 1 - FY21"> <layoutData> <l:GridData span="L1 M6 
+				S6" /> </layoutData> </Text> <Text text="Year 1 - FY21"> <layoutData> <l:GridData 
+				span="L1 M6 S6" /> </layoutData> </Text> <Label text="SOP Date:" textAlign="End" 
+				design="Bold"> <layoutData> <l:GridData span="L2 M2 S2" /> </layoutData> 
+				</Label> <Text text="10/2020"> <layoutData> <l:GridData span="L3 M6 S6" /> 
+				</layoutData> </Text> </l:content> </l:Grid> -->
+			<!-- <Table inset="false" noDataText="*Add new part price details"> <headerToolbar> 
+				<Toolbar class="custClassTblTool"> <content> <Label text="Part Price Details" 
+				design="Bold"/> <ToolbarSpacer/> <Button icon="{ModelDefaultDataSet>/Icon/export}" 
+				type="Ghost" tooltip="Export Data" press="onExport" visible="true"/> <Button 
+				icon="{ModelDefaultDataSet>/Icon/downloadIcon}" type="Ghost" tooltip="Download 
+				Template" press="onDownldTempPartDet" visible="{parts:[{path:'ModelSSULoBA>EditableFlag'},{path:'ModelSSULoBA>PaperDataSet/Sector'},{path:'ModelSSULoBA>PaperDataSet/Model'}],formatter:'.visiblePartEditAttach'}"/> 
+				<Button icon="{ModelDefaultDataSet>/Icon/addIcon}" press="onAddPartPrice" 
+				type="Ghost" tooltip="Add Item" visible="{parts:[{path:'ModelSSULoBA>EditableFlag'},{path:'ModelSSULoBA>PaperDataSet/Sector'},{path:'ModelSSULoBA>PaperDataSet/Model'},{path:'ModelSSULoBA>InitiatedBySSU'}],formatter:'.visiblePartEdit'}"/> 
+				<Button icon="{ModelDefaultDataSet>/Icon/settingsIcon}" press="onSettingPartDetails" 
+				type="Ghost" visible="true"/> </content> </Toolbar> </headerToolbar> </Table> -->
+			<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+				wrap="Wrap" alignItems="Start" width="98%" renderType="Bare">
+				<Label text="Additional comments 1:" design="Bold" width="15%" />
+				<TextArea value="{ModelSSULoBA>AddtnlCmt}"
+					editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+					growingMaxLines="4" maxLength="255" showExceededText="true"
+					width="80%" />
+			</HBox>
+			<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+				wrap="Wrap" alignItems="Start" width="98%" renderType="Bare">
+				<Label text="Additional comments 2:" design="Bold" width="15%" />
+				<TextArea value="{ModelSSULoBA>AddtnlCmtNew}"
+					editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+					growingMaxLines="4" maxLength="255" showExceededText="true"
+					width="80%" />
+			</HBox>
+			<VBox>
+			<HBox width="93%" class="sapUiLargeMarginBeginEnd sapUiSmallMarginBottom">
+				<HBox  justifyContent="Start"
+					wrap="Wrap" alignItems="Start" renderType="Bare" width="60%" >
+					<Label text="Name of SSU CH/HOD:"  design="Bold" width="26.4%" />
+					<Input class="" value="{ModelSSULoBA>SSUHodName}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="69%"  />
+                  </HBox>
+
+                          
+					
+							<HBox class="" justifyContent="End"
+					wrap="Wrap" alignItems="Start" renderType="Bare" width="40%" >
+                      
+						<Label class="" design="Bold" width="24.4%"
+							text="Designation:" />
+						<ComboBox class="" width="65%" 
+							selectedKey="{ModelSSULoBA>/PaperDataSet/Designation}"
+							items="{oDataNewPinfoModel>/ES_Designation}"
+							editable="{ModelSSULoBA>EditableFlag}"
+							valueStateText="{ModelSSULoBA>ValidationData/DesignationFlag}"
+							change="onChangeDesignation">
+							<core:ListItem
+								text="{oDataNewPinfoModel>Designation}"
+								key="{oDataNewPinfoModel>Designation}" />
+						</ComboBox>
+                         
+				
+				</HBox>
+
+</HBox>
+
+
+				<HBox class="sapUiLargeMarginBeginEnd" wrap="Wrap"
+					alignItems="Start" width="98%" renderType="Bare">
+					<Label text="Note:" design="Bold" width="15%" />
+					<TextArea value="{ModelSSULoBA>SSUNotes}"
+						editable="{ModelSSULoBA>/EditableFlag}" growing="true"
+						growingMaxLines="4" maxLength="800" showExceededText="true"
+						width="80%" />
+				</HBox>
+				<HBox class="sapUiLargeMarginBeginEnd" justifyContent="Start"
+					wrap="Wrap" alignItems="Center" width="98%" renderType="Bare">
+					<Label
+						text="Please send your Letter of Acceptance confirming the above details by reply email to:"
+						design="Bold" width="25%" wrapping="true" />
+					<Input value="{ModelSSULoBA>LoBAMailId1}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+					<Input value="{ModelSSULoBA>LoBAMailId2}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+					<Input value="{ModelSSULoBA>LoBAMailId3}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+				</HBox>
+				<HBox
+					class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom sapUiLargeMarginBottom"
+					justifyContent="Start" wrap="Wrap" alignItems="Center" width="98%"
+					renderType="Bare">
+					<Label text="For any clarification, please mail only to:"
+						design="Bold" width="25%" wrapping="true" />
+					<Input value="{ModelSSULoBA>ClarificationMailId1}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+					<Input value="{ModelSSULoBA>ClarificationMailId2}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+					<Input value="{ModelSSULoBA>ClarificationMailId3}"
+						editable="{ModelSSULoBA>/EditableFlag}" width="23%" type="Email" />
+				</HBox>
+			</VBox>
+
+
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="{ModelDefaultDataSet>/Icon/editIcon}"
+					type="Emphasized" text="Edit" press="onEditLoBA"
+					visible="{path:'ModelSSULoBA>/EditableFlag', formatter: 'formatterEnableNot'}" />
+				<Button icon="{ModelDefaultDataSet>/Icon/saveIcon}"
+					type="Emphasized" text="Save" press="onSaveLoBA"
+					visible="{ModelSSULoBA>/EditableFlag}" />
+				<Button icon="{ModelDefaultDataSet>/Icon/printIcon}" id="id_Loba"
+					type="Ghost" text="Print Preview" press="onPrintPreviewLoBA"
+					visible="{ModelSSULoBA>/NotCreateNew}" />
+			</Toolbar>
+		</footer>
+	</Page>
+</core:View>

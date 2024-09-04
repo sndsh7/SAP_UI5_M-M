@@ -1,0 +1,140 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterClose="onAfterCloseFragment" binding="{/}" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Business Reduction Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Part Number:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="Vendor:" design="Bold"/>
+					<Text text="{Vendor}" class="txtColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{Plant}" class="txtColor"/>
+				</contentRight>
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="simpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="6" labelSpanM="5" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<!--<Label text="Year Base or Volume base :" design="Bold" required="true"/>-->
+				<!--selectedIndex="{path:'YearBase',formatter:'.formatterYearBase'}" select="onYearBase"-->
+				<RadioButtonGroup id="id_yearbase" columns="2" editable="{ModelSSUDigitization>/EditableFlag}"
+					selectedIndex="{path:'YearBase',formatter:'.formatterYearBase'}" select="onYearBase">
+					<buttons>
+						<RadioButton text="Year Base"/>
+						<RadioButton text="Volume base"/>
+					</buttons>
+				</RadioButtonGroup>
+				<Label required="true" text="YOY Reduction" design="Bold"/>
+				<ComboBox required="true" selectedKey="{YoyRed}" items="{oDataNewPinfoModel>/ES_YOY_RED}" editable="{ModelSSUDigitization>/EditableFlag}"
+					change="onChangeDropBus">
+					<core:Item text="{oDataNewPinfoModel>YOYRed}" key="{oDataNewPinfoModel>YOYRed}"></core:Item>
+				</ComboBox>
+				<Label text="SOP+1" design="Bold"  required="true"/>
+				<Input required="true" value="{Sop1yr}" type="Number" liveChange="onCheckNumberLeng3" editable="{ModelSSUDigitization>/EditableFlag}" 
+					  />
+								
+					
+					
+				<Label text="SOP+2" design="Bold" required="true" />
+				<Input required="true" value="{Sop2yr}"  type="Number" liveChange="onCheckNumberLeng3" editable="{ModelSSUDigitization>/EditableFlag}" 
+					   />
+					
+					
+					
+				<Label text="SOP+3"  design="Bold" />
+				<Input  value="{Sop3yr}"  type="Number" liveChange="onCheckNumberLeng3" editable="{ModelSSUDigitization>/EditableFlag}"  
+					/>
+				
+					
+				<Label text="SOP+4"  design="Bold" />
+				<Input value="{Sop4yr}"  type="Number" liveChange="onCheckNumberLeng3" editable="{ModelSSUDigitization>/EditableFlag}"
+					   />
+				
+					 
+				<Label text="SOP+5"  design="Bold" />
+				<Input value="{Sop5yr}"  type="Number" liveChange="onCheckNumberLeng3" editable="{ModelSSUDigitization>/EditableFlag}"
+					    />
+				
+					
+				<Label required="true" text="SOP Date - Effective Date/Year of Discount" design="Bold"/>
+				<!-- <DatePicker placeholder="mm/yyyy" displayFormat="MM/yyyy" editable="{ModelSSUDigitization>/EditableFlag}"
+					value="{path: 'DiscountYear', type: 'sap.ui.model.type.DateTime', formatOptions: {pattern: 'MM/yyyy'}}" 
+					valueFormat="yyyy-MM-ddT00:00:00"/> -->
+				<Input required="true" value="{DiscountYear}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng4"></Input>
+				<core:Title text=""/>
+				<Label required="true" text="SOP+1 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<DatePicker required="true" placeholder="dd.MM.yyyy" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{Sop1doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<Label required="true" text="SOP+1 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Input required="true" value="{Sop1doe}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"
+					visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<!--value="{path:'Sop1doe', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true }}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>-->
+				<Label required="true" text="SOP+2 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<DatePicker required="true" placeholder="dd.MM.yyyy" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{Sop2doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<Label required="true" text="SOP+2 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Input required="true" value="{Sop2doe}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"
+					visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Label text="SOP+3 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<DatePicker placeholder="dd.MM.yyyy" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{Sop3doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<Label text="SOP+3 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Input value="{Sop3doe}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"
+					visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Label text="SOP+4 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<DatePicker placeholder="dd.MM.yyyy" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{Sop4doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<Label text="SOP+4 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Input value="{Sop4doe}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"
+					visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Label text="SOP+5 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<DatePicker placeholder="dd.MM.yyyy" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{Sop5doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}" visible="{path:'YearBase',formatter:'.formatterYearBaseSOP'}"/>
+				<Label text="SOP+5 (Date or Volume)" design="Bold" visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<Input value="{Sop5doe}" type="Number" liveChange="onCheckNumberLeng12" editable="{ModelSSUDigitization>/EditableFlag}"
+					visible="{path:'YearBase',formatter:'.formatterVolumeBaseSOP'}"/>
+				<!--<Label required="true" text="SOP+1 (Date or Volume)" design="Bold"/>
+				<DatePicker required="true" placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss" value="{Sop1doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label required="true" text="SOP+2 (Date or Volume)" design="Bold"/>
+				<DatePicker required="true" placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss" value="{Sop2doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label required="true" text="SOP+3 (Date or Volume)" design="Bold"/>
+				<DatePicker required="true" placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss" value="{Sop3doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="SOP+4 (Date or Volume)" design="Bold"/>
+				<DatePicker placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss" value="{Sop4doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="SOP+5 (Date or Volume)" design="Bold"/>
+				<DatePicker placeholder="DD MM YYYY" displayFormat="dd MMM yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss" value="{Sop5doe}"
+					editable="{ModelSSUDigitization>/EditableFlag}"/>-->
+				<Label text="YOY Reduction Remarks" design="Bold"/>
+				<Input value="{YoyRedRem}" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Volume Discount Remarks" design="Bold"/>
+				<Input value="{VolDiscRemarks}" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Value of Discount(Cr.)" design="Bold"/>
+				<Input value="{DiscountValue}" editable="{ModelSSUDigitization>/EditableFlag}" type="Number" liveChange="onCheckNumberLeng12"></Input>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<!--<Button text="Add" press="onAddFXNwRow" type="Accept" icon="{ModelDefaultDataSet>/Icon/addIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>-->
+			<Button text="OK" press="onBusiReduOk" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}"
+				visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

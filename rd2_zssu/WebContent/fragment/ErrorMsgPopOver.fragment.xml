@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	
+		<MessagePopover items= "{ModelSSUDigitization>/ValidationError}">
+			 <MessagePopoverItem type="{ModelSSUDigitization>BEErrorType}" 
+			 					 title="{ModelSSUDigitization>BEError}">
+	          </MessagePopoverItem> 
+		</MessagePopover>
+	
+</core:FragmentDefinition>

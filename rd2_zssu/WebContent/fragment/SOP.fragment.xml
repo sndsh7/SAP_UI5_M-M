@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover placement="Left">
+	
+	<Carousel class="sapUiContentPadding" loop="true">
+		<Image src="{img>/products/pic1}" alt="Example picture of speakers" />
+		<Image src="{img>/products/pic2}" alt="Example picture of USB flash drive" />
+		<Image src="{img>/products/pic3}" alt="Example picture of spotlight" />
+		<Image src="{img>/products/screw}" alt="Example picture of screw" />
+	</Carousel>
+	</Popover>
+	
+	<!-- <Dialog afterClose="onAfterCloseFragment" afterOpen="" showHeader="true">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Model List"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<Carousel class="sapUiContentPadding" loop="true">
+		<Image src="{img>/products/pic1}" alt="Example picture of speakers" />
+		<Image src="{img>/products/pic2}" alt="Example picture of USB flash drive" />
+		<Image src="{img>/products/pic3}" alt="Example picture of spotlight" />
+		<Image src="{img>/products/screw}" alt="Example picture of screw" />
+	</Carousel>
+	</Dialog> -->
+	
+</core:FragmentDefinition>

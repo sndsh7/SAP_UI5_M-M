@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog afterOpen="" binding="{/}" afterClose="onAfterCloseFragment" contentWidth="70%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="RM Content Details"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<Label text="Plant:" design="Bold"/>
+					<Text text="{PartNo}" class="txtColor"/>
+				</contentLeft>
+				<!--<contentMiddle>
+					<Label text="Vendor:" design="Bold"/>
+					<Text text="{ModelSSUDigitization>Vendor}" class="txtColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Label text="Part Number:" design="Bold"/>
+					<Text text="{ModelSSUDigitization>PartNo}" class="txtColor"/>
+				</contentRight>-->
+			</Bar>
+		</subHeader>
+		<f:SimpleForm class="simpleFormTitle" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+			adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="Grade of RM &amp; Gross weight" design="Bold"/>
+				<!--<HBox>-->
+				<ComboBox required="true" tooltip="Grade" selectedKey="{RmGrade}" items="{oDataNewPinfoModel>/ES_RMGrade}"
+					editable="{ModelSSUDigitization>/EditableFlag}" selectionChange="onForExContent" change="onChangeDrop"
+					valueState="{path:'Validation/RmGradeFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/RmGradeFlag}">
+					<core:Item text="{oDataNewPinfoModel>GradeCode}" key="{oDataNewPinfoModel>GradeCode}"/>
+				</ComboBox>
+				<Input required="true" tooltip="weight" value="{RmGrossWt}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<!--</HBox>-->
+				<Label text="Index Cycle" design="Bold" required="true"/>
+				<!--<HBox>-->
+				<ComboBox required="true" selectedKey="{RmIndexCycle}" items="{oDataNewPinfoModel>/ES_RMIndexCycle}"
+					editable="{ModelSSUDigitization>/EditableFlag}" selectionChange="onIndexValRMChange" change="onChangeDrop"
+					valueState="{path:'Validation/RmIndexCycleFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/RmIndexCycleFlag}">
+					<core:Item text="{oDataNewPinfoModel>IndexCycle}" key="{oDataNewPinfoModel>IndexCycle}"/>
+				</ComboBox>
+				<ComboBox required="true" selectedKey="{RmIndexCycleVal}" items="{ModelSSUDigitization>/F4RMIndexVal}"
+					editable="{ModelSSUDigitization>/EditableFlag}">
+					<core:Item text="{ModelSSUDigitization>IndexVal}" key="{ModelSSUDigitization>IndexVal}"/>
+				</ComboBox>
+				<!--</HBox>-->
+				<Label text="Landing Factor" design="Bold" required="true"/>
+				<!--<HBox>-->
+				<ComboBox required="true" selectedKey="{RmLandingFact}" items="{oDataNewPinfoModel>/ES_RMLandFact}"
+					editable="{ModelSSUDigitization>/EditableFlag}" selectionChange="onLandFact" change="onChangeDrop"
+					valueState="{path:'Validation/RmLandingFactFlag',formatter:'.formattValidationError'}" valueStateText="{Validation/RmLandingFactFlag}">
+					<core:Item text="{oDataNewPinfoModel>LandFact}" key="{oDataNewPinfoModel>LandFact}"/>
+				</ComboBox>
+				<Input required="true" value="{RmLandingFactVal}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<!--</HBox>-->
+				<core:Title text=""/>
+				<Label text="Base Period" design="Bold"/>
+				<ComboBox required="true" tooltip="month" selectedKey="{RmBasePeriod}" items="{oDataNewPinfoModel>/ES_IndexBasePeriod}"
+					selectionChange="onForExLF" editable="{ModelSSUDigitization>/EditableFlag}" change="onChangeDrop">
+					<core:Item text="{oDataNewPinfoModel>Period}" key="{oDataNewPinfoModel>Period}"></core:Item>
+				</ComboBox>
+				<Input required="true" tooltip="year" value="{RmBasePeriodYr}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="RM Base Price" design="Bold" required="true"/>
+				<Input required="true" value="{RmBasePrice}" type="Number" editable="{ModelSSUDigitization>/EditableFlag}"></Input>
+				<Label text="Remarks" design="Bold"/>
+				<Input value="{RmRemarks}" maxLength="40" editable="{ModelSSUDigitization>/EditableFlag}"/>
+				<Label text="Finished Weight (settled)" wrapping="true" design="Bold"/>
+				<Input value="{RmNetWeight}" editable="{ModelSSUDigitization>/EditableFlag}"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="" class="clsErrBtnPopover" press="onRMErrMsgValueHelp" type="Emphasized" icon="{ModelDefaultDataSet>/Icon/messagePopupIcon}"></Button>
+			<!--<Button text="Add" press="onAddRMContent" type="Accept" icon="{ModelDefaultDataSet>/Icon/addIcon}" visible="false"></Button>-->
+			<Button text="OK" press="onRmOK" type="Accept" icon="{ModelDefaultDataSet>/Icon/acceptIcon}" visible="{ModelSSUDigitization>/EditableFlag}"></Button>
+			<Button text="Cancel" press="onCancelDialog" type="Reject" icon="{ModelDefaultDataSet>/Icon/cancelIcon}"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,116 @@
+<mvc:View controllerName="com.mahindra.ZSSU.controller.Home" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:n="sap.tnt">
+	<!--<App id="app">-->
+		<Page title="{i18n>homePageTitle}" showHeader="true" binding="{ModelSSUDigitization>/}">
+			<customHeader>
+				<Toolbar class="custClassHeader">
+					<Button icon="{ModelDefaultDataSet>/Icon/menuIcon}" tooltip="menu" press="onCollapseExpandPress"/>
+					<ToolbarSpacer/>
+					<Title class="custClsHeaderTitle" text="{i18n>homePageTitle}" level="H2"/>
+					<ToolbarSpacer/>
+					<Button text="Pending Amendments" id="penAmdBtn" tooltip="Completed On Ui5 Pending in SAP" type="Emphasized" press="onPress"/>
+					<Button icon="sap-icon://accounting-document-verification" tooltip="Approval Matrix" press="onPressAM" type="Reject"/>
+					<Button icon="sap-icon://learning-assistant" tooltip="SOP" press="onPressSOP" type="Reject"/>
+					<Button icon="sap-icon://sys-help-2" tooltip="FAQ" press="onPressFAQ" type="Reject"/>
+					
+					<!--<Button icon="sap-icon://full-screen" type="Transparent" press="onClickFullScreen" ariaLabelledBy="editButtonLabel"/>-->
+				</Toolbar>
+			</customHeader>
+			<content>
+				<HBox>
+				
+					<VBox>
+						<n:NavigationList expanded="false" id="navigationList" width="170px">
+							<n:NavigationListItem text="Landing page" key="LND" icon="{ModelDefaultDataSet>/Icon/homeIcon}" select="onPressItem"/>
+							<n:NavigationListItem items="{ path:'ModelDefaultDataSet>/ActionList', filters: [{ path: 'PaperType', operator: 'EQ', value1: 'NEW' }]}"
+								text="New" icon="{ModelDefaultDataSet>/Icon/createIcon}" visible="true">
+								<n:NavigationListItem text="{ModelDefaultDataSet>PaperText}" key="{ModelDefaultDataSet>PaperCode}" select="onPressItem" visible="true"/>
+							</n:NavigationListItem>
+							<n:NavigationListItem items="{ path:'ModelDefaultDataSet>/ActionList', filters: [{ path: 'PaperType', operator: 'EQ', value1: 'AMD' }]}"
+								text="Amendment" icon="{ModelDefaultDataSet>/Icon/editIcon}">
+								<n:NavigationListItem text="{ModelDefaultDataSet>PaperText}" key="{ModelDefaultDataSet>PaperCode}" select="onPressItem"
+									visible="{path:'ModelDefaultDataSet>Visibility',formatter:'.formatterPaperVisble'}"/>
+							</n:NavigationListItem>
+							<n:NavigationListItem text="Extra" icon="{ModelDefaultDataSet>/Icon/editOutIcon}">
+								<n:NavigationListItem text="Part Settlement Tracker" select="onPressPartSettlementTracker"/>
+							</n:NavigationListItem>
+							<!-- <n:NavigationListItem text="Auto Amendment" icon="{ModelDefaultDataSet>/Icon/editOutIcon}">
+								<n:NavigationListItem text="Index-Based" select="onPressIndexBased"/>
+							</n:NavigationListItem> -->
+						</n:NavigationList>
+					</VBox>
+					<Table items="{ModelSSUDigitization>SearchData}" mode="SingleSelectMaster" selectionChange="onSelectMasterList" growing="true" growingThreshold="50">
+						<headerToolbar>
+							<Toolbar class="custClassTblTool">
+								<Label text="{ModelSSUDigitization>SearchParameter/DocumentText}" design="Bold"/>
+								<Text text="({ModelSSUDigitization>SearchParameter/FromDate} - {ModelSSUDigitization>SearchParameter/ToDate})" class="labelMarginLeft"
+									visible="{ parts: ['ModelSSUDigitization>SearchParameter/FromDate','ModelSSUDigitization>SearchParameter/ToDate'], formatter: '.formattSearchDate' }"/>
+								<Button icon="{ModelDefaultDataSet>/Icon/calendarIcon}" tooltip="Click here to set from date and to date" press="onClickCalendar"/>
+								<ToolbarSpacer/>
+								<SegmentedButton selectedKey="{ModelSSUDigitization>SearchParameter/Status}" class="clsSegButton" width="60%" items="{ModelDefaultDataSet>/StatusFilter}" selectionChange="onPressStatus">
+									<items>
+										<SegmentedButtonItem key="{ModelDefaultDataSet>Text}" text="{ModelDefaultDataSet>Text}({ModelDefaultDataSet>Count})"/>
+									</items>
+								</SegmentedButton>
+								<ToolbarSpacer/>
+								<!--<SearchField placeholder="Search:Document No.,Type,Model,Sector" width="25%" liveChange="onSearchMaster"
+									value="{ModelSSUDigitization>SearchParameter/SearchText}"/>-->
+								<!--<Input value="{ModelSSUDigitization>SearchParameter/SearchText}" type="Text" width="25%"
+									placeholder="Search:Document Type,Vendor,Material,Project,Model" visible="true"></Input>-->
+								<Button icon="{ModelDefaultDataSet>/Icon/filterIcon}" press="onClickFilter" tooltip="filter" visible="false"/>
+								<Button icon="sap-icon://search" tooltip="Search:Document No.,Type,Model,Sector" press="onClickSearch" visible="true"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column hAlign="Center">
+								<Text text="Document Number"></Text>
+							</Column>
+							<Column hAlign="Center" visible="{path: 'ModelSSUDigitization>CreateNewEnable', formatter: 'formatterEnableNot'}">
+								<Text text="Document Type"/>
+							</Column>
+							<Column hAlign="Center" visible="{=${ModelSSUDigitization>SearchParameter/Status} === 'Pending'? true: false}">
+								<Text text="Current Holder(Ageing)"/>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Model"/>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Sector"/>
+							</Column>
+							<!--<Column hAlign="Center">
+								<Text text="Part Category"/></Text>
+							</Column>-->
+							<Column hAlign="Center">
+								<Text text="Created On"/>
+							</Column>
+							<!--<Column hAlign="Center">
+								<Text text="Created Time"></Text>
+							</Column>-->
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{ModelSSUDigitization>NpiNo}"/>
+									<Text text="{ModelSSUDigitization>PaperText}"/>
+									<!-- <Text text="{ModelSSUDigitization>CurrentHolder}({ModelSSUDigitization>Ageing})"/> -->
+									<Text text="{ parts: ['ModelSSUDigitization>CurrentHolderName','ModelSSUDigitization>Ageing'], formatter: '.formattCurrntHold' }"/>
+									<Text text="{ModelSSUDigitization>Model}"/>
+									<Text text="{ModelSSUDigitization>Sector}"/>
+									<!--<Text text="{ModelSSUDigitization>PartCategory}"></Text>-->
+									<Text text="{path:'ModelSSUDigitization>Crdate',formatter:'dateObjToLocal'}"/>
+									<!--<TimePicker value="{ModelSSUDigitization>Crtime}" valueFormat="PT00H00M00S"  displayFormat="mm:ss"/>-->
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</HBox>
+			</content>
+			<footer> 
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button icon="{ModelDefaultDataSet>/Icon/addIcon}" type="Emphasized" text="Create" id="id_create" tooltip="Click here to add new paper" press="onCreateNew"
+						visible="{ModelSSUDigitization>CreateNewEnable}"/>
+				</Toolbar>
+			</footer>
+		</Page>
+	<!--</App>-->
+</mvc:View>

@@ -1,0 +1,449 @@
+{
+	"EditableFlag": false,
+	"InitiatedBySSU": true,
+	"DisplayOnlyFlag": true,
+	"NotCreateNew": true,
+	"BEValidation": false,
+	"PostToSAP" : false,
+	"NonSSURequest": false,
+	"SelectedTab": "VP",
+	"isAddNew": false,
+	"MessageList": [{
+		"type": "Success",
+		"title": "title",
+		"description": "description description description description",
+		"subtitle": "subtitle",
+		"counter": 1
+	}, {
+		"type": "Error",
+		"title": "Success message",
+		"description": "First Success message description",
+		"subtitle": "Example of subtitle",
+		"counter": 1
+	}],
+	"PaperDataSet": {},
+	"TabIconColor": {
+		"VendorPartDetails": "Positive",
+		"ToolCost": "Positive",
+		"ForexRM": "Positive",
+		"CBD": "Positive",
+		"BusinessReduction": "Positive",
+		"SparePrice": "Positive",
+		"Attachment": "Positive",
+		"Workflow": "Positive"
+	},
+	"PartDet": [{
+		"headerText": "Part Number",
+		"bkKey": "PartDesc",
+		"bkText": "PartNo",
+		"selected": true,
+		"fixed": true,
+		"width": "18%"
+	}, {
+		"headerText": "Vendor",
+		"bkKey": "VName",
+		"bkText": "Vendor",
+		"selected": true,
+		"fixed": true,
+		"width": "17%"
+	}, {
+		"headerText": "Vendor Location",
+		"bkKey": "VLocation",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Plant",
+		"bkKey": "Plant",
+		"selected": true,
+		"fixed": true,
+		"width": "8rem"
+	}, {
+		"headerText": "Settled Price",
+		"bkKey": "SettledPrice",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Packaging Cost",
+		"bkKey": "PkgCost",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Transport Cost",
+		"bkKey": "TranspCost",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Valid From Date",
+		"bkKey": "ValidFrom",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Currency",
+		"bkKey": "Currency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Quote Price",
+		"bkKey": "QuotePrice",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SBC/Existing  Source",
+		"bkKey": "Sbcprice",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Group",
+		"bkKey": "Purgrp",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Delivery Time",
+		"bkKey": "Pdeltime",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Net Weight of a part",
+		"bkKey": "NetWeight",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Taxonomy",
+		"bkKey": "Taxonomy",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Annual Capacity",
+		"bkKey": "AnnualCap",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Delivery terms",
+		"bkKey": "DelTerms",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Payment Term",
+		"bkKey": "PaymntTerms",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "P-Info category",
+		"bkKey": "Pinforcat",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Purchase Organization",
+		"bkKey": "Purorg",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Tax Code",
+		"bkKey": "Taxcode",
+		"bkText": "TcDesc",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Model Variant",
+		"bkKey": "ModelVar",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Net Weight Unit",
+		"bkKey": "NetWtUnit",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Drg. Rev. No.",
+		"bkKey": "DrawingRevisedNo",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}],
+	"BusinessReduction": [{
+		"headerText": "YOY Reduction",
+		"bkKey": "YoyRed",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+1",
+		"bkKey": "Sop1yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+2",
+		"bkKey": "Sop2yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+3",
+		"bkKey": "Sop3yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+4",
+		"bkKey": "Sop4yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+5",
+		"bkKey": "Sop5yr",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP Date - Effective Date/Year of Discount",
+		"bkKey": "DiscountYear",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+1 DOE",
+		"bkKey": "Sop1doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+2 DOE",
+		"bkKey": "Sop2doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+3 DOE",
+		"bkKey": "Sop3doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+4 DOE",
+		"bkKey": "Sop4doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "SOP+5 DOE",
+		"bkKey": "Sop5doe",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "YOY Reduction Remarks",
+		"bkKey": "YoyRedRem",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Volume Discount Remarks",
+		"bkKey": "VolDiscRemarks",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Value of Discount(Cr.)",
+		"bkKey": "DiscountValue",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}],
+	"ToolCost": [{
+		"headerText": "Currency",
+		"bkKey": "TlCostCurrency",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Denomination",
+		"bkKey": "CurrDenomination",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Budgeted",
+		"bkKey": "Budgeted",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Finalized Amortised",
+		"bkKey": "FinalAmortized",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Finalised UpFront",
+		"bkKey": "Finalupfront",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Amortization (Nos.)",
+		"bkKey": "Amortisation",
+		"selected": true,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Tool Amortization/Pc",
+		"bkKey": "ToolAmortisation",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "DVP",
+		"bkKey": "Dvp",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Currency",
+		"bkKey": "RevCurrency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Denomination",
+		"bkKey": "RevDenomination",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Budgeted",
+		"bkKey": "RevBudgeted",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Finalized Amortised",
+		"bkKey": "RevFinalAmortized",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Finalised UpFront",
+		"bkKey": "RevFinalUpfront",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Amortization (Nos.)",
+		"bkKey": "RevAmortization",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Rev.Tool Amortization/Pc",
+		"bkKey": "RevTlAmortization",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED & D",
+		"bkKey": "EdD",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Currency",
+		"bkKey": "EdCurrency",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Denomination",
+		"bkKey": "EdDenomination",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Budgeted",
+		"bkKey": "EdBudgeted",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Finalized Amortised",
+		"bkKey": "EdFinalAmortized",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Finalized Upfront",
+		"bkKey": "EdFinalUpfront",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Amortization (Nos.)",
+		"bkKey": "EdAmortization",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "ED.Tool Amortization/Pc",
+		"bkKey": "ToolAmortization",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Pcs",
+		"bkKey": "Pieces",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Years",
+		"bkKey": "ToolYears",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Shots /Strokes",
+		"bkKey": "Strokes",
+		"selected": false,
+		"fixed": false,
+		"width": ""
+	}, {
+		"headerText": "Actions",
+		"bkKey": "Actions",
+		"selected": true,
+		"fixed": true,
+		"width": "6rem"
+	}]
+}

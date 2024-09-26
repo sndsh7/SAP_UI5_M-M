@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:ui="sap.ui.table">
+	<Dialog afterClose="onAfterCloseFragment" contentWidth="40%">
+		<customHeader>
+			<Bar class="custClassHeader">
+				<contentMiddle>
+					<Title class="custClsHeaderTitle" text="Condition Types"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<ui:Table 
+          id="id_tab" 
+          rows="{ConditionType>/results}" 
+          selectionMode="None" 
+          design="Bold"  
+          class="sapUiSizeCompact" 
+          enableColumnReordering="false"
+          visibleRowCountMode="Interactive"
+          visibleRowCount="auto">
+          <ui:columns>
+           <ui:Column width="6rem" hAlign="Center" autoResizable="false" resizable="false" >
+              <Label text="SrNo"  design="Bold"/> 
+              <ui:template>
+               <Link text="{ConditionType>srno}"/>		
+              </ui:template>
+              
+              </ui:Column>
+              <ui:Column width="9rem" hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Condition Type" design="Bold" />
+              <ui:template>
+               <Text text="{ConditionType>cndtype}"/>		
+              </ui:template>
+            </ui:Column>
+            <ui:Column width="6rem" filterProperty="Time"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Name" design="Bold" tooltip="Time"  />
+              <ui:template>
+               <Text text="{ConditionType>Time}"/>		
+              </ui:template>
+            </ui:Column>
+               <ui:Column width="6rem" filterProperty="Item_for_D"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Amount"  design="Bold" tooltip="Item Details"  />
+              <ui:template>
+               <Text text="{ConditionType>price}"/>		
+              </ui:template>
+            </ui:Column>
+             <ui:Column width="6rem" filterProperty="Sub_Item"  hAlign="Center" autoResizable="false" resizable="false">
+              <Label text="Unit" design="Bold" tooltip="Sub Item Details"  />
+              <ui:template>
+               <Text text="{ConditionType>unit}"/>		
+              </ui:template>
+            </ui:Column>  
+          </ui:columns>
+          </ui:Table>
+		<Button text="Close" Align="left" press="onCloseCndtype" type="Emphasized"></Button>
+	</Dialog>
+</core:FragmentDefinition>
